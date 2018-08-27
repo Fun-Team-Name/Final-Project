@@ -27,10 +27,12 @@
 
 
         <label class  = "labels">First Name</label>
-          <input type = "text" placeholder  "First Name" name = "firstName">
+        <!--CL: replaced  all name with ng-model (ex: ' name = firstName' with 'ng-model = "firstName" ' )-->
+
+          <input type = "text" placeholder  "First Name" ng-model = "firstName"/>
           <br>
         <label class =  "labels">Last Name</label>
-         <input type = "text" name = "lastName">
+         <input type = "text" ng-model = "lastName">
          <br>
         <button class ="sbutton"> Sign-in </button>
         <strong>-OR-</strong>
@@ -41,11 +43,11 @@
 
        <label class  = "labels">Student User  ID </label>
 
-       <input type = "text" name = "studentUser">
+       <input type = "text" ng-model  = "studentUser">
           <br>
 
        <label class  = "labels">Classroom Password</label>
-         <input type = "text" name = "password">
+         <input type = "text" ng-model = "password">
             <br>
       <button class ="sbutton"> Sign-in </button>
   </div>
@@ -54,7 +56,7 @@
 
 
     <script src = "createjs.js"></script>
-  
+
   </div>
 </body>
 </html>
