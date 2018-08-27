@@ -1,0 +1,126 @@
+  body {
+
+      font-size: 1.2em;
+
+      background: darkblue
+
+  }
+
+
+#head{
+  max-width:100%;
+  margin: 0 auto;
+  text-align: center;
+ font-family: sans-serif;
+ font-size: 60px;
+  padding: 30px;
+  color: white;
+background: darkblue;
+}
+
+
+.sbutton{
+    height:30px;
+    width:220px;
+    font-size: 1em;
+    background-color: #2196f3;
+    border-radius:10px;
+    color: white;
+    margin: 20px auto;
+}
+.user{
+  text-align: center;
+
+}
+
+
+.tabContainer{
+
+  height: 450px;
+  max-width: 60%;
+
+
+top:50%;
+left: 50%;
+position: absolute;
+transform: translate(-50%,-50%);
+outline: none;
+border: none;
+  border-radius: 20px 20px 0 0;
+  background: linear-gradient(to right, white 50%, darkblue 50%);
+}
+.tabContainer .buttonContainer{
+  height: 10%;
+  color: darkblue;
+  font-family: sans-serif;
+  text-align: left;
+border-radius: 0 20px 0 0;
+  background: linear-gradient(to right, white 50%, darkblue 50%);
+margin: 0 auto;
+
+}
+.tabContainer .buttonContainer button{
+  width:25%;
+  height: 100%;
+  float: left;
+  cursor: pointer;
+  border:none;
+  outline:none;
+padding: 15px;
+  font-family: sans-serif;
+  font-size:22px;
+  color:blue;
+  background-color: white;
+}
+.tabContainer .buttonContainer button:hover{
+  background-color: white;
+  color: blue;
+
+}
+.tabContainer .tabPanel{
+  height: 100%;
+  background-color: blue;
+  text-align:left;
+  color: white;
+
+padding: 30px;
+margin: 0 auto;
+border-radius: 0 20px 20px 20px;
+  font-family: sans-serif;
+  font-size: 14px;
+
+}
+.labels{
+padding:20px;
+color: black;
+margin: 0 auto;
+font-size: 20px;
+text-align: left;
+font-family: sans-serif;
+}
+.label{
+padding:20px;
+color: black;
+margin: 0 auto;
+font-size: 16px;
+text-align: left;
+font-family: sans-serif;
+}
+input[type=text] {
+width: 80%;
+padding: 15px;
+margin: 5px 0 22px 0;
+text-align: left;
+display: inline-block;
+border: none;
+background: #f1f1f1;
+}
+input[type=txt] {
+width: 60%;
+padding: 15px;
+margin: 5px 0 22px 0;
+text-align: left;
+display: inline-block;
+border: none;
+background: #f1f1f1;
+}
