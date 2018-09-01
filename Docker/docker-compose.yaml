@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+   logins:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: always
+     ports:
+       - "3306:3306"
+     environment:
+       MYSQL_ROOT_PASSWORD: claymore logy twitch
+       MYSQL_DATABASE: classes
+       MYSQL_USER: admin
+       MYSQL_PASSWORD: equifax
+
+volumes:
+    db_data:
