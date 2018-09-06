@@ -36,7 +36,7 @@
         </div>
 
 
-        <div layout="row">
+        <div layout="row" style="background-color:cadetblue">
             <div>
               <md-sidenav
               md-component-id="left"
@@ -66,7 +66,7 @@
     </div>
     <br>
     <div flex-xs flex-gt-xs="100" layout="column">
-        <md-content style="background-color:cadetblue;" class="md-padding" layout-xs="column" layout="row">
+        <md-content layout-wrap style="background-color:cadetblue;" class="md-padding" flex layout-xs="column" layout="row">
         <md-card ng-repeat="n in rooms" md-theme="default">
             <md-card-title-text layout-padding style="text-align:center;color:#22393a"><b>{{n.name}}</b></md-card-title-text>
             <md-card-content layout-padding>
