@@ -14,3 +14,10 @@ Our product will consist of a web-based application that allows a teacher to to 
 * Annavay Kean
 * Cassidy Lyons
 * Ross Wagner
+
+teacher login:
+teacher 
+teacher
+student login:
+student 
+student
