@@ -3,10 +3,13 @@ angular.module('myApp', ['ngMaterial']).controller('homepageCtrl', function($sco
    $scope.password = '';
    $scope.invalidLogin = false;
     $scope.login = function(){
-        if($scope.username == 'test' && $scope.password == 'test'){
+        if($scope.username == 'teacher' && $scope.password == 'teacher'){
             $scope.invalidLogin = false;
-            console.log("successful login");
             window.location.href="teacherHome.html"
+        }
+        else if($scope.username == 'student' && $scope.password == 'student'){
+            $scope.invalidLogin = false;
+            window.location.href="studentHome.html"
         }
         else{
             $scope.invalidLogin = true;
