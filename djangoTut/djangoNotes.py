@@ -157,4 +157,73 @@ Model management:
                 <field>: genre__name
 
     in models.py
-        class <model name>(models.Model)
+        class <model name>(models.Model):
+            <field name> = models.<field constructor>(<parameters>)
+
+            <functions>
+
+    field constructors:
+        https://docs.djangoproject.com/en/2.1/ref/models/fields/#field-types
+
+    field ex:
+        ManyToManyField: "book can have multiple genres and a genre can have many books"
+        ForeignKey: " each book will only have one author, but an author may have many books"
+        UUIDField:  is used for the id field to set it as the primary_key for this
+            model. This type of field allocates a globally unique value for each instance (one for every book you can find in the library).
+
+Admin site:
+    in */locallibrary/catalog/admin.py
+        from django.contrib import admin
+        from catalog.models import <List of models>
+
+        admin.site.register(<model>) # for each model you want to import
+
+    python3 manage.py createsuperuser
+
+    python3 manage.py runserver
+        then navigate to http://127.0.0.1:8000/admin/
+
+    admin site customization: https://docs.djangoproject.com/en/2.0/ref/contrib/admin/
+
+    to change how model displayed in admin site, define a Model admin class:
+        https://docs.djangoproject.com/en/dev/ref/contrib/admin/#modeladmin-objects
+
+    fieldsets: group field in admin
+        in admin.py in admin calss
+            fieldsets = (
+                (<title>, {
+                    'fields':('<field1>', '<field2>', ...)
+                }),
+                ...
+            )
+
+Page creation:
+    view function can be implemented as a class
+     in path() paramiters:
+        views.<class method>.as_view()
+
+    in views.py
+        class <class method>(generic.ListView):
+            model = <model>
+
+    looks for template at:
+        /<application_name>/templates/<application_name>/<the_model_name>_list.html
+
+    follow pattern
+        First get the existing context from our superclass.
+        Then add your new context information.
+        Then return the new (updated) context.
+
+    controle flow:
+        {% if <var> %}
+        {% elif <var>%}
+        {% else %}
+        {% endif %}
+
+        {% for <name> in <list> %}
+            ... do something ...
+        {% endfor %}
+
+    accessing variables
+        {{ <var>.<field or function> }} # functions cant have arguements
+        
