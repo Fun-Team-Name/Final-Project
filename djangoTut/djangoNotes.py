@@ -196,3 +196,34 @@ Admin site:
                 }),
                 ...
             )
+
+Page creation:
+    view function can be implemented as a class
+     in path() paramiters:
+        views.<class method>.as_view()
+
+    in views.py
+        class <class method>(generic.ListView):
+            model = <model>
+
+    looks for template at:
+        /<application_name>/templates/<application_name>/<the_model_name>_list.html
+
+    follow pattern
+        First get the existing context from our superclass.
+        Then add your new context information.
+        Then return the new (updated) context.
+
+    controle flow:
+        {% if <var> %}
+        {% elif <var>%}
+        {% else %}
+        {% endif %}
+
+        {% for <name> in <list> %}
+            ... do something ...
+        {% endfor %}
+
+    accessing variables
+        {{ <var>.<field or function> }} # functions cant have arguements
+        
