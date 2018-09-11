@@ -1,0 +1,55 @@
+{% load staticfiles %}
+<!--DOCTYPE html-->
+<html>
+<head>
+  <link rel="stylesheet" href='{% static "/css/styles.css" %}' >
+  <link rel="stylesheet" href='{% static "/css/fonts-materials-icons.css" %}' >
+  <link rel="stylesheet" type = "text/css" href= '{% static "/css/angular-material.min.css" %}' >
+  <script type="text/javascript" src='{% static "/angular/angular-material.min.js" %}' ></script>
+  <script type="text/javascript" src= '{% static "/angular/angular.js" %}' ></script>
+  <script type = "text/javascript" src='{% static "/angular/angular.min.js" %}'></script>
+  <script type = "text/javascript" src='{% static "/angular/angular-animate.min.js" %}'></script>
+  <script type = "text/javascript" src='{% static "/angular/angular-aria.min.js" %}'></script>
+  <script type = "text/javascript" src='{% static "/angular/angular-messages.min.js" %}'></script>
+ <script type="text/javascript" src = '{% static "/controllers/studentHomeCtrl.js" %}' ></script>
+
+  <title>Welcome Page</title>
+
+</head>
+<body class="loginPage" ng-app="myApp" ng-controller="teacherHomeCtrl">
+        <!-- Top Nav Bar-->
+        <div class="boxWithShadow">
+                <md-content class="md-padding">
+                  <md-nav-bar
+                   md-selected-nav-item="currentNavItem"
+                   nav-bar-aria-label="navigation links">
+                  <md-nav-item md-nav-click="goto('home')" name="goHome">
+                    Home
+                  </md-nav-item>
+                  <md-nav-item md-nav-click="goto('leaderboard')" name="goLeaderboard">
+                      Leaderboard
+                    </md-nav-item>
+                    <md-nav-item style="color:red" md-nav-click="goto('logout')" name="logout">
+                            Log Out
+                          </md-nav-item>
+                  </md-nav-bar>
+                </md-content>
+        </div>
+        <md-content layout-padding style="background-color:cadetblue;padding:90px 0" >
+            <h3 style="text-align:right;color:white">Score: {{correctCount}} / {{totalCount}}</h3>
+            <h3 style="text-align:right;color:white">{{streakMessage}}</h3>
+            <h1 style="color:white;text-align: center">{{operand1}} X {{operand2}} =</h1>
+
+            <br>
+            <h5 style="color:white;text-align: center">Enter your answer: </h5>
+            <div layout-padding style="text-align:center">
+            <form name="studentAnswerForm">
+            <input ng-model="answer"  autofocus="autofocus">
+            <br>
+            <input type="submit" class="md-raised md-primary" ng-disabled="loginForm.$invalid" ng-click="checkAnswer()" value="Check Answer">
+            </form>
+            </div>
+        </div>
+        </md-content>
+</body>
+</html>
