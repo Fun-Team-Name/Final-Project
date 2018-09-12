@@ -22,9 +22,10 @@ Our product will consist of a web-based application that allows a teacher to to 
 * Cassidy Lyons
 * Ross Wagner
 
-Teacher View login:
+# Teacher View login:
 Username: teacher
 Password: teacher
-Student View login:
+
+# Student View login:
 Username: student
 Password: student
