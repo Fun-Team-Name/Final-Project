@@ -32,10 +32,13 @@ class AccountManager(BaseUserManager):
 
 class Classroom(models.Model):
 	id = models.CharField(primary_key=True, max_length=300, unique=True)
-	
+'''
+class Student(models.Model):
+	id = models.CharField(primary_key=True, max_length=100, unique=True)
+'''
 
 class Account(AbstractBaseUser):
-	classroom = models.ManyToManyField(Classroom, on_delete=models.SET_NULL, null=True)
+	classroom = models.ManyToManyField(Classroom)
 	email = models.EmailField(primary_key=True, unique=True)
 	district = models.CharField(max_length=100)
 	school = models.CharField(max_length=100)
@@ -43,7 +46,6 @@ class Account(AbstractBaseUser):
 	lastName = models.CharField(max_length=40, default='last')
 
 	is_admin = models.BooleanField(default=False)
-	is_staff = models.BooleanField(default=False)
 
 	objects = AccountManager()
 
@@ -64,3 +66,4 @@ class Account(AbstractBaseUser):
 
 '''
 student number for password
+'''
