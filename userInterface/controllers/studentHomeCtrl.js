@@ -14,7 +14,7 @@ angular.module('myApp', ['ngMaterial']).controller('teacherHomeCtrl', function($
             console.log("you are bad at math");
         }
         $scope.answer = '';
-        if($scope.totalCount - $scope.correctCount < 2)
+        if($scope.totalCount/$scope.correctCount == 1)
             $scope.streakMessage = "You are on a streak!";
         else
             $scope.streakMessage = '';
