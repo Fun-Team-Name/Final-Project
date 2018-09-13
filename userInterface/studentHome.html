@@ -34,6 +34,7 @@
                   </md-nav-bar>
                 </md-content>
         </div>
+        <div>
         <md-content layout-padding style="background-color:cadetblue;padding:90px 0" >
             <h3 style="text-align:right;color:white">Score: {{correctCount}} / {{totalCount}}</h3>
             <h3 style="text-align:right;color:white">{{streakMessage}}</h3>
@@ -49,7 +50,8 @@
             <input type="submit" class="md-raised md-primary" ng-disabled="loginForm.$invalid" ng-click="checkAnswer()" value="Check Answer">  
             </form>
             </div>
-        </div>
+        
         </md-content>
+        </div>
 </body>
 </html>
