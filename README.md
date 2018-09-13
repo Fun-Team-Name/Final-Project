@@ -54,9 +54,9 @@ As a developer I want to the code I have to maintain be modular and understandab
 * Ross Wagner
 
 # Teacher View login:
-Username: teacher
+Username: teacher  
 Password: teacher
 
 # Student View login:
-Username: student
+Username: student  
 Password: student
