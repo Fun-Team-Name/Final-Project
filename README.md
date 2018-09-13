@@ -21,13 +21,13 @@ Our product will consist of a web-based application that allows a teacher to to 
 
 * As a teacher I want to remove students
 
-* As a student I want to create my password
-
 * As a student I want to be able to log in
 
 * As a teacher I want my students to only compete among equivalent skill levels
 
-* As a teacher I want to be able to see how my students did
+* As a teacher I want to be able to see my students scores
+
+* As a teacher I want to be able to see my students answer times
 
 * As a teacher I want to be able to create virtual rooms where my students can practice with and compete against each other
 
