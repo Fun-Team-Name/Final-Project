@@ -16,10 +16,12 @@ class AddToClass(forms.Form):
 
 class signup(forms.Form):
 	email = forms.EmailField()
-	password1 = forms.
+	password1 = forms.CharField()
+	password2 = forms.CharField()
+
 	def clean_email(self):
 		data = self.cleaned_data['email']
-		#if not re.match(r"[^@]+@[^@]+.[^@]+", email);
-			#raise ValidationError(_('Invalid email'))
+		if not re.match(r"[^@]+@[^@]+.[^@]+", email);
+			raise ValidationError(_('Invalid email'))
 		#check user with email exists
 		return data
