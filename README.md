@@ -12,19 +12,31 @@ Our product will consist of a web-based application that allows a teacher to to 
 ### **User Stories**
 #### **Complete**
 As a user I want to be able to load the webpage
+
 As a student I want to be able to do un-scored practice problems
+
 
 #### **Incomplete**
 As a teacher I want to add students
+
 As a teacher I want to remove students
+
 As a student I want to create my password
+
 As a student I want to be able to log in
+
 As a teacher I want my students to only compete among equivalent skill levels
+
 As a teacher I want to be able to see how my students did
+
 As a teacher I want to be able to create virtual rooms where my students can practice with and compete against each other
+
 As a student I want to compete against my classmates
+
 As a student I want to be able to quickly recover my password
+
 As a sysadmin I want the application to be containerized
+
 As a developer I want to the code I have to maintain be modular and understandable
 
 
