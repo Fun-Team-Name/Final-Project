@@ -41,9 +41,10 @@ As a developer I want to the code I have to maintain be modular and understandab
 * Cassidy Lyons
 * Ross Wagner
 
-teacher login:
-teacher
-teacher
-student login:
-student
-student
+# Teacher View login:
+Username: teacher
+Password: teacher
+
+# Student View login:
+Username: student
+Password: student

@@ -37,8 +37,8 @@ $scope.deleteRoom = function(room){
     if(dest == 'home'){
         window.location.href= window.location.href;
     }
-    else if(dest == 'page2'){
-        window.location.href="page2.html";
+    else if(dest == 'leaderboard'){
+        window.location.href="leaderboard.html";
     }
     else if(dest == 'logout'){
         //code to end user session here
