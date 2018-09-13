@@ -54,9 +54,9 @@ Our product will consist of a web-based application that allows a teacher to to 
 * Ross Wagner
 
 # Teacher View login:
-Username: teacher
+Username: teacher  
 Password: teacher
 
 # Student View login:
-Username: student
+Username: student  
 Password: student
