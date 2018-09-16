@@ -53,6 +53,11 @@ Our product will consist of a web-based application that allows a teacher to to 
 * Cassidy Lyons
 * Ross Wagner
 
+# Build Instructions:  
+1. Clone the folder called userInterface  
+2. Open the index.html file in a browser window  
+3. Use the logins listed below for the respective teacher and student views  
+
 # Teacher View login:
 Username: teacher  
 Password: teacher
