@@ -9,7 +9,7 @@ Elementary school students have to spend a lot of time memorizing multiplication
 
 Our product will consist of a web-based application that allows a teacher to to create an isolated environment for just their class or grade.  Students can then log in and are sorted into rooms by skill level where they "battle" by quickly and correctly answering multiplication, division, addition, and/or subtraction.  Our software then keeps metrics on each students skill that the teacher can access.  This takes grading pressure off of the teacher while increasing accuracy compared to paper systems as well as reduce environmental cost.  
 
-### **User Stories**
+### **User Stories / Product Backlog**
 #### **Complete**
 * As a user I want to be able to load the webpage
 
