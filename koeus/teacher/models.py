@@ -14,7 +14,7 @@ class AccountManager(BaseUserManager):
             raise ValueError('Please enter your last name.')
 
         account = self.model(
-			email=self.normalize_email(email), firstName=kwargs.get('firstName'), lastName=kwargs.get('lastName'), teacher=kwargs.get('teacher')
+			email=self.normalize_email(email), firstName=kwargs.get('firstName'), lastName=kwargs.get('lastName')
         )
 
         account.set_password(password)
@@ -40,8 +40,8 @@ class Student(models.Model):
 class Account(AbstractBaseUser):
 	classroom = models.ManyToManyField(Classroom)
 	email = models.EmailField(primary_key=True, unique=True)
-	district = models.CharField(max_length=100)
-	school = models.CharField(max_length=100)
+	#district = models.CharField(max_length=100)
+	#school = models.CharField(max_length=100)
 	firstName = models.CharField(max_length=40, default='first')
 	lastName = models.CharField(max_length=40, default='last')
 
@@ -50,16 +50,20 @@ class Account(AbstractBaseUser):
 	objects = AccountManager()
 
 	USERNAME_FIELD = 'email'
-	REQUIRED_FIELDS = ['firstName', 'lastName', 'teacher']
+	REQUIRED_FIELDS = ['firstName', 'lastName']
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.email
 
 	def getName(self):
 		return ' '.join([self.first_name, self.last_name])
 
 	def getLastName(self):
-		return self.last_name
+		return self.lastName
+
+	@property
+	def is_staff(self):
+		return self.is_admin
 
 
 

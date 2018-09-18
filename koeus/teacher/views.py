@@ -5,6 +5,8 @@ from django.urls import reverse
 from django.shortcuts import render, redirect
 #from teacher.forms import AddToClass
 from teacher.forms import signupForm
+from teacher.models import AccountManager
+from teacher.models import Account
 
 '''
 @permission_required('teacher.manageStudents')
@@ -36,13 +38,14 @@ def renew_book_librarian(request, pk):
 
     return render(request, 'catalog/book_renew_librarian.html', context)
 '''
+
 def signup(request):
-    form = signupForm(request.POST)
-    if form.is_valid():
-        #form.save()
-        email = form.cleaned_data.get('email')
-        password = form.cleaned_data.get('password1')
-        user = authenticate(username=username, password=password)
-        login(request, user)
-        return redirect('TeacherAddUser')
-    return render(request, 'signup.html', {'form': form})
+	form = signupForm(request.POST)
+	if form.is_valid():
+		email = form.cleaned_data.get('email')
+		password = form.cleaned_data.get('password2')
+		firstName = form.cleaned_data.get('firstName')
+		lastName = form.cleaned_data.get('lastName')
+		form.save(form)
+		return redirect('login')
+	return render(request, 'signup.html', {'form': form})
