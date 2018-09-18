@@ -22,7 +22,7 @@ angular.module('myApp', ['ngMaterial']).controller('teacherHomeCtrl', function($
     }
     else if(dest == 'logout'){
         //code to end user session here
-        window.location.href="static/templates/index.html";
+        window.location.href="/static/templates/index.html";
     }
     else if(dest == 'grades'){
 
