@@ -8,7 +8,7 @@
         if($scope.username == 'teacher' && $scope.password == 'teacher'){
             $scope.invalidLogin = false;
 
-              window.location.href= "static/templates/teacherHome.html"
+              window.location.href= "/static/templates/teacherHome.html"
         }
         else if($scope.username == 'student' && $scope.password == 'student'){
             $scope.invalidLogin = false;
