@@ -11,7 +11,7 @@ angular.module('myApp', ['ngMaterial']).controller('teacherHomeCtrl', function($
             $scope.correctCount++;
         }
         else{
-            console.log("you are bad at math");
+            console.log("You are one mistake closer to mastering math!");
         }
         $scope.answer = '';
         if($scope.totalCount - $scope.correctCount < 2)
@@ -35,10 +35,10 @@ angular.module('myApp', ['ngMaterial']).controller('teacherHomeCtrl', function($
         }
         else if(dest == 'logout'){
             //code to end user session here
-            window.location.href="index.html";
+            window.location.href="static/templates/index.html";
         }
         else if(dest == 'grades'){
-    
+
         }
         else if(dest == 'skills'){
 
