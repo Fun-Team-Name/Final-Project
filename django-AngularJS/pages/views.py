@@ -21,7 +21,7 @@ def sort_view(request):
 # Create your views here.
 #def home_view(request, *args, **kwargs):
 def home_view(request):
-    return render(request, 'index.html')
+    return render(request, 'index1.html')
 # def teacher_view(request):
 #     return render(request, 'teacherHome.html')
 # def student_view(request):

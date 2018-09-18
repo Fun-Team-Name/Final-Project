@@ -8,11 +8,11 @@
         if($scope.username == 'teacher' && $scope.password == 'teacher'){
             $scope.invalidLogin = false;
 
-              window.location.href= "static/templates/teacherHome.html"
+              window.location.href= "/static/templates/teacherHome.html"
         }
         else if($scope.username == 'student' && $scope.password == 'student'){
             $scope.invalidLogin = false;
-            window.location.href = "static/templates/studentHome.html"
+            window.location.href = "/static/templates/studentHome.html"
         }
         else{
             $scope.invalidLogin = true;
@@ -21,7 +21,7 @@
 
     $scope.goto = function(dest){
         if(dest == 'home'){
-            window.location.href="static/templates/index.html";
+            window.location.href="/static/templates/index.html";
         }
         else if(dest == 'page2'){
             window.location.href="page2.html";
