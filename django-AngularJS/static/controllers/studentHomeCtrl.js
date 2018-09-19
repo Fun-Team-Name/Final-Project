@@ -31,7 +31,7 @@ angular.module('myApp', ['ngMaterial']).controller('teacherHomeCtrl', function($
             window.location.href= window.location.href;
         }
         else if(dest == 'leaderboard'){
-            window.location.href="leaderboard.html";
+            window.location.href="/static/templates/leaderboard.html";
         }
         else if(dest == 'logout'){
             //code to end user session here

@@ -23,8 +23,8 @@
         if(dest == 'home'){
             window.location.href="/static/templates/index.html";
         }
-        else if(dest == 'page2'){
-            window.location.href="page2.html";
+        else if(dest == 'leaderboard'){
+            window.location.href="/static/templates/leaderboard.html";
         }
         else
             console.log("That shouldn't work");

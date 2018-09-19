@@ -12,13 +12,32 @@ angular.module('myApp', ['ngMaterial']).controller('teacherHomeCtrl', function($
      var newRoomObject = {num: $scope.count, name: "Test" + ($scope.count).toString()};
      $scope.rooms.push(newRoomObject);
 }
+$scope.deleteRoom = function(room){
+
+        // Appending dialog to document.body to cover sidenav in docs app
+        var confirm = $mdDialog.confirm()
+              .title('Confirm Deletion')
+              .textContent('Are you sure you want to delete this room? All data will be lost.')
+              .ok('Confirm')
+              .cancel('Cancel');
+
+        $mdDialog.show(confirm).then(function() {
+            $scope.rooms.splice($scope.rooms.indexOf(room), 1);
+        }, function() {
+
+        });
+
+
+
+
+}
 
  $scope.goto = function(dest){
     if(dest == 'home'){
         window.location.href= window.location.href;
     }
-    else if(dest == 'page2'){
-        window.location.href="page2.html";
+    else if(dest == 'leaderboard'){
+        window.location.href="/static/templates/leaderboard.html";
     }
     else if(dest == 'logout'){
         //code to end user session here
