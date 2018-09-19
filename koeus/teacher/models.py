@@ -18,7 +18,7 @@ class AccountManager(BaseUserManager):
         )
 
         account.set_password(password)
-        account.save()
+        account.save(using=self._db)
 
         return account
 
@@ -26,22 +26,19 @@ class AccountManager(BaseUserManager):
         account = self.create_user(email, password, **kwargs)
 
         account.is_admin = True
-        account.save()
+        account.save(using=self._db)
 
         return account
 
 class Classroom(models.Model):
 	id = models.CharField(primary_key=True, max_length=300, unique=True)
-'''
+
 class Student(models.Model):
 	id = models.CharField(primary_key=True, max_length=100, unique=True)
-'''
 
 class Account(AbstractBaseUser):
 	classroom = models.ManyToManyField(Classroom)
 	email = models.EmailField(primary_key=True, unique=True)
-	#district = models.CharField(max_length=100)
-	#school = models.CharField(max_length=100)
 	firstName = models.CharField(max_length=40, default='first')
 	lastName = models.CharField(max_length=40, default='last')
 
@@ -51,6 +48,9 @@ class Account(AbstractBaseUser):
 
 	USERNAME_FIELD = 'email'
 	REQUIRED_FIELDS = ['firstName', 'lastName']
+
+	#class Meta:
+		#db_table = 'teacher_account'
 
 	def __str__(self):
 		return self.email
