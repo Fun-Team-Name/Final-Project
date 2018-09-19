@@ -1,6 +1,8 @@
-angular.module('myApp', ['ngMaterial']).controller('teacherHomeCtrl', function($scope) {
+angular.module('myApp', ['ngMaterial']).controller('teacherHomeCtrl', function($scope, $mdDialog) {
     $scope.count = 3;
     $scope.rooms = [{num: 1, name: "Test1", skill: ["mult", "div"]}, {num: 2, name: "Test2", skill: ["add", "sub"]}, {num:3, name: "Test3", skill:["fraction", "longDiv"]}];
+    $scope.editRoomToggle = false;
+
     $scope.adjustCount = function(key){
     if(key == 'up')
         $scope.count += 1;
@@ -13,7 +15,6 @@ angular.module('myApp', ['ngMaterial']).controller('teacherHomeCtrl', function($
      $scope.rooms.push(newRoomObject);
 }
 $scope.deleteRoom = function(room){
-
         // Appending dialog to document.body to cover sidenav in docs app
         var confirm = $mdDialog.confirm()
               .title('Confirm Deletion')
@@ -22,9 +23,10 @@ $scope.deleteRoom = function(room){
               .cancel('Cancel');
 
         $mdDialog.show(confirm).then(function() {
+            console.log("deleting" + $scope.rooms.indexOf(room))
             $scope.rooms.splice($scope.rooms.indexOf(room), 1);
         }, function() {
-
+           
         });
 
 

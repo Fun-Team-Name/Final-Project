@@ -4,7 +4,10 @@
    $scope.username = '';
    $scope.password = '';
    $scope.invalidLogin = false;
-    $scope.login = function(){
+   $scope.selectedState;
+   $scope.stateList = ["FL", "TX", "CA"];
+   $scope.countyList = [{name: "Orange County Public Schools", abbrev: "OCPS"}, {name: "Brevard County Public Schools", abbrev: "BCPS"}];
+   $scope.login = function(){
         if($scope.username == 'teacher' && $scope.password == 'teacher'){
             $scope.invalidLogin = false;
 
@@ -25,6 +28,9 @@
         }
         else if(dest == 'leaderboard'){
             window.location.href="/static/templates/leaderboard.html";
+        }
+        else if(dest == 'signup'){
+            window.location.href="/static/templates/signup.html"
         }
         else
             console.log("That shouldn't work");

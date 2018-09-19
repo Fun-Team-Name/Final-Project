@@ -25,8 +25,8 @@
                     Home
                   </md-nav-item>
                   <md-nav-item md-nav-click="goto('leaderboard')" name="goLeaderboard">
-                      Leaderboard
-                    </md-nav-item>
+                    Leaderboard
+                  </md-nav-item>
                     <md-nav-item style="color:red" md-nav-click="goto('logout')" name="logout">
                             Log Out
                           </md-nav-item>
@@ -56,7 +56,7 @@
           </md-sidenav>
           </div>
     <!-- Room Previews -->
-    <div layout-padding>
+    <div layout-padding ng-show="!editRoomToggle">
     <div layout="columns">
     <h2 style="text-decoration:underline">Rooms</h2>
     <md-input-container>
@@ -79,11 +79,14 @@
 
             <md-card-actions>
                 <md-button ng-click="editRoom()"><i class="material-icons">edit</i></md-button>
-                <md-button ng-click="deleteRoom()"><i class="material-icons">delete</i></md-button>
+                <md-button ng-click="deleteRoom(n)"><i class="material-icons">delete</i></md-button>
             </md-card-actions>
         </md-card>
     </md-content>
     </div>
+</div>
+<div ng-show="editRoomToggle">
+    <h1 style="text-align:center;color:white">Edit Room View</h1>
 </div>
 </div>
 </body>
