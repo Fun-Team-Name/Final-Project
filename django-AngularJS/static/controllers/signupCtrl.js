@@ -5,7 +5,7 @@ angular.module('myApp', ['ngMaterial']).controller('signupCtrl', function($scope
  $scope.password = '';
  $scope.passwordVerify = '';
  $scope.submit = function(){
-     
+     window.location.href= "/static/templates/index.html"
  }
  $scope.goto = function(dest){
     if(dest == 'home'){

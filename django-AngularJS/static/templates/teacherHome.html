@@ -73,12 +73,12 @@
                 <br>
                 <b>Skills:</b>
                 <ul style="margin:0">
-                    <li ng-repeat="s in n.skill">{{s}}</li>
+                    <li ng-repeat="s in n.skillsActive">{{s}}</li>
                 </ul>
             </md-card-content>
 
             <md-card-actions>
-                <md-button ng-click="editRoom()"><i class="material-icons">edit</i></md-button>
+                <md-button ng-click="editRoom(n)"><i class="material-icons">edit</i></md-button>
                 <md-button ng-click="deleteRoom(n)"><i class="material-icons">delete</i></md-button>
             </md-card-actions>
         </md-card>
@@ -87,6 +87,30 @@
 </div>
 <div ng-show="editRoomToggle">
     <h1 style="text-align:center;color:white">Edit Room View</h1>
+    <md-content layout-wrap style="background-color:cadetblue;" class="md-padding" flex layout-xs="column" layout="row">
+            <md-card md-theme="default">
+                <md-card-title-text layout-padding style="text-align:center;color:#22393a"><b>Edit {{editForm.name}}</b></md-card-title-text>
+                <md-card-content layout-padding>
+                    <md-input-container>
+                        <label>Occupants: </label>
+                        <input type="number" ng-model="editForm.num">
+                    </md-input-container>
+                    <br>
+                    <md-button ng-click="addSkill(room)">Add Skill</md-button>
+                    <md-list>
+                        <label><strong>Skills:</strong></label>
+                        <md-list-item ng-repeat="s in editForm.skillsActive">
+                            <div class="md-list-item-text">
+                                {{s}}
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </md-card-content>
+                <md-card-actions>
+                    <md-button ng-click="saveChanges()">Save Changes</md-button>
+                </md-card-actions>
+            </md-card>
+        </md-content>
 </div>
 </div>
 </body>
