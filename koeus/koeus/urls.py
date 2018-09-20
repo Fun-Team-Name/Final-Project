@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 from teacher import views
+from django.views.generic.base import RedirectView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-	path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/signup', views.signup, name='signup'),
+	path('teacher/', include('django.contrib.auth.urls')),
+    path('teacher/signup', views.signup, name='signup'),
+	path('', RedirectView.as_view(url='teacher/login', permanent=False), name='login')
 ]

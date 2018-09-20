@@ -31,10 +31,53 @@ class AccountManager(BaseUserManager):
         return account
 
 class Classroom(models.Model):
-	id = models.CharField(primary_key=True, max_length=300, unique=True)
+	name = models.CharField(max_length=40, default='Classroom')
+
+	class Meta:
+		ordering = ('name',)
+
+	@classmethod
+	def create(cls, name):
+		classroom = cls(name=name)
+		classroom.save()
+		return classroom
+
+	def createStudent(self, firstName, lastName, studentNumber):
+		student = Student.create(classroom=self, firstName=firstName, lastName=lastName, studentNumber=studentNumber)
+		student.save()
+
+	def rename(self, newname):
+		self.name = newname
+		self.save()
+		return newname
+
+	def __str__(self):
+		return self.name
 
 class Student(models.Model):
-	id = models.CharField(primary_key=True, max_length=100, unique=True)
+	classroom = models.ForeignKey(Classroom, on_delete=models.CASCADE, null=True)
+	firstName = models.CharField(max_length=40, default='N/A')
+	lastName = models.CharField(max_length=40, default='N/A')
+	studentNumber = models.CharField(max_length=20, default='12345')
+
+	@classmethod
+	def create(cls, classroom, firstName, lastName, studentNumber):
+		student = cls(classroom=classroom, firstName=firstName, lastName=lastName, studentNumber=studentNumber)
+		student.save()
+		return classroom
+
+	class Meta:
+		ordering = ('lastName', 'firstName', 'studentNumber')
+
+	def getName(self):
+		return ' '.join([self.firstName, self.lastName])
+
+	def getNameWrong(self):
+		return ','.join([self.lastName, self.firstName])
+
+	def __str__(self):
+		return ','.join([self.firstName, self.lastName, self.studentNumber])
+
 
 class Account(AbstractBaseUser):
 	classroom = models.ManyToManyField(Classroom)
@@ -43,20 +86,25 @@ class Account(AbstractBaseUser):
 	lastName = models.CharField(max_length=40, default='last')
 
 	is_admin = models.BooleanField(default=False)
+	is_active = models.BooleanField(default=True)
 
 	objects = AccountManager()
 
 	USERNAME_FIELD = 'email'
 	REQUIRED_FIELDS = ['firstName', 'lastName']
 
-	#class Meta:
-		#db_table = 'teacher_account'
+	def getClasses(self):
+		return self.classroom.all()
+
+	def addClass(self, name):
+		classroom = Classroom.create(name)
+		self.classroom.add(classroom)
 
 	def __str__(self):
 		return self.email
 
 	def getName(self):
-		return ' '.join([self.first_name, self.last_name])
+		return ' '.join([self.firstName, self.lastName])
 
 	def getLastName(self):
 		return self.lastName
@@ -64,10 +112,3 @@ class Account(AbstractBaseUser):
 	@property
 	def is_staff(self):
 		return self.is_admin
-
-
-
-
-'''
-student number for password
-'''

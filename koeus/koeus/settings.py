@@ -102,6 +102,9 @@ AUTH_PASSWORD_VALIDATORS = [
 #Change to custom user model
 AUTH_USER_MODEL = 'teacher.Account'
 
+#add email backend
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
