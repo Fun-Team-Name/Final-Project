@@ -48,5 +48,5 @@ def signup(request):
 		lastName = form.cleaned_data.get('lastName')
 		#form.save()
 		Account.objects.create_user(email=email, password=password, firstName=firstName, lastName=lastName)
-		return redirect('login')
-	return render(request, 'signup.html', {'form': form})
+		return render(request, 'index0.html', {})
+	return render(request, 'signup0.html', {'form':form})
