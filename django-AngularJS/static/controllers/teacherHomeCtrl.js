@@ -89,7 +89,7 @@ $scope.addSkill = function(){
 
  $scope.goto = function(dest){
     if(dest == 'home'){
-        window.location.href= window.location.href;
+        window.location.href = "/static/templates/teacherHome.html";
     }
     else if(dest == 'leaderboard'){
         window.location.href="/static/templates/leaderboard.html";
