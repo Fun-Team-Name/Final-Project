@@ -96,7 +96,7 @@
                         <input type="number" ng-model="editForm.num">
                     </md-input-container>
                     <br>
-                    <md-button ng-click="addSkill(room)">Add Skill</md-button>
+                    <md-button ng-click="addSkill()">Add Skill</md-button>
                     <md-list>
                         <label><strong>Skills:</strong></label>
                         <md-list-item ng-repeat="s in editForm.skillsActive">
@@ -110,6 +110,23 @@
                     <md-button ng-click="saveChanges()">Save Changes</md-button>
                 </md-card-actions>
             </md-card>
+            <md-card md-theme="default">
+                    <md-card-title-text layout-padding style="text-align:center;color:#22393a"><b>Edit Students</b></md-card-title-text>
+                    <md-card-content layout-padding>
+                        <md-button ng-click="addStudent()">Add Student</md-button>
+                        <md-list>
+                            <md-list-item ng-repeat="s in studentsInRoom">
+                                <div class="md-list-item-text">
+                                    {{s.lname}}, {{s.fname}}
+                                    <i ng-click="deleteStudent(s)" class="material-icons">close</i>
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </md-card-content>
+                    <md-card-actions>
+                        <md-button ng-click="saveChanges()">Save Changes</md-button>
+                    </md-card-actions>
+                </md-card>
         </md-content>
 </div>
 </div>

@@ -3,10 +3,8 @@
   angular.module('myApp', ['ngMaterial']).controller('homepageCtrl', function($scope) {
    $scope.username = '';
    $scope.password = '';
+   $scope.teacherEmail = '';
    $scope.invalidLogin = false;
-   $scope.selectedState;
-   $scope.stateList = ["FL", "TX", "CA"];
-   $scope.countyList = [{name: "Orange County Public Schools", abbrev: "OCPS"}, {name: "Brevard County Public Schools", abbrev: "BCPS"}];
    $scope.login = function(){
         if($scope.username == 'teacher' && $scope.password == 'teacher'){
             $scope.invalidLogin = false;
