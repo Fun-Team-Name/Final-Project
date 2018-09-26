@@ -1,10 +1,15 @@
 Arena Notes
 ============
 
+## To-Do
+-[ ] Replace message passing with number incrementation
+-[ ] make so each user has their own number
+
+
 based on project found here: https://github.com/jacobian/channels-example
 
 
-#relies on:
+## relies on:
 
 *  asgi-redis==0.8.3
 *  asgiref==0.9
@@ -23,11 +28,12 @@ based on project found here: https://github.com/jacobian/channels-example
 *  zope.interface==4.1.3
 
 
-#Must install:
+## Must install:
   django
   redis
   python3
 
-#If everything is installed properly, project can be run by
-  opening a terminal and running: `redis-server`
-  opening another terminal, navigating to this project's base directory, and running: `python manage.py runserver`
+## If everything is installed properly, project can be run by
+  * opening a terminal and running: `redis-server`
+  * opening another terminal, navigating to this project's base directory, and running: `python manage.py runserver`
+  * navigating to localhost and specified port
