@@ -28,7 +28,7 @@ angular.module('myApp', ['ngMaterial']).controller('teacherHomeCtrl', function($
 
     $scope.goto = function(dest){
         if(dest == 'home'){
-            window.location.href= "/static/templates/studentHome.html";
+            window.location.href= window.location.href;
         }
         else if(dest == 'leaderboard'){
             window.location.href="/static/templates/leaderboard.html";
