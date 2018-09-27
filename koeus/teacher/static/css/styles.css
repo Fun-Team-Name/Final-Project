@@ -19,3 +19,36 @@
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0, 6px, 20px, 0, rgba(0, 0, 0, 0.19); */
   box-shadow: 4px 4px 2px #4d8182;
 }
+
+.form-style ng-pristine, .form-style ng-valid, .form-style ng-scope, .form-style textarea, .form-style input{
+  display: block;
+
+  margin: auto;
+  padding: 10px;
+  width: 30%;
+
+background-color: blue;
+color:white;
+}
+#id_username{
+
+  background-color:inherit;
+  border-bottom-color: blue;
+  border-top:none;
+  border-left:none;
+  border-top:none;
+  margin: auto;
+  padding: 10px;
+  width: 60%;
+}
+#id_password{
+  outline:none;
+    background-color:inherit;
+    border-bottom-color: blue;
+    border-top:none;
+    border-left:none;
+    border-top:none;
+    margin: auto;
+    padding: 10px;
+    width: 60%;
+}

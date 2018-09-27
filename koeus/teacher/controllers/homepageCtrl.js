@@ -24,13 +24,13 @@
 
     $scope.goto = function(dest){
         if(dest == 'home'){
-            window.location.href="/static/templates/index.html";
+            window.location.href="/static/templates/index0.html";
         }
         else if(dest == 'leaderboard'){
             window.location.href="/static/templates/leaderboard.html";
         }
         else if(dest == 'signup'){
-            window.location.href="/static/templates/signup.html"
+            window.location.href="/static/templates/signup0.html"
         }
         else
             console.log("That shouldn't work");

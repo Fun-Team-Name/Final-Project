@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from teacher.forms import signupForm
 from teacher.models import AccountManager
 from teacher.models import Account
-from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import AuthenticationForm
 
 '''
 @permission_required('teacher.manageStudents')
@@ -51,3 +51,11 @@ def signup(request):
 		Account.objects.create_user(email=email, password=password, firstName=firstName, lastName=lastName)
 		return redirect('login')
 	return render(request, 'signup0.html', {'form':form})
+def teacher_login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data = request.POST)
+        if form.is_valid():
+            return redirect(' ../static/templates/teacherHome.html')
+        else:
+            form = AuthenticationForm()
+        return render(request, 'templates/index0.html',{'form':form})
