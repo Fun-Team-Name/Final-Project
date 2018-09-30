@@ -20,18 +20,39 @@
   box-shadow: 4px 4px 2px #4d8182;
 }
 
-.form-style ng-pristine, .form-style ng-valid, .form-style ng-scope, .form-style textarea, .form-style input{
+.form-style ng-pristine, .form-style ng-valid, .form-style ng-scope, .form-style input{
   display: block;
 
   margin: auto;
   padding: 10px;
-  width: 30%;
+
 
 background-color: blue;
-color:white;
+color:black;
 }
-#id_username{
+.form-style label{
+display:inline-block;
+}
+.form-style .for-btn input{
+  color:white;
+  display: inline-block;
+  position: relative;
 
+  min-height: 16px;
+  min-width: 88px;
+
+  vertical-align: middle;
+
+  align-items: center;
+  text-align: center;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.form-style textarea{
+  color:black;
+}
+.form-style ng-pristine, .form-style ng-valid, .form-style ng-scope, .form-style textarea, .form-style input#id_username{
+  color: black;
   background-color:inherit;
   border-bottom-color: blue;
   border-top:none;
@@ -39,16 +60,21 @@ color:white;
   border-top:none;
   margin: auto;
   padding: 10px;
-  width: 60%;
+
+  outline: none;
+
 }
+
 #id_password{
-  outline:none;
-    background-color:inherit;
-    border-bottom-color: blue;
-    border-top:none;
-    border-left:none;
-    border-top:none;
-    margin: auto;
-    padding: 10px;
-    width: 60%;
+  color: black;
+  background-color:inherit;
+  border-bottom-color: blue;
+  border-top:none;
+  border-left:none;
+  border-top:none;
+  margin: auto;
+  padding: 10px;
+
+  outline: none;
+
 }

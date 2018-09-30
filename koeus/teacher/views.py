@@ -50,12 +50,16 @@ def signup(request):
 		#form.save()
 		Account.objects.create_user(email=email, password=password, firstName=firstName, lastName=lastName)
 		return redirect('login')
-	return render(request, 'signup0.html', {'form':form})
+	return render(request, 'teacherHome.html', {})
+
 def teacher_login(request):
-    if request.method == 'POST':
         form = AuthenticationForm(data = request.POST)
         if form.is_valid():
-            return redirect(' ../static/templates/teacherHome.html')
+            return render(request, 'teacherHome.html', {})
         else:
             form = AuthenticationForm()
-        return render(request, 'templates/index0.html',{'form':form})
+        return render(request, 'registration/login.html',{'form':form})
+
+
+def teach(request):
+    return redirect(' ../static/templates/teacherHome.html')

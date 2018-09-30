@@ -1,6 +1,5 @@
-
-{% load staticfiles %}
 <!DOCTYPE html>
+{% load staticfiles %}
 <html ng-app = "myApp"   ng-controller="homepageCtrl" >
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -59,7 +58,7 @@
 
                   {% block content %}
 
-                  <!-- {% if form.errors %}
+                {% if form.errors %}
                     <p>Your username and password didn't match. Please try again.</p>
                   {% endif %}
 
@@ -72,24 +71,30 @@
                     {% endif %}
                   {% endif %}
 
- -->
-
-                  <form class = "form-style" method="post" action=" {% static '/templates/teacherHome.html' %} ">
 
 
-<div>
+                  <form class = "form-style" method="post" action=" {% url 'login' %} ">
+
+
+<div >
 
                             {% csrf_token %}
-
-                    {{form}}
-
+  <md-input-container>
+    <!-- <label>Email </label> -->
+    <td>{{ form.username.label_tag }}</td>
+          <td>          {{form.username}}</td>
+  </md-input-container>
+  <br>
+      <md-input-container>
+            <!-- <label>Password </label> -->
+            <td>{{ form.password.label_tag }}</td>
+              <td>{{ form.password }}</td>
+  </md-input-container>
                   </div>
-                  <br>
+    <div class = "for-btn">
 
-                  <div class = "for-btn">
-
-                    <input  type="submit" value="login" />
-                    <!-- <input type="hidden" name="next" value="{{ next }}" /> -->
+                    <input  type="submit" value="Log In" />
+                    <input type="hidden" name="next" value="{{ next }}" />
                   </div>
                   </form>
 
