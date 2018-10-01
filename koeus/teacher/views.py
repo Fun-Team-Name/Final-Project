@@ -62,4 +62,15 @@ def teacher_login(request):
 
 
 def teach(request):
-    return redirect(' ../static/templates/teacherHome.html')
+    return render(request, 'registration/signup0.html', {})
+def signup2(request):
+	form = signupForm(request.POST or None)
+	if form.is_valid():
+		email = form.cleaned_data.get('email')
+		password = form.cleaned_data.get('password2')
+		firstName = form.cleaned_data.get('firstName')
+		lastName = form.cleaned_data.get('lastName')
+		#form.save()
+		Account.objects.create_user(email=email, password=password, firstName=firstName, lastName=lastName)
+		return redirect('login')
+	return render(request, 'signup0.html', {})

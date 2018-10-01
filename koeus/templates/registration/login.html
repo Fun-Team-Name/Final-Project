@@ -93,13 +93,17 @@
                   </div>
     <div class = "for-btn">
 
-                    <input  type="submit" value="Log In" />
-                    <input type="hidden" name="next" value="{{ next }}" />
+                    <input  type="submit"style = "background-color: DarkBlue;" value="Log In" /> <md-button style = "min-height: 10px;
+                    min-width: 78px;background-color: DarkBlue; color:white;" ng-click="goto('signup')" value="Sign Up">Sign Up</md-button>
+                    <input type="hidden" class="md-raised md-primary" name="next" value="{{ next }}" />
                   </div>
                   </form>
 
                   {# Assumes you setup the password_reset view in your URLconf #}
                   <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+
+
 
                   {% endblock %}
 

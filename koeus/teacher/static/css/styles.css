@@ -38,14 +38,14 @@ display:inline-block;
   display: inline-block;
   position: relative;
 
-  min-height: 16px;
-  min-width: 88px;
+  min-height: 10px;
+  min-width: 78px;
 
   vertical-align: middle;
 
   align-items: center;
   text-align: center;
-  border-radius: 4px;
+  border-radius: 0px;
   box-sizing: border-box;
 }
 .form-style textarea{
