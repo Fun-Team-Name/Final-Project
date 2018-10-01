@@ -26,7 +26,34 @@
 
               <form class = "form-style" method="post" action=" {% url 'login' %} ">
                 {% csrf_token %}
-                {{ form.as_p }}
+                <md-input-container>
+                  <!-- <label>Email </label> -->
+                  <td>{{ form.username.label_tag }}</td>
+                        <td>          {{form.username}}</td>
+                </md-input-container>
+                <br>
+                    <md-input-container>
+                          <!-- <label>Password </label> -->
+                          <td>{{ form.firstName.label_tag }}</td>
+                            <td>{{ form.firstName }}</td>
+                </md-input-container>
+                <md-input-container>
+                  <!-- <label>Email </label> -->
+                  <td>{{ form.lastName.label_tag }}</td>
+                        <td>          {{form.lastName}}</td>
+                </md-input-container>
+                <br>
+                    <md-input-container>
+                          <!-- <label>Password </label> -->
+                          <td>{{ form.passwordInput.label_tag }}</td>
+                            <td>{{ form.passwordInput }}</td>
+                </md-input-container>
+                <br>
+                    <md-input-container>
+                          <!-- <label>Password </label> -->
+                          <td>{{ form.passwordInput.label_tag }}</td>
+                            <td>{{ form.passwordInput}}</td>
+                </md-input-container>
                 <button type="submit">Sign up</button>
               </form>
             {% endblock %}

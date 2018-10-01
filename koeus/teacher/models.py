@@ -82,8 +82,8 @@ class Student(models.Model):
 class Account(AbstractBaseUser):
 	classroom = models.ManyToManyField(Classroom)
 	email = models.EmailField(primary_key=True, unique=True)
-	firstName = models.CharField(max_length=40, default='first')
-	lastName = models.CharField(max_length=40, default='last')
+	firstName = models.CharField(max_length=40, default='')
+	lastName = models.CharField(max_length=40, default='')
 
 	is_admin = models.BooleanField(default=False)
 	is_active = models.BooleanField(default=True)
