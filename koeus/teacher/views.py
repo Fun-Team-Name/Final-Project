@@ -61,8 +61,6 @@ def teacher_login(request):
         return render(request, 'registration/login.html',{'form':form})
 
 
-def teach(request):
-    return render(request, 'registration/signup0.html', {})
 def signup2(request):
 	form = signupForm(request.POST or None)
 	if form.is_valid():
