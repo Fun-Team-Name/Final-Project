@@ -18,17 +18,49 @@
 <body class="loginPage">
     <div layout="column" class="loginPage">
       <md-content layout-padding style="background-color:cadetblue;padding:90px 0" >
-        <h1 style="color:white;text-align: center">Create Account: </h1>
+        <h1 style="color:white;text-align: center"> Create Account: </h1>
         <div class="boxWithShadow" style="background-color:white;width:50%;margin:auto;border-radius:25px">
           <div>
 
             {% block content %}
-              <h2>Sign up</h2>
-              <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Sign up</button>
+<md-input-container>
+              <!-- <form class = "signup-style" method="post" action=" {% url 'login' %} "> -->
+                <form class = "form-style ng-pristine ng-valid ng-scope" method="post" >
+                  {% csrf_token %}
+                  <br>
+                  <md-input-container >
+
+                    <td>{{ form.email.label_tag }}</td>
+                          <td>{{form.email}}</td>
+                  </md-input-container>
+                  <br>
+                      <md-input-container>
+                            <!-- <label>Password </label> -->
+                            <td>{{ form.firstName.label_tag }}</td>
+                              <td>{{ form.firstName }}</td>
+                  </md-input-container>
+                  <br>
+                  <md-input-container>
+                    <!-- <label>Email </label> -->
+                    <td>{{ form.lastName.label_tag }}</td>
+                          <td>          {{form.lastName}}</td>
+                  </md-input-container>
+                  <br>
+                      <md-input-container>
+                            <!-- <label>Password </label> -->
+                            <td>{{ form.password1.label_tag }}</td>
+                              <td>{{ form.password1 }}</td>
+                  </md-input-container>
+                  <br>
+                      <md-input-container>
+                            <!-- <label>Password </label> -->
+                            <td>{{ form.password2.label_tag }}</td>
+                              <td>{{ form.password2}}</td>
+                              <button type="submit">Sign up</button>
+                            </md-input-container>
+
               </form>
+            </md-input-container>
             {% endblock %}
           </div>
         </div>
