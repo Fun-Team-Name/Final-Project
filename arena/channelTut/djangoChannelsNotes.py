@@ -181,8 +181,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
 Tutorial Part 4: Automated Testing
 using  Selenium
 
-install chrome browser and chrome driver
+    install chrome browser and chrome driver
 
-pip3 install selenium
+    pip3 install selenium
 
-an obsene amount of code for testing
+    an obsene amount of code for testing
