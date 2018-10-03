@@ -52,14 +52,22 @@ def teacher_login(request):
         return render(request, 'registration/login.html',{'form':form})
 
 
+# def signup(request):
+# 	form = signupForm(request.POST or None)
+# 	if form.is_valid():
+# 		email = form.cleaned_data.get('email')
+# 		password = form.cleaned_data.get('password2')
+# 		firstName = form.cleaned_data.get('firstName')
+# 		lastName = form.cleaned_data.get('lastName')
+# 		#form.save()
+# 		Account.objects.create_user(email=email, password=password, firstName=firstName, lastName=lastName)
+# 		return redirect('login')
+# 	return render(request, 'registration/signup0.html', {'form':form})
+
 def signup(request):
-	form = signupForm(request.POST or None)
-	if form.is_valid():
-		email = form.cleaned_data.get('email')
-		password = form.cleaned_data.get('password2')
-		firstName = form.cleaned_data.get('firstName')
-		lastName = form.cleaned_data.get('lastName')
-		#form.save()
-		Account.objects.create_user(email=email, password=password, firstName=firstName, lastName=lastName)
-		return redirect('login')
-	return render(request, 'signup0.html', {'form':form})
+        form = AuthenticationForm(data = request.POST)
+        if form.is_valid():
+            return render(request, 'registration/login.html', {'form':form})
+        else:
+            form = AuthenticationForm()
+        return render(request, 'registration/signup0.html',{'form':form})
