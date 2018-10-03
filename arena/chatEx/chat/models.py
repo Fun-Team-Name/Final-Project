@@ -6,6 +6,11 @@ from django.utils import timezone
 class Room(models.Model):
     name = models.TextField()
     label = models.SlugField(unique=True)
+    score = models.IntegerField(default=0)
+    #will expand to player 1 score and player 2 Score
+
+    def incrementScore(self):
+        self.score += 1
 
     def __unicode__(self):
         return self.label
@@ -16,12 +21,13 @@ class Message(models.Model):
     message = models.TextField()
     timestamp = models.DateTimeField(default=timezone.now, db_index=True)
 
+
     def __unicode__(self):
         return '[{timestamp}] {handle}: {message}'.format(**self.as_dict())
 
     @property
     def formatted_timestamp(self):
         return self.timestamp.strftime('%b %-d %-I:%M %p')
-    
+
     def as_dict(self):
         return {'handle': self.handle, 'message': self.message, 'timestamp': self.formatted_timestamp}
