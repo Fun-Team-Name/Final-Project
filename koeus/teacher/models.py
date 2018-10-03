@@ -73,7 +73,7 @@ class Classroom(models.Model):
 		keyname= email + utils.utcNowTimestamp()
 		classroom = cls(name=name, key=keyname)
 		classroom.save()
-		#classroom.teacher.add(get_object_or_404(email))
+		classroom.teacher.add(get_object_or_404(email))
 		return classroom
 
 	def rename(self, newname):

@@ -23,12 +23,11 @@ def signup(request):
 		return redirect('login')
 	return render(request, 'teacherHome.html', {})
 
-def teacher_login(request):
+def teacherLogin(request):
 		form = AuthenticationForm(data = request.POST)
 		if form.is_valid():
 			email = form.cleaned_data.get('email')
-			password = form.cleaned_data.get('password')
-			user = authenticate(email=email, password=password)
+			user = authenticate(request, remote_user=email)
 			if user is not None:
 				return render(request, 'teacherHome.html', {})
 			else:

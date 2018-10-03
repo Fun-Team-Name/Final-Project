@@ -22,12 +22,8 @@ from django.views.generic.base import RedirectView
 
 
 urlpatterns = [
+    path('', views.teacherLogin, name = 'login'),
     path('admin/', admin.site.urls),
 	path('teacher/', include('django.contrib.auth.urls')),
 	path('teacher/', include('teacher.urls')),
-    path('', views.signup, name='signup'),
-    path('', views.teacher_login, name = 'login'),
-	# path('', RedirectView.as_view(url=' teacher/login', permanent=False), name='login')
-    # for the arena
-    url(r'^arena/', include('arena.urls')),
 ]
