@@ -25,11 +25,11 @@
             {% block content %}
 <md-input-container>
               <!-- <form class = "signup-style" method="post" action=" {% url 'login' %} "> -->
-                <form class = "form-style" method="post" >
+                <form class = "form-style ng-pristine ng-valid ng-scope" method="post" >
                   {% csrf_token %}
                   <br>
-                  <md-input-container>
-                    <!-- <label>Email </label> -->
+                  <md-input-container >
+
                     <td>{{ form.email.label_tag }}</td>
                           <td>{{form.email}}</td>
                   </md-input-container>
