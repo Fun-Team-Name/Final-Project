@@ -176,4 +176,13 @@ class ChatConsumer(AsyncWebsocketConsumer):
             'message': message
         }))
 
-sudo pip3 install asgi_redis
+## dont forget redis is running off of docker
+
+Tutorial Part 4: Automated Testing
+using  Selenium
+
+    install chrome browser and chrome driver
+
+    pip3 install selenium
+
+    an obsene amount of code for testing
