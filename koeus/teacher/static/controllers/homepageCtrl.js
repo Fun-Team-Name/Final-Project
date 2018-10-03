@@ -30,7 +30,7 @@
             window.location.href="/static/templates/leaderboard.html";
         }
         else if(dest == 'signup'){
-            window.location.href="/static/templates/signup.html"
+            window.location.href="teacher/templates/registration/";
         }
         else
             console.log("That shouldn't work");

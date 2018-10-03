@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from teacher.forms import signupForm
 from teacher.models import AccountManager
 from teacher.models import Account
-from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import AuthenticationForm
 
 '''
 @permission_required('teacher.manageStudents')
@@ -41,6 +41,29 @@ def renew_book_librarian(request, pk):
 '''
 
 def signup(request):
+	form = signupForm(request.POST or None)
+	if form.is_valid():
+		email = form.cleaned_data.get('email')
+		password = form.cleaned_data.get('password2')
+		firstName = form.cleaned_data.get('firstName')
+		lastName = form.cleaned_data.get('lastName')
+		#form.save()
+		Account.objects.create_user(email=email, password=password, firstName=firstName, lastName=lastName)
+		return redirect('login')
+	return render(request, 'teacherHome.html', {})
+
+def teacher_login(request):
+        form = AuthenticationForm(data = request.POST)
+        if form.is_valid():
+            return render(request, 'teacherHome.html', {})
+        else:
+            form = AuthenticationForm()
+        return render(request, 'registration/login.html',{'form':form})
+
+
+def teach(request):
+    return render(request, 'registration/signup0.html', {})
+def signup2(request):
 	form = signupForm(request.POST or None)
 	if form.is_valid():
 		email = form.cleaned_data.get('email')

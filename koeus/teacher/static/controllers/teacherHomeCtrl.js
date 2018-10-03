@@ -27,7 +27,7 @@ $scope.deleteRoom = function(room){
         $mdDialog.show(confirm).then(function() {
             console.log("deleting" + $scope.rooms.indexOf(room))
             $scope.rooms.splice($scope.rooms.indexOf(room), 1);
-        }, function() {        
+        }, function() {
         });
 }
 
@@ -48,7 +48,7 @@ $scope.addSkill = function(){
         console.log($scope.rooms[$scope.roomBeingEdited].skillsActive)
         $scope.rooms[$scope.roomBeingEdited].skillsActive.push(result);
     })
-        
+
 }
 
  $scope.goto = function(dest){
@@ -60,7 +60,7 @@ $scope.addSkill = function(){
     }
     else if(dest == 'logout'){
         //code to end user session here
-        window.location.href="/static/templates/index.html";
+        window.location.href="/teacher/login/";
     }
     else if(dest == 'grades'){
 

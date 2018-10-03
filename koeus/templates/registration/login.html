@@ -1,6 +1,5 @@
-
-{% load staticfiles %}
 <!DOCTYPE html>
+{% load staticfiles %}
 <html ng-app = "myApp"   ng-controller="homepageCtrl" >
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -59,7 +58,7 @@
 
                   {% block content %}
 
-                  {% if form.errors %}
+                {% if form.errors %}
                     <p>Your username and password didn't match. Please try again.</p>
                   {% endif %}
 
@@ -74,27 +73,37 @@
 
 
 
-                  <form method="post" action=" {% url 'login' %} ">
-                  {% csrf_token %}
+                  <form class = "form-style" method="post" action=" {% url 'login' %} ">
 
-                  <div>
-                    <td>{{ form.username.label_tag }}</td>
-                    <td>{{ form.username }}</td>
+
+<div >
+
+                            {% csrf_token %}
+  <md-input-container>
+    <!-- <label>Email </label> -->
+    <td>{{ form.username.label_tag }}</td>
+          <td>          {{form.username}}</td>
+  </md-input-container>
+  <br>
+      <md-input-container>
+            <!-- <label>Password </label> -->
+            <td>{{ form.password.label_tag }}</td>
+              <td>{{ form.password }}</td>
+  </md-input-container>
                   </div>
-                  <div>
-                    <td>{{ form.password.label_tag }}</td>
-                    <td>{{ form.password }}</td>
-                  </div>
+    <div class = "for-btn">
 
-                  <div>
-
-                    <input type="submit" value="login" />
-                    <input type="hidden" name="next" value="{{ next }}" />
+                    <input  type="submit"style = "background-color: DarkBlue;" value="Log In" /> <md-button style = "min-height: 18px;
+                    min-width: 78px;background-color: DarkBlue; color:white;" ng-click="goto('signup')" value="Sign Up">Sign Up</md-button>
+                    <input type="hidden" class="md-raised md-primary" name="next" value="{{ next }}" />
                   </div>
                   </form>
 
                   {# Assumes you setup the password_reset view in your URLconf #}
                   <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+
+
 
                   {% endblock %}
 
