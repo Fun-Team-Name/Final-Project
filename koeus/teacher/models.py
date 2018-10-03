@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import BaseUserManager
 
@@ -32,19 +33,20 @@ class AccountManager(BaseUserManager):
 
 class Classroom(models.Model):
 	name = models.CharField(max_length=40, default='Classroom')
+	key = models.CharField(max_length=200, default='Classroom', primary_key=True, unique=True)
 
 	class Meta:
-		ordering = ('name',)
+		ordering = ('name', 'key')
 
 	@classmethod
-	def create(cls, name):
-		classroom = cls(name=name)
+	def create(cls, name, email):
+		keyname= email + utcNowTimestamp()
+		classroom = cls(name=name, key=keyname)
 		classroom.save()
 		return classroom
 
-	def createStudent(self, firstName, lastName, studentNumber):
-		student = Student.create(classroom=self, firstName=firstName, lastName=lastName, studentNumber=studentNumber)
-		student.save()
+	def utcNowTimestamp():
+		return string(int(datetime.datetime.utcnow().timestamp()))
 
 	def rename(self, newname):
 		self.name = newname
@@ -56,15 +58,15 @@ class Classroom(models.Model):
 
 class Student(models.Model):
 	classroom = models.ForeignKey(Classroom, on_delete=models.CASCADE, null=True)
-	firstName = models.CharField(max_length=40, default='N/A')
-	lastName = models.CharField(max_length=40, default='N/A')
+	firstName = models.CharField(max_length=40, default='')
+	lastName = models.CharField(max_length=40, default='')
 	studentNumber = models.CharField(max_length=20, default='12345')
 
 	@classmethod
 	def create(cls, classroom, firstName, lastName, studentNumber):
 		student = cls(classroom=classroom, firstName=firstName, lastName=lastName, studentNumber=studentNumber)
 		student.save()
-		return classroom
+		return student
 
 	class Meta:
 		ordering = ('lastName', 'firstName', 'studentNumber')
@@ -72,8 +74,8 @@ class Student(models.Model):
 	def getName(self):
 		return ' '.join([self.firstName, self.lastName])
 
-	def getNameWrong(self):
-		return ','.join([self.lastName, self.firstName])
+	def getNameBackwards(self):
+		return ', '.join([self.lastName, self.firstName])
 
 	def __str__(self):
 		return ','.join([self.firstName, self.lastName, self.studentNumber])
