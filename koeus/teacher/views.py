@@ -40,16 +40,7 @@ def renew_book_librarian(request, pk):
     return render(request, 'catalog/book_renew_librarian.html', context)
 '''
 
-def signup(request):
-	form = signupForm(request.POST or None)
-	if form.is_valid():
-		email = form.cleaned_data.get('email')
-		password = form.cleaned_data.get('password2')
-		firstName = form.cleaned_data.get('firstName')
-		lastName = form.cleaned_data.get('lastName')
-		#form.save()
-		Account.objects.create_user(email=email, password=password, firstName=firstName, lastName=lastName)
-		return redirect('login')
+def teacherHome(request):
 	return render(request, 'teacherHome.html', {})
 
 def teacher_login(request):
@@ -61,7 +52,7 @@ def teacher_login(request):
         return render(request, 'registration/login.html',{'form':form})
 
 
-def signup2(request):
+def signup(request):
 	form = signupForm(request.POST or None)
 	if form.is_valid():
 		email = form.cleaned_data.get('email')
