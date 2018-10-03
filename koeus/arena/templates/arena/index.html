@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Arenas</title>
+    <title>Arena Loby</title>
 </head>
 <body>
     What arena would you like to enter?<br/>
@@ -19,7 +19,7 @@
         };
 
         document.querySelector('#arena-name-submit').onclick = function(e) {
-            var roomName = document.querySelector('#arena-name-input').value;
+            var arenaName = document.querySelector('#arena-name-input').value;
             window.location.pathname = '/arena/' + arenaName + '/';
         };
     </script>
