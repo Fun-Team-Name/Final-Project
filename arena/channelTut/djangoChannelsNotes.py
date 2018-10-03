@@ -18,6 +18,7 @@ allso in <project name>/settings.py add:
     ASGI_APPLICATION = '<project name>.routing.application'
 
 
+## see tutorial 3 for async version
 create consumers.py in <project name>/chat folder containing
     # chat/consumers.py
     from channels.generic.websocket import WebsocketConsumer
