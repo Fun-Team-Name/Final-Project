@@ -3,7 +3,7 @@ from teacher import views
 from teacher.models import Classroom
 
 urlpatterns = [
-    path('teacher/<classroom:key>/students/', views.addStudent, name='ManageStudents'),
-    path('teacher/classrooms/', views.addClassroom, name='AddClassroom'),
+    path('classrooms/<key>/students/', views.addStudent, name='ManageStudents'),
+    path('classrooms/', views.addClassroom, name='AddClassroom'),
 
 ]
