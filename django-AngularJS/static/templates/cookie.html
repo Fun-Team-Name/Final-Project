@@ -15,8 +15,25 @@
 </head>
 <body class="loginPage">      
     <div layout="column" class="loginPage">
+            <div class="boxWithShadow">
+                    <md-content class="md-padding">
+                        <md-nav-bar
+                        md-selected-nav-item="currentNavItem"
+                        nav-bar-aria-label="navigation links">
+                        <md-nav-item md-nav-click="goto('home')" name="goHome">
+                        Home
+                        </md-nav-item>
+                        <md-nav-item md-nav-click="goto('leaderboard')" name="goLeaderboard">
+                        Leaderboard
+                        </md-nav-item>
+                        <md-nav-item style="color:red" md-nav-click="goto('logout')" name="logout">
+                                Log Out
+                                </md-nav-item>
+                        </md-nav-bar>
+                    </md-content>
+            </div>
       <md-content layout-padding style="background-color:cadetblue;padding:90px 0" >
-        <h1 style="color:white;text-align: center">Please Sign In: </h1>
+        <h1 style="color:white;text-align: center">Ross's Cookie Clicker Extraviganza</h1>
         <div class="boxWithShadow" style="background-color:white;width:50%;margin:auto;border-radius:25px">
               <h1>Player 1: {{p1score}}</h1>
               <br>
