@@ -31,8 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    #'channels',
-    #'arena',
+    'channels',
+    'arena',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,7 +130,6 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/'
 
-'''
 ASGI_APPLICATION = 'koeus.routing.application'
 CHANNEL_LAYERS = {
     'default': {
@@ -140,4 +139,3 @@ CHANNEL_LAYERS = {
         },
     },
 }
-'''

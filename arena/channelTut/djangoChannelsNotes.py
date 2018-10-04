@@ -67,6 +67,7 @@ in <project name>/routing.py:
 Enable a channel layer
 using redis
 $ docker run -p 6379:6379 -d redis:2.8
+docker ps # show running containers
 $ pip3 install channels_redis
 
 configure channel layers
@@ -130,7 +131,7 @@ update chat/consumers.py with: ## see tutorial 3 for async version
             }))
 
 Tutorial Part 3: Rewrite Chat Server as Asynchronous
-    # chat/consumers.py
+# chat/consumers.py
 from channels.generic.websocket import AsyncWebsocketConsumer
 import json
 
