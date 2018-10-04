@@ -4,15 +4,15 @@
 <html >
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-
-  <link rel="stylesheet" href= " {% static 'css/styles.css' %} " >
+ <link rel="stylesheet" href= "{% static '/css/styles.css' %}" >
+  <!-- <link rel="stylesheet" href= " {% static 'css/styles.css' %} " > -->
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
   <!-- <script src = "{% static '/controllers/homepageCtrl.js' %}"></script> -->
-
+  <script src = " ../controllers/signupCtrl.js"></script>
   <title>Log In</title>
 </head>
 <body class="loginPage">
@@ -26,34 +26,7 @@
 
               <form class = "form-style" method="post" action=" {% url 'login' %} ">
                 {% csrf_token %}
-                <md-input-container>
-                  <!-- <label>Email </label> -->
-                  <td>{{ form.username.label_tag }}</td>
-                        <td>          {{form.username}}</td>
-                </md-input-container>
-                <br>
-                    <md-input-container>
-                          <!-- <label>Password </label> -->
-                          <td>{{ form.firstName.label_tag }}</td>
-                            <td>{{ form.firstName }}</td>
-                </md-input-container>
-                <md-input-container>
-                  <!-- <label>Email </label> -->
-                  <td>{{ form.lastName.label_tag }}</td>
-                        <td>          {{form.lastName}}</td>
-                </md-input-container>
-                <br>
-                    <md-input-container>
-                          <!-- <label>Password </label> -->
-                          <td>{{ form.passwordInput.label_tag }}</td>
-                            <td>{{ form.passwordInput }}</td>
-                </md-input-container>
-                <br>
-                    <md-input-container>
-                          <!-- <label>Password </label> -->
-                          <td>{{ form.passwordInput.label_tag }}</td>
-                            <td>{{ form.passwordInput}}</td>
-                </md-input-container>
+                {{ form.as_p }}
                 <button type="submit">Sign up</button>
               </form>
             {% endblock %}
