@@ -3,28 +3,16 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 from teacher.models import Account
-'''
-class AddToClass(forms.Form):
-    email = forms.EmailField()
-
-    def clean_email(self):
-        data = self.cleaned_data['email']
-		if not re.match(r"[^@]+@[^@]+.[^@]+", email);
-			raise ValidationError(_('Invalid email'))
-		#check user with email exists
-        return data
-'''
+from teacher.models import Student
+from teacher.models import Classroom
 
 class signupForm(forms.ModelForm):
-	#email = forms.EmailField()
-	#firstName = forms.CharField(label='Password', widget=forms.PasswordInput)
-	#lastName = forms.CharField(label='Confirm Password', widget=forms.PasswordInput)
 	password1 = forms.CharField(min_length=12, widget=forms.PasswordInput)
 	password2 = forms.CharField(min_length=12, widget=forms.PasswordInput)
 
 	class Meta:
 		model = Account
-		fields = ('email', 'firstName', 'lastName')#, 'password1', 'password2')
+		fields = ('email', 'firstName', 'lastName')
 
 	def clean_email(self):
 		email = self.cleaned_data['email']
@@ -46,3 +34,35 @@ class signupForm(forms.ModelForm):
 		if commit:
 			user.save()
 		return user
+
+class addStudentsForm(forms.ModelForm):
+
+	class Meta:
+		model = Student
+		fields = ('firstName', 'lastName', 'studentNumber')
+
+	def clean_lastName(self):
+		name = self.cleaned_data['lastName']
+		return name.lower()
+
+	def clean_firstName(self):
+		name = self.cleaned_data['firstName']
+		return name.lower()
+
+	def save(self, commit=True):
+		student = super().save(commit=False)
+		if commit:
+			student.save()
+		return user
+
+class addClassroomForm(forms.ModelForm):
+
+	class Meta:
+		model = Classroom
+		fields = ('name',)
+
+	def save(self, commit=True):
+		classroom = super().save(commit=False)
+		if commit:
+			classroom.save()
+		return classroom

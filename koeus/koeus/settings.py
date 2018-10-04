@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
+    'arena',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -127,3 +129,13 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/'
+
+ASGI_APPLICATION = 'koeus.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}

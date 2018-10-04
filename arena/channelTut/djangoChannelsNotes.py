@@ -18,6 +18,7 @@ allso in <project name>/settings.py add:
     ASGI_APPLICATION = '<project name>.routing.application'
 
 
+## see tutorial 3 for async version
 create consumers.py in <project name>/chat folder containing
     # chat/consumers.py
     from channels.generic.websocket import WebsocketConsumer
@@ -176,4 +177,13 @@ class ChatConsumer(AsyncWebsocketConsumer):
             'message': message
         }))
 
-sudo pip3 install asgi_redis
+## dont forget redis is running off of docker
+
+Tutorial Part 4: Automated Testing
+using  Selenium
+
+    install chrome browser and chrome driver
+
+    pip3 install selenium
+
+    an obsene amount of code for testing
