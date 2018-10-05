@@ -102,3 +102,24 @@ textarea{
   outline: none;
 
 }
+
+.students{
+  width: 100%;
+  border: 0px;
+}
+.students td, .students, th {
+  padding: 8px;
+  border: 0px;
+}
+
+.tblrow:hover {background: #d3e4e5}
+.students th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  border: 0px;
+
+}
+.students thead {
+  background-color: #4d8182;
+}

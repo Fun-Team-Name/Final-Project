@@ -10,6 +10,17 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
+def teacherHome(request):
+	return render(request, 'registration/teacherHome.html', {})
+
+def teacher_login(request):
+        form = AuthenticationForm(data = request.POST)
+        if form.is_valid():
+            return render(request, 'registration/teacherHome.html', {})
+        else:
+            form = AuthenticationForm()
+        return render(request, 'registration/login.html',{'form':form})
+
 
 def signup(request):
 	form = signupForm(request.POST or None)
@@ -21,20 +32,9 @@ def signup(request):
 		#form.save()
 		Account.objects.create_user(email=email, password=password, firstName=firstName, lastName=lastName)
 		return redirect('login')
-	return render(request, 'teacherHome.html', {})
+	return render(request, 'registration/signup0.html', {'form':form})
 
-def teacherLogin(request):
-		form = AuthenticationForm(data = request.POST)
-		if form.is_valid():
-			email = form.cleaned_data.get('email')
-			user = authenticate(request, remote_user=email)
-			if user is not None:
-				return render(request, 'teacherHome.html', {})
-			else:
-				form = AuthenticationForm()
-		else:
-			form = AuthenticationForm()
-		return render(request, 'registration/login.html',{'form':form})
+
 
 @login_required
 def addClassroom(request):

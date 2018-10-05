@@ -1,17 +1,17 @@
-
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-  <link rel="stylesheet" href= " ../css/styles.css" >
+ <link rel="stylesheet" href= "{% static '/css/styles.css' %}" >
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
-  <script src = " ../controllers/teacherHomeCtrl.js"></script>
-  <title>Welcome Page</title>
+  <script src = "{% static '/controllers/teacherHomeCtrl.js' %}"></script>
+  <title>Teacher Dashboard</title>
 
 </head>
 <body class="loginPage" ng-app="myApp" ng-controller="teacherHomeCtrl">
@@ -35,46 +35,27 @@
         </div>
 
 
-        <div layout="row" style="background-color:cadetblue">
-            <div>
-              <md-sidenav
-              md-component-id="left"
-              class="md-sidenav-left"
-              md-is-locked-open="$mdMedia('gt-xs')"
-              md-whiteframe="3">
-
-          <md-toolbar class="md-theme-indigo">
-              <h3 style="text-align:center">Teacher Dashboard</h3>
-          </md-toolbar>
-          <md-content layout-padding>
-              <md-button ng-click="goto('grades')">Grades</md-button>
-              <br>
-              <md-button ng-click="goto('Skills')">SKills</md-button>
-              <br>
-              <md-button ng-click="goto('settings')">Settings</md-button>
-          </md-content>
-          </md-sidenav>
-          </div>
-    <!-- Room Previews -->
-    <div layout-padding ng-show="!editRoomToggle">
-    <div layout="columns">
-    <h2 style="text-decoration:underline">Rooms</h2>
-    <md-input-container>
-        <md-button ng-click="newRoom()"><i class="material-icons">add</i></md-button>
-    </md-input-container>
-    </div>
     <br>
     <div flex-xs flex-gt-xs="100" layout="column">
         <md-content layout-wrap style="background-color:cadetblue;" class="md-padding" flex layout-xs="column" layout="row">
+
+        <md-card md-theme="default">
+            <md-card-title-text layout-padding style="text-align:center;color:#22393a"><strong>&nbsp;New Room&nbsp;</strong></md-card-title-text>
+            <md-card-content layout-padding>
+                <p>Click '+' for a new room!</p>
+            </md-card-content>
+            <md-card-actions>
+                <md-button ng-click="newRoom()"><i class="material-icons" layout="row" layout-align="center center">add</i></md-button>
+            </md-card-actions>
+        </md-card>
         <md-card ng-repeat="n in rooms" md-theme="default">
             <md-card-title-text layout-padding style="text-align:center;color:#22393a"><b>{{n.name}}</b></md-card-title-text>
             <md-card-content layout-padding>
-                <b>Occupants:</b> {{n.num}}
+                <b>Label: </b>{{n.label}}
+                <b>Num Students:</b> {{n.num}}
+                &nbsp;
                 <br>
-                <b>Skills:</b>
-                <ul style="margin:0">
-                    <li ng-repeat="s in n.skillsActive">{{s}}</li>
-                </ul>
+                <b>Total Time: </b>
             </md-card-content>
 
             <md-card-actions>
@@ -84,34 +65,7 @@
         </md-card>
     </md-content>
     </div>
-</div>
-<div ng-show="editRoomToggle">
-    <h1 style="text-align:center;color:white">Edit Room View</h1>
-    <md-content layout-wrap style="background-color:cadetblue;" class="md-padding" flex layout-xs="column" layout="row">
-            <md-card md-theme="default">
-                <md-card-title-text layout-padding style="text-align:center;color:#22393a"><b>Edit {{editForm.name}}</b></md-card-title-text>
-                <md-card-content layout-padding>
-                    <md-input-container>
-                        <label>Occupants: </label>
-                        <input type="number" ng-model="editForm.num">
-                    </md-input-container>
-                    <br>
-                    <md-button ng-click="addSkill(room)">Add Skill</md-button>
-                    <md-list>
-                        <label><strong>Skills:</strong></label>
-                        <md-list-item ng-repeat="s in editForm.skillsActive">
-                            <div class="md-list-item-text">
-                                {{s}}
-                            </div>
-                        </md-list-item>
-                    </md-list>
-                </md-card-content>
-                <md-card-actions>
-                    <md-button ng-click="saveChanges()">Save Changes</md-button>
-                </md-card-actions>
-            </md-card>
-        </md-content>
-</div>
-</div>
+
+
 </body>
 </html>
