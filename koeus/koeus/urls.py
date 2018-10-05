@@ -22,10 +22,10 @@ from django.views.generic.base import RedirectView
 
 
 urlpatterns = [
-  path('', views.teacherLogin, name = 'login'),
+  #path('', views.teacherLogin, name = 'login'),# < same? do you mean teacher_login?
   path('admin/', admin.site.urls),
   path('teacher/', include('django.contrib.auth.urls')),
-  path('', views.teacher_login, name = 'login'),
+  path('', views.teacher_login, name = 'login'), # < same?
 	path('registration/', views.signup, name='signup'),
     # path('teacher/templates/registration/', views.signup, name='signup'),
 
