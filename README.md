@@ -15,13 +15,18 @@ Our product will consist of a web-based application that allows a teacher to to 
 
 * As a student I want to be able to do practice problems locally in my browser
 
+* As a teacher I want to be able to create an account so that I can log in
+
+* As a teacher I want to be able to log in
+* As a teacher I want to be able to save my email
+* As a student I want to be able to see if I got a question right
+
+
 
 #### **Incomplete**
 * As a teacher I want to add students
 
 * As a teacher I want to remove students
-
-* As a student I want to be able to log in
 
 * As a teacher I want my students to only compete among equivalent skill levels
 
@@ -54,14 +59,10 @@ Our product will consist of a web-based application that allows a teacher to to 
 * Ross Wagner
 
 # Build Instructions:  
-1. Clone the folder called userInterface  
-2. Open the index.html file in a browser window  
-3. Use the logins listed below for the respective teacher and student views  
+
 
 # Teacher View login:
-Username: teacher  
-Password: teacher
+
 
 # Student View login:
-Username: student  
-Password: student
+
