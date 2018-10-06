@@ -44,14 +44,14 @@
                 <p>Click '+' for a new room!</p>
             </md-card-content>
             <md-card-actions>
-                <md-button ng-click="newRoom()"><i class="material-icons" layout="row" layout-align="center center">add</i></md-button>
+                <button onclick="window.location.href='{% url 'room' %}' "><i class="material-icons" layout="row" layout-align="center center">add</i></button>
             </md-card-actions>
         </md-card>
         <md-card ng-repeat="n in rooms" md-theme="default">
-            <md-card-title-text layout-padding style="text-align:center;color:#22393a"><b>{{n.name}}</b></md-card-title-text>
+            <md-card-title-text layout-padding style="text-align:center;color:#22393a"><b>{%verbatim%}{{n.name}}{%endverbatim%}</b></md-card-title-text>
             <md-card-content layout-padding>
-                <b>Label: </b>{{n.label}}
-                <b>Num Students:</b> {{n.num}}
+                <b>Label: </b>{%verbatim%}{{n.label}}{%endverbatim%}
+                <b>Num Students:</b> {%verbatim%}{{n.num}}{%endverbatim%}
                 &nbsp;
                 <br>
                 <b>Total Time: </b>

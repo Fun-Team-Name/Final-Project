@@ -18,9 +18,11 @@ def cookie(request):
 	return render(request, 'registration/cookie.html', {})
 def student(request):
 	return render(request, 'registration/studentHome.html', {})
+def room(request):
+	return render(request, 'registration/room.html', {})
 
 
-def teacher_login(request):
+def teacherLogin(request):
         form = AuthenticationForm(data = request.POST)
         if form.is_valid():
             return render(request, 'registration/teacherHome.html', {})
