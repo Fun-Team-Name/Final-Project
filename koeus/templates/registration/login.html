@@ -22,8 +22,57 @@
           <div>
             <md-content>
                 <md-tabs md-dynamic-height md-border-bottom>
+					<md-tab label="teacher">
+	                {% if form.errors %}
+	                    <p>Your username and password didn't match. Please try again.</p>
+	                  {% endif %}
+
+	                  {% if next %}
+	                    {% if user.is_authenticated %}
+	                      <p>You are already logged in.</p>
+	                    {% else %}
+	                      <p></p>
+	                    {% endif %}
+	                  {% endif %}
+
+
+
+	                  <form class = "form-style" method="post" action=" {% url 'login' %} ">
+
+
+	<div >
+
+	                            {% csrf_token %}
+	  <md-input-container>
+	    <!-- <label>Email </label> -->
+	    <td>{{ form.username.label_tag }}</td>
+	          <td>          {{form.username}}</td>
+	  </md-input-container>
+	  <br>
+	      <md-input-container>
+	            <!-- <label>Password </label> -->
+	            <td>{{ form.password.label_tag }}</td>
+	              <td>{{ form.password }}</td>
+	  </md-input-container>
+	                  </div>
+	    <div class = "for-btn">
+
+	                    <input  type="submit"style = "background-color: DarkBlue;" value="Log In" />
+						<button  type="submit"style = "background-color: DarkBlue; color:white;min-height: 40px;
+	                    min-width: 78px;" href="{% url 'signup' %}" >Sign Up</button>
+						<!-- <md-button style = "min-height: 18px;
+	                    min-width: 78px;background-color: DarkBlue; color:white;" ng-click="{% url 'signup' %}" value="Sign Up">Sign Up</md-button> -->
+	                    <input type="hidden" class="md-raised md-primary" name="next" value="{{ next }}" />
+	                  </div>
+	                  </form>
+
+	                  {# Assumes you setup the password_reset view in your URLconf #}
+	                  <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+	                </md-tab>
                   <md-tab label="student">
                       <form name="loginFormStudent">
+					<!--
                         <md-input-container>
                           <label>State:</label>
                           <md-select ng-model="state">
@@ -40,6 +89,8 @@
                               </md-option>
                             </md-select>
                         </md-input-container>
+						<br>
+					-->
                         <md-input-container>
                           <label>Username: </label>
                           <input ng-model="username" required autofocus="autofocus">
@@ -53,62 +104,6 @@
                         <br>
                         <md-button type="submit" class="md-raised md-primary" ng-disabled="loginFormStudent.$invalid" ng-click="login()" value="Log In">Log In</md-button>
                       </form>
-                </md-tab>
-                <md-tab label="teacher">
-
-                  {% block content %}
-
-                {% if form.errors %}
-                    <p>Your username and password didn't match. Please try again.</p>
-                  {% endif %}
-
-                  {% if next %}
-                    {% if user.is_authenticated %}
-                      <p>You are already logged in.</p>
-                    {% else %}
-                      <p></p>
-                    {% endif %}
-                  {% endif %}
-
-
-
-                  <form class = "form-style" method="post" action=" {% url 'login' %} ">
-
-
-<div >
-
-                            {% csrf_token %}
-  <md-input-container>
-    <!-- <label>Email </label> -->
-    <td>{{ form.username.label_tag }}</td>
-          <td>          {{form.username}}</td>
-  </md-input-container>
-  <br>
-      <md-input-container>
-            <!-- <label>Password </label> -->
-            <td>{{ form.password.label_tag }}</td>
-              <td>{{ form.password }}</td>
-  </md-input-container>
-                  </div>
-    <div class = "for-btn">
-
-                    <input  type="submit"style = "background-color: DarkBlue;" value="Log In" />
-					<button  type="submit"style = "background-color: DarkBlue; color:white;min-height: 40px;
-                    min-width: 78px;" onclick="window.location.href='{% url 'signup' %}' " >Sign Up</button>
-					<!-- <md-button style = "min-height: 18px;
-                    min-width: 78px;background-color: DarkBlue; color:white;" ng-click="{% url 'signup' %}" value="Sign Up">Sign Up</md-button> -->
-                    <input type="hidden" class="md-raised md-primary" name="next" value="{{ next }}" />
-                  </div>
-                  </form>
-
-                  {# Assumes you setup the password_reset view in your URLconf #}
-                  <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-
-
-
-
-                  {% endblock %}
-
                 </md-tab>
                 </md-tabs>
              </md-content>

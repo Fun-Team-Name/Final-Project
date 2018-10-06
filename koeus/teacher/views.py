@@ -8,7 +8,7 @@ from teacher.models import Account, Student, AccountManager, Classroom
 from django.contrib.sessions.models import Session
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 @login_required
@@ -23,7 +23,6 @@ def teacherLogin(request):
             form = AuthenticationForm(data = request.POST)
         return render(request, 'registration/login.html',{'form':form})
 
-
 def signup(request):
 	form = signupForm(request.POST or None)
 	if form.is_valid():
@@ -32,11 +31,10 @@ def signup(request):
 		firstName = form.cleaned_data.get('firstName')
 		lastName = form.cleaned_data.get('lastName')
 		form.save()
-		user = authenticate(username=email, password=password)
+		user = Account.objects.create_user(email=email, password=password, firstName=firstName, lastName=lastName)
 		login(request, user)
-		#Account.objects.create_user(email=email, password=password, firstName=firstName, lastName=lastName)
 		return redirect('login')
-	return render(request, 'registration/signup0.html', {'form':form})
+	return render(request, 'registration/signup.html', {'form':form})
 
 @login_required
 def addClassroom(request):

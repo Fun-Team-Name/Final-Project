@@ -23,9 +23,9 @@ from django.views.generic.base import RedirectView
 urlpatterns = [
 	#path('', views.teacherLogin, name = 'login'),# < same? do you mean teacher_login?
 	path('admin/', admin.site.urls),
+	path('teacher/signup', views.signup, name='signup'),
 	path('teacher/', include('django.contrib.auth.urls')),
 	path('teacher/', include('teacher.urls')),
 	path('', views.teacherLogin, name = 'login'), # < same?
-	path('teacher/signup', views.signup, name='signup'),
     # path('arena/', include('arena.urls')),
 ]

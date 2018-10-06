@@ -27,7 +27,7 @@
                   <md-nav-item md-nav-click="goto('leaderboard')" name="goLeaderboard">
                     Leaderboard
                   </md-nav-item>
-                    <md-nav-item style="color:red" md-nav-click="goto('logout')" name="logout">
+                    <md-nav-item style="color:red" md-nav-click="{% url 'logout' %}}" name="logout">
                             Log Out {{request.user.email}}
                           </md-nav-item>
                   </md-nav-bar>
