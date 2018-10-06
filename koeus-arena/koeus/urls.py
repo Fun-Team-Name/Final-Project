@@ -25,6 +25,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 	path('teacher/', include('django.contrib.auth.urls')),
     path('', views.teacher_login, name = 'login'),
+	path('home/', views.student, name = 'student'),
+	path('teacher/', views.leaderBoard, name = 'leader'),
 	path('registration/', views.signup, name='signup'),
+	path('student/', views.cookie, name = 'cookie'),
+
     path('arena/', include('arena.urls')),
 ]

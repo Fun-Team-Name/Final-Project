@@ -17,22 +17,21 @@
 <body class="loginPage" ng-app="myApp" ng-controller="teacherHomeCtrl">
         <!-- Top Nav Bar-->
         <div class="boxWithShadow">
-                <md-content class="md-padding">
-                  <md-nav-bar
-                   md-selected-nav-item="currentNavItem"
-                   nav-bar-aria-label="navigation links">
-                  <md-nav-item md-nav-click="goto('home')" name="goHome">
+			<md-content class="md-padding">
+            <div class = "topnav">
+                  <a onclick="window.location.href='{% url 'login' %}' " name="goHome">
                     Home
-                  </md-nav-item>
-                  <md-nav-item md-nav-click="goto('leaderboard')" name="goLeaderboard">
-                    Leaderboard
-                  </md-nav-item>
-                    <md-nav-item style="color:red" md-nav-click="goto('logout')" name="logout">
-                            Log Out
-                          </md-nav-item>
-                  </md-nav-bar>
-                </md-content>
-        </div>
+				</a>
+				<a onclick="window.location.href='{% url 'leader' %}' " >
+				Leader Board
+			  </a>
+			  <a style = "color: red;" onclick="window.location.href='{% url 'signup' %}' " name="goHome">
+				Log Out
+		  </a>
+
+</div>
+</md-content>
+</div>
 
 
     <br>

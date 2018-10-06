@@ -1,46 +1,45 @@
-<!-- {% load staticfiles %} -->
+{% load staticfiles %}
 <!DOCTYPE html>
 <html ng-app = "myApp"   ng-controller="cookieCtrl" >
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-  <!-- <link rel="stylesheet" href= "{% static '/css/styles.css' %}" > -->
-  <link rel="stylesheet" href= " ../css/styles.css" >
+  <link rel="stylesheet" href= "{% static '/css/styles.css' %}" >
+
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
-  <script src = " ../controllers/cookieCtrl.js"></script>
+  <script src = "{% static '/controllers/cookieCtrl.js' %}"></script>
   <title>Log In</title>
 </head>
-<body class="loginPage">      
+<body class="loginPage">
     <div layout="column" class="loginPage">
             <div class="boxWithShadow">
-                    <md-content class="md-padding">
-                        <md-nav-bar
-                        md-selected-nav-item="currentNavItem"
-                        nav-bar-aria-label="navigation links">
-                        <md-nav-item md-nav-click="goto('home')" name="goHome">
-                        Home
-                        </md-nav-item>
-                        <md-nav-item md-nav-click="goto('leaderboard')" name="goLeaderboard">
-                        Leaderboard
-                        </md-nav-item>
-                        <md-nav-item style="color:red" md-nav-click="goto('logout')" name="logout">
-                                Log Out
-                                </md-nav-item>
-                        </md-nav-bar>
-                    </md-content>
+				<md-content class="md-padding">
+				<div class = "topnav">
+					  <a onclick="window.location.href='{% url 'login' %}' " name="goHome">
+						Home
+					</a>
+					<a onclick="window.location.href='{% url 'leader' %}' " >
+					Leader Board
+				  </a>
+				  <a style = "color: red;" onclick="window.location.href='{% url 'signup' %}' " name="goHome">
+					Log Out
+			  </a>
+
+	</div>
+	</md-content>
             </div>
       <md-content layout-padding style="background-color:cadetblue;padding:90px 0" >
         <h1 style="color:white;text-align: center">Ross's Cookie Clicker Extraviganza</h1>
         <div class="boxWithShadow" style="background-color:white;width:50%;margin:auto;border-radius:25px">
-              <h1>Player 1: {{p1score}}</h1>
+              <h1>Player 1: {%verbatim%}{{p1score}}{%endverbatim%}</h1>
               <br>
-              <h1>Player 2: {{p2score}}</h1>
+              <h1>Player 2:{%verbatim%} {{p2score}}{%endverbatim%}</h1>
               <br>
               <md-input-container>
-                  <md-button ng-click="countUp()"><img src="../spartan-clipart-greek-helmet.png" style="height: 50px;width:50px;"></md-button>
+                  <md-button ng-click="countUp()"><img src="{% static '/spartan-clipart-greek-helmet.png' %}" style="height: 50px;width:50px;"></md-button>
               </md-input-container>
         </div>
       </md-content>
