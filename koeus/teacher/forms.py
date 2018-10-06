@@ -36,7 +36,6 @@ class signupForm(forms.ModelForm):
 		return user
 
 class addStudentsForm(forms.ModelForm):
-
 	class Meta:
 		model = Student
 		fields = ('firstName', 'lastName', 'studentNumber')
