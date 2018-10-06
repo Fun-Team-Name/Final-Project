@@ -29,7 +29,8 @@ urlpatterns = [
 	path('teacher/', views.leaderBoard, name = 'leader'),
 	path('registration/', views.signup, name='signup'),
 	path('student/', views.cookie, name = 'cookie'),
-	path('teacher/home/', views.room, name = 'room'),
+	path('teacher/room/', views.room, name = 'room'),
+	path('teacher/home/', views.teacherHome, name = 'teacher'),
 
     path('arena/', include('arena.urls')),
 ]
