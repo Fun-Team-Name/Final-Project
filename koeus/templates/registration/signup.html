@@ -24,7 +24,7 @@
 
             {% block content %}
 
-              <form class = "form-style" method="post" action=" {% url 'login' %} ">
+              <form class = "form-style" method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit">Sign up</button>
