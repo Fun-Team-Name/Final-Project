@@ -41,7 +41,7 @@
               <h1>Player 2:{%verbatim%} {{p2score}}{%endverbatim%}</h1>
               <br>
               <md-input-container>
-                  <md-button ng-click="countUp()"><img src="{% static '/spartan-clipart-greek-helmet.png' %}" style="height: 50px;width:50px;"></md-button>
+                  <md-button id="arena-submit" ng-click="countUp()"><img src="{% static '/spartan-clipart-greek-helmet.png' %}" style="height: 50px;width:50px;"></md-button>
               </md-input-container>
         </div>
       </md-content>
@@ -73,7 +73,7 @@
     };
     */
 
-    document.querySelector('#arena-message-submit').onclick = function(e) {
+    document.querySelector('#arena-submit').onclick = function(e) {
         var messageInputDom = document.querySelector('#arena-message-input');
         var message = messageInputDom.value;
         arenaSocket.send(JSON.stringify({
