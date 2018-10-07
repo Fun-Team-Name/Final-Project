@@ -28,7 +28,8 @@ urlpatterns = [
 	path('student/', views.student, name = 'student'),
 	path('leader/', views.leaderBoard, name = 'leader'),
 	path('registration/', views.signup, name='signup'),
-	path('cookie/', views.cookie, name = 'cookie'),
+    # handled by arena
+    #path('cookie/', views.cookie, name = 'cookie'),
 	path('room/', views.room, name = 'room'),
 	path('home/', views.teacherHome, name = 'teacher'),
 

@@ -6,8 +6,10 @@ import json
 def index(request):
     return render(request, 'arena/index.html', {})
 
-def cookie(request):
-    return render(request, 'arena/cookie.html', {})
+def cookie(request, arena_name):
+    return render(request, 'arena/cookie.html', {
+        'arena_name_json': mark_safe(json.dumps(arena_name))
+    })
 
 
 def arena(request, arena_name):
