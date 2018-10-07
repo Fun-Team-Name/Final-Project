@@ -41,7 +41,8 @@
               <h1>Player 2:{%verbatim%} {{p2score}}{%endverbatim%}</h1>
               <br>
               <md-input-container>
-                  <md-button id="arena-submit" ng-click="countUp()"><img src="{% static '/spartan-clipart-greek-helmet.png' %}" style="height: 50px;width:50px;"></md-button>
+                  <md-button ng-click="countUp()"><img src="{% static '/spartan-clipart-greek-helmet.png' %}" style="height: 50px;width:50px;"></md-button>
+                  <input id="arena-submit" type="button" value="Send"/>
               </md-input-container>
         </div>
       </md-content>
@@ -50,6 +51,8 @@
   <script>
 
     var arenaName = {{ arena_name_json }};
+    //console.error('test');
+    var p1score = {{p1score}};
 
     var arenaSocket = new WebSocket(
         'ws://' + window.location.host +
@@ -62,6 +65,7 @@
     };
 
     arenaSocket.onclose = function(e) {
+
         console.error('Arena socket closed unexpectedly');
     };
     /*
@@ -74,13 +78,15 @@
     */
 
     document.querySelector('#arena-submit').onclick = function(e) {
-        var messageInputDom = document.querySelector('#arena-message-input');
-        var message = messageInputDom.value;
+        p1score = p1score +1;
+        console.error('test');
+        //var messageInputDom = document.querySelector('#arena-message-input');
+        //var message = messageInputDom.value;
         arenaSocket.send(JSON.stringify({
-            'message': 'test'
+            message: 'test'
         }));
 
-        messageInputDom.value = '';
+        //messageInputDom.value = '';
     };
   </script>
 </html>
