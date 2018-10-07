@@ -1,7 +1,7 @@
 # TEAM
 Can we please check off what we have and finish up the items we dont have? :smiley: 
 
-- [ ] Vision Statement [1 point]
+- [x] Vision Statement [1 point]
 
 - [ ] Product Backlog [1 point] 
 
@@ -10,9 +10,9 @@ Can we please check off what we have and finish up the items we dont have? :smil
 - [ ] Requirements [1 point]
 - [ ] Design Documents [2 points] (UML diagrams)
   - [ ] Architecture Diagram
-  - [ ] Class Diagrams
-- [ ] Code [2 points] 
-- [ ] Tests [2 points]
+  - [x] Class Diagrams
+- [x] Code [2 points] 
+- [x] Tests [2 points]
 - [ ] Demonstration [2 point]
 
 
