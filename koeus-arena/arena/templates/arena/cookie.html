@@ -38,7 +38,7 @@
         <div class="boxWithShadow" style="background-color:white;width:50%;margin:auto;border-radius:25px">
               <h1>Player 1: {%verbatim%}{{p1score}}{%endverbatim%}</h1>
               <br>
-              <h1>Player 2:{%verbatim%} {{p2score}}{%endverbatim%}</h1>
+              <h1>Player 2: {%verbatim%}{{p2score}}{%endverbatim%}</h1>
               <br>
               <md-input-container>
                   <md-button ng-click="countUp()"><img src="{% static '/spartan-clipart-greek-helmet.png' %}" style="height: 50px;width:50px;"></md-button>
@@ -52,7 +52,7 @@
 
     var arenaName = {{ arena_name_json }};
     //console.error('test');
-    var p1score = {{p1score}};
+    //var p1score = {{p1score}};
 
     var arenaSocket = new WebSocket(
         'ws://' + window.location.host +
@@ -78,7 +78,7 @@
     */
 
     document.querySelector('#arena-submit').onclick = function(e) {
-        p1score = p1score +1;
+        //p1score = p1score +1;
         console.error('test');
         //var messageInputDom = document.querySelector('#arena-message-input');
         //var message = messageInputDom.value;
