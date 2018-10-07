@@ -1,3 +1,21 @@
+# TEAM
+Can we please check off what we have and finish up the items we dont have? :smiley: 
+
+- [ ] Vision Statement [1 point]
+
+- [ ] Product Backlog [1 point] 
+
+- [ ] Sprint Backlog [2 points] (plan for ~5-10 user stories per sprint)
+- [ ] Burndown Chart [2 points] (can be as simple as a google spreadsheet)
+- [ ] Requirements [1 point]
+- [ ] Design Documents [2 points] (UML diagrams)
+  - [ ] Architecture Diagram
+  - [ ] Class Diagrams
+- [ ] Code [2 points] 
+- [ ] Tests [2 points]
+- [ ] Demonstration [2 point]
+
+
 # **Vision Statement**
 
 ## **Our Goal**
