@@ -51,7 +51,8 @@
                         </md-input-container>
                         <h6 style="color:red;text-align:center" ng-show="invalidLogin == true">Invalid Login. Try Again.</h6>
                         <br>
-                        <md-button type="submit" class="md-raised md-primary" ng-disabled="loginFormStudent.$invalid" ng-click="login()" value="Log In">Log In</md-button>
+						<button  type="submit"style = "background-color: DarkBlue; color:white;min-height: 40px;
+	                    min-width: 78px;" onclick="window.location.href='{% url 'student' %}' " >Log In</button>
                       </form>
                 </md-tab>
                 <md-tab label="teacher">

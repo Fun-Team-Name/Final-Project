@@ -24,7 +24,13 @@ from django.views.generic.base import RedirectView
 urlpatterns = [
     path('admin/', admin.site.urls),
 	path('teacher/', include('django.contrib.auth.urls')),
-    path('', views.teacher_login, name = 'login'),
+    path('', views.teacherLogin, name = 'login'),
+	path('student/', views.student, name = 'student'),
+	path('leader/', views.leaderBoard, name = 'leader'),
 	path('registration/', views.signup, name='signup'),
+	path('cookie/', views.cookie, name = 'cookie'),
+	path('room/', views.room, name = 'room'),
+	path('home/', views.teacherHome, name = 'teacher'),
+
     path('arena/', include('arena.urls')),
 ]

@@ -1,54 +1,53 @@
-
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-  <link rel="stylesheet" href= " ../css/styles.css" >
+   <link rel="stylesheet" href= "{% static '/css/styles.css' %}" >
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
-  <script src = " ../controllers/teacherHomeCtrl.js"></script>
+  <script src = "{% static '/controllers/teacherHomeCtrl.js' %}"></script>
 
-  <title>Welcome Page</title>
+  <title>Room</title>
 
 </head>
 <body class="loginPage" ng-app="myApp" ng-controller="teacherHomeCtrl">
     <!-- Top Nav Bar-->
     <div class="boxWithShadow">
-            <md-content class="md-padding">
-                <md-nav-bar
-                md-selected-nav-item="currentNavItem"
-                nav-bar-aria-label="navigation links">
-                <md-nav-item md-nav-click="goto('home')" name="goHome">
-                Home
-                </md-nav-item>
-                <md-nav-item md-nav-click="goto('leaderboard')" name="goLeaderboard">
-                Leaderboard
-                </md-nav-item>
-                <md-nav-item style="color:red" md-nav-click="goto('logout')" name="logout">
-                        Log Out
-                        </md-nav-item>
-                </md-nav-bar>
-            </md-content>
+		<md-content class="md-padding">
+		<div class = "topnav">
+			  <a onclick="window.location.href='{% url 'teacher' %}' " >
+				Home
+			</a>
+			<a onclick="window.location.href='{% url 'leader' %}' " >
+			Leader Board
+		  </a>
+		  <a style = "color: red;" onclick="window.location.href='{% url 'login' %}' ">
+			Log Out
+	  </a>
+
+</div>
+</md-content>
     </div>
     <h1 style="text-align:center;color:white">Edit Room View</h1>
     <md-content layout-wrap style="background-color:cadetblue;" class="md-padding" flex layout-xs="column" layout="row">
             <md-card md-theme="default" flex="25">
                 <md-card-title-text layout-padding style="text-align:center;color:#22393a"><b>General Data</b></md-card-title-text>
                 <md-card-content layout-padding>
-                        <b>Label: </b> {{setEditRoom.label}}
+                        <b>Label: </b> {%verbatim%}{{setEditRoom.label}}{%endverbatim%}
                         <br>
-                        <b>Num Students:</b> {{setEditRoom.num}}
+                        <b>Num Students:</b> {%verbatim%}{{setEditRoom.num}}{%endverbatim%}
                         &nbsp;
                         <br>
                         <b>Total Time: </b>
                     </md-card-content>
             </md-card>
             <md-card md-theme="default" flex="70">
-                    <md-card-title-text layout-padding style="text-align:center"><b>Students</b>  <md-button ng-click="newRoom()"><i class="material-icons">add</i></md-button></md-card-title-text>
+                    <md-card-title-text layout-padding style="text-align:center"><b>Students</b>  <button onclick="window.location.href='{% url 'room' %}' "><i class="material-icons">add</i></button></md-card-title-text>
                     <md-card-content layout-padding>
                         <table cellspacing="0" class="students">
                             <thead>
@@ -64,42 +63,42 @@
                                 </tr>
                             </thead>
                                 <tr ng-repeat="s in studentsInRoomL1 | orderBy: 'lname'" class="tblrow">
-                                    <td>{{s.lname}}</td>
-                                    <td>{{s.fname}}</td>
-                                    <td>{{s.snum}}</td>
-                                    <td>{{s.score}}</td>
-                                    <td>{{s.rank}}</td>
-                                    <td>{{s.avgTime}}</td>
-                                    <td>{{s.totalTime}}</td>
+                                    <td>{%verbatim%}{{s.lname}}{%endverbatim%}</td>
+                                    <td>{%verbatim%}{{s.fname}}{%endverbatim%}</td>
+                                    <td>{%verbatim%}{{s.snum}}{%endverbatim%}</td>
+                                    <td>{%verbatim%}{{s.score}}{%endverbatim%}</td>
+                                    <td>{%verbatim%}{{s.rank}}{%endverbatim%}</td>
+                                    <td>{%verbatim%}{{s.avgTime}}{%endverbatim%}</td>
+                                    <td>{%verbatim%}{{s.totalTime}}{%endverbatim%}</td>
                                 </tr>
                                 <div ng-show="!newStudBool">
                                 <tr class="tblrow">
                                         <form name="newStudentForm">
                                         <td>
-                                            
+
                                                 <input ng-model="newStudent.lname">
-                                            
+
                                         </td>
                                         <td>
                                                 <input ng-model="newStudent.fname">
                                         </td>
                                         <td>
-                                         
+
                                                 <input ng-model="newStudent.snum">
-                                           
+
                                         </td>
                                         <td><md-button ng-click="addStudent()">Add</md-button></td>
-                                        <td>{{s.rank}}</td>
-                                        <td>{{s.avgTime}}</td>
-                                        <td>{{s.totalTime}}</td>
+                                        <td>{%verbatim%}{{s.rank}}{%endverbatim%}</td>
+                                        <td>{%verbatim%}{{s.avgTime}}{%endverbatim%}</td>
+                                        <td>{%verbatim%}{{s.totalTime}}{%endverbatim%}</td>
                                     </form>
                                     </tr>
                                     </div>
-                        </table>  
+                        </table>
                         <md-card-actions>
                                 <md-button ng-click="newStud()">Add Student</md-button>
                            //     <md-button ng-csv="getArray" filename="studentData.csv">Export</md-button>
-                            </md-card-actions>  
+                            </md-card-actions>
                     </md-card-content>
                 </md-card>
         </md-content>
