@@ -5,4 +5,5 @@ from teacher.models import Classroom
 urlpatterns = [
     path('classrooms/<key>/students/', views.addStudent, name='ManageStudents'),
     path('classrooms/', views.addClassroom, name='AddClassroom'),
+    path('home/', views.teacherHome, name='teacherHome'),
 ]
