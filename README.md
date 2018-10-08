@@ -104,6 +104,9 @@ please view the demo video before building:
 
 [Build Instruction Video](https://youtu.be/NH2pk6iJvkI)
 
+Video Notes:
+In the video, some build instructions are skipped since dependencies are already installed (and docker command was already running)
+
 ## Testing
 To run unit tests:
 
