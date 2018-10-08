@@ -38,6 +38,7 @@ Our product will consist of a web-based application that allows a teacher to to 
 * As a teacher I want to be able to log in
 * As a teacher I want to be able to save my email
 * As a student I want to be able to see if I got a question right
+* As a student I want to compete against my classmates
 
 
 
@@ -53,8 +54,6 @@ Our product will consist of a web-based application that allows a teacher to to 
 * As a teacher I want to be able to see my students answer times
 
 * As a teacher I want to be able to create virtual rooms where my students can practice with and compete against each other
-
-* As a student I want to compete against my classmates
 
 * As a student I want to be able to quickly recover my password
 
