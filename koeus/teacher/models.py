@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import BaseUserManager
 from teacher import utils
+from django.shortcuts import get_object_or_404
+
 
 class AccountManager(BaseUserManager):
     def create_user(self, email, password=None, **kwargs):
@@ -75,11 +77,11 @@ class Classroom(models.Model):
 		ordering = ('name', 'key')
 
 	@classmethod
-	def create(cls, name, email):
-		keyname= email + utils.utcNowTimestamp()
+	def create(cls, name, user):
+		keyname= user.email + utils.utcNowTimestamp()
 		classroom = cls(name=name, key=keyname)
+		classroom.teacher.add(user)
 		classroom.save()
-		classroom.teacher.add(get_object_or_404(email))
 		return classroom
 
 	def rename(self, newname):

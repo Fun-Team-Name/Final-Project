@@ -18,7 +18,7 @@ def teacherHome(request):
 def teacherLogin(request):
         form = AuthenticationForm(data = request.POST)
         if form.is_valid():
-            return render(request, 'teacherHome.html', {})
+            return redirect('teacherHome')
         else:
             form = AuthenticationForm(data = request.POST)
         return render(request, 'registration/login.html',{'form':form})
@@ -39,17 +39,23 @@ def signup(request):
 @login_required
 def addClassroom(request):
 	form = addClassroomForm(request.POST)
+	#classes=request.user.classroom_set.all()
 	if form.is_valid():
 		name = form.cleaned_data.get('name')
-		classroom = Classroom.create(name = name, email = request.user.email)
-		return redirect('ManageStudents')
-	return render(request, 'classrooms.html', {'form':form})
+		classroom = Classroom.create(name = name, user = request.user)
+		return redirect('ManageStudents', key=classroom.key)
+	return render(request, 'classrooms.html', {'form':form}) #, 'classes':classes
 
 @login_required
 def addStudent(request, key):
-	classroom = get_object_or_404(Classroom, pk=pk)
-	form = manageStudents(request.POST or None)
+	classroom = get_object_or_404(Classroom, key=key)
+	form = addStudentsForm(request.POST or None)
+	#students=Student.objects.filter(classroom__contains=request.user)
+	student=classroom.student_set.all()
 	if form.is_valid():
+		firstName = form.cleaned_data.get('firstName')
+		lastName = form.cleaned_data.get('lastName')
+		studentNumber = form.cleaned_data.get('studentNumber')
 		Student.create(classroom=classroom, firstName=firstName, lastName=lastName, studentNumber=studentNumber)
-		return redirect('ManageStudents')
-	return render(request, 'ManageStudents.html', {'form':form})
+		return redirect('ManageStudents', key=key)
+	return render(request, 'ManageStudents.html', {'students':students,'form':form})
