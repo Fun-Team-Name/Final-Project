@@ -72,8 +72,17 @@ Our product will consist of a web-based application that allows a teacher to to 
 * Ross Wagner
 
 ## Build Instructions:  
+clone the repository
+navigate to <>, install requirements
+install pip3
+install django
+install docker
+docker run -p 6379:6379 -d redis:2.8 (for the sockets communication)
+pip3 install channels_redis
 
+navigate to koeus-arena
 
+python3 manage.py runserver
 ### Teacher View login:
 
 
@@ -86,7 +95,7 @@ from: https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_ti
 ## **Class Diagram**
 ![UML Class Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/spr2UML.png)
 
-## [**Burndown Chart**](https://docs.google.com/spreadsheets/d/1HtfZup9SnPOCrz9b8pf-G5Kyj8an78QmAuQqOf-cqz8/edit#gid=0)
+## [**Burndown Chart and Backlog**](https://docs.google.com/spreadsheets/d/1HtfZup9SnPOCrz9b8pf-G5Kyj8an78QmAuQqOf-cqz8/edit#gid=0)
 
 ##
 
