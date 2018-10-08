@@ -72,23 +72,36 @@ Our product will consist of a web-based application that allows a teacher to to 
 * Ross Wagner
 
 ## Build Instructions:  
-clone the repository
+**These build instructions assume you have python 3 and pip installed**
 
-navigate to <>, install requirements
+1. `pip install virtualenv`
+2. create a new folder on your desktop
+3. chage working directory to new folder
+4. `virtualenv ENV`
+5. `source bin/activate` if on a mac or `.Scripts/activate` for windows
+6. `git clone https://github.com/Fun-Team-Name/Koeus.git`
+7. `cd koeus`
+8. `cd koeus-arena`
+9. `pip install -r requirements.txt`
+10. `python manage.py runserver`
+11. in your browser go to **localhost:800**
+12. **As Teacher**click teacher tab 
+13. click sign up button to create account
+14. log in with credentials navigate cite
 
-install pip3
+**As Student** enter student for username and student for password and navigate cite
 
-install django
+**NOTES: cookie clicker will not work unless you have docker installe. in that case
+right before step 10 do the following
+`docker run -p 6379:6379 -d redis:2.8 `
 
-install docker
+now pick back up with `python manage.py runserver` and continue
 
-docker run -p 6379:6379 -d redis:2.8 (for the sockets communication)
 
-pip3 install channels_redis
+ 
 
-navigate to koeus-arena
 
-python3 manage.py runserver
+
 
 [Build Instruction Video](https://youtu.be/NH2pk6iJvkI)
 ### Teacher View login:
