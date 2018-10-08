@@ -7,8 +7,8 @@ Can we please check off what we have and finish up the items we dont have? :smil
 
 - [X] Sprint Backlog [2 points] (plan for ~5-10 user stories per sprint)
 - [X] Burndown Chart [2 points] (can be as simple as a google spreadsheet)
-- [ ] Requirements [1 point]
-- [] Design Documents [2 points] (UML diagrams)
+- [x] Requirements [1 point]
+- [ ] Design Documents [2 points] (UML diagrams)
   - [ ] Architecture Diagram
   - [x] Class Diagrams
 - [x] Code [2 points]
