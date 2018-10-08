@@ -78,8 +78,8 @@ Our product will consist of a web-based application that allows a teacher to to 
 
 
 ### Student View login:
-
-![Architecture  Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/djangoChannelWebSoc.png))
+## **Diagrams**
+![Architecture  Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/djangoChannelWebSoc.png)
 
 from: https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_time_apps_in_django
 
