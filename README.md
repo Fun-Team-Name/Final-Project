@@ -102,7 +102,7 @@ from: https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_ti
 ![UML Class Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/spr2UML.png)
 
 ## **Front-End Diagram**  
-![Front End Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/FrontEndDiagram.html)
+![Front End Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/FrontEndDiagram.png)
 
 ## [**Burndown Chart and Backlog**](https://docs.google.com/spreadsheets/d/1HtfZup9SnPOCrz9b8pf-G5Kyj8an78QmAuQqOf-cqz8/edit#gid=0)
 
