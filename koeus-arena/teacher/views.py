@@ -10,6 +10,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
+from django.views.generic import TemplateView
 def teacherHome(request):
 	return render(request, 'registration/teacherHome.html', {})
 def leaderBoard(request):
@@ -20,6 +21,7 @@ def student(request):
 	return render(request, 'registration/studentHome.html', {})
 def room(request):
 	return render(request, 'registration/room.html', {})
+
 
 
 def teacherLogin(request):
