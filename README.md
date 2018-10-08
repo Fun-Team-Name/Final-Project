@@ -82,6 +82,8 @@ Our product will consist of a web-based application that allows a teacher to to 
 ![Architecture  Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/djangoChannelWebSoc.png))
 from: https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_time_apps_in_django
 
+## **Class Diagram**
+![UML Class Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/UML%20Class%20Diagram.png)
 
 ## [**Burndown Chart**](https://docs.google.com/spreadsheets/d/1HtfZup9SnPOCrz9b8pf-G5Kyj8an78QmAuQqOf-cqz8/edit#gid=0)
 
@@ -91,7 +93,7 @@ from: https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_ti
 
 ## **Class Diagram**
 
-![UML Class Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/UML%20Class%20Diagram.png)
+![UML Class Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/spr2UML.png)
 
 ## [**Burndown Chart**](https://docs.google.com/spreadsheets/d/19vf88oTctJ-OZ2_OGCEM8ZfFbThggKwMdxrUroNmdWw/edit?usp=sharing)
 
