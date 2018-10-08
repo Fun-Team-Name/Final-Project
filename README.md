@@ -91,7 +91,7 @@ Our product will consist of a web-based application that allows a teacher to to 
 
 **As Student** enter student for username and student for password and navigate cite
 
-**NOTES: cookie clicker will not work unless you have docker installe. in that case
+**NOTES: cookie clicker will not work unless you have docker installed. In the case docker is already installed and running,
 right before step 10 do the following
 `docker run -p 6379:6379 -d redis:2.8 `
 
