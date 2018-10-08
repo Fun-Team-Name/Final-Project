@@ -8,8 +8,8 @@ Can we please check off what we have and finish up the items we dont have? :smil
 - [X] Sprint Backlog [2 points] (plan for ~5-10 user stories per sprint)
 - [X] Burndown Chart [2 points] (can be as simple as a google spreadsheet)
 - [x] Requirements [1 point]
-- [ ] Design Documents [2 points] (UML diagrams)
-  - [ ] Architecture Diagram
+- [x] Design Documents [2 points] (UML diagrams)
+  - [x] Architecture Diagram
   - [x] Class Diagrams
 - [x] Code [2 points]
 - [x] Tests [2 points]
@@ -104,7 +104,7 @@ from: https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_ti
 ## **Front-End Diagram**  
 ![Front End Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/FrontEndDiagram.html)
 
-## [**Burndown Chart**](https://docs.google.com/spreadsheets/d/1HtfZup9SnPOCrz9b8pf-G5Kyj8an78QmAuQqOf-cqz8/edit#gid=0)
+## [**Burndown Chart and Backlog**](https://docs.google.com/spreadsheets/d/1HtfZup9SnPOCrz9b8pf-G5Kyj8an78QmAuQqOf-cqz8/edit#gid=0)
 
 ##
 
