@@ -7,13 +7,13 @@ Can we please check off what we have and finish up the items we dont have? :smil
 
 - [X] Sprint Backlog [2 points] (plan for ~5-10 user stories per sprint)
 - [X] Burndown Chart [2 points] (can be as simple as a google spreadsheet)
-- [x] Requirements [1 point]
+- [x] Requirements [1 point] `(user stories for functional, dependencies listed in requirements.txt)`
 - [x] Design Documents [2 points] (UML diagrams)
   - [x] Architecture Diagram
   - [x] Class Diagrams
 - [x] Code [2 points]
-- [x] Tests [2 points]
-- [x] Demonstration [2 point]
+- [x] Tests [2 points] (automatic testing, instructions below build instructions, also demonstrated in demo video)
+- [x] Demonstration [2 point] (link below build instructions)
 
 
 # **Vision Statement**
@@ -85,11 +85,11 @@ Our product will consist of a web-based application that allows a teacher to to 
 9. `pip install -r requirements.txt`
 10. `python manage.py runserver`
 11. in your browser go to **localhost:8000**
-12. **As Teacher**click teacher tab 
+12. **As Teacher** click teacher tab 
 13. click sign up button to create account
 14. log in with credentials navigate cite
 
-**As Student** enter student for username and student for password and navigate cite
+**As Student** from login page click student tab, enter student for username and student for password and navigate cite
 
 **NOTES: cookie clicker will not work unless you have docker installed. In the case docker is already installed and running,
 right before step 10 do the following
@@ -104,10 +104,24 @@ now pick back up with `python manage.py runserver` and continue
 please view the demo video before building:
 
 [Build Instruction Video](https://youtu.be/NH2pk6iJvkI)
-### Teacher View login:
+
+## Testing
+To run unit tests:
+
+navigate to koeus-arena folder from cloned repo
+
+run the following command:
+
+`python manage.py test teacher -v 2`
+
+source code is in the test.py file (/koeus/koeus-arena/teacher/test.py)
+
+Manual Testing:
+
+Solve multiplication problems from student page after logging in as a student
 
 
-### Student View login:
+
 ## **Diagrams**
 ![Architecture  Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/djangoChannelWebSoc.png)
 
