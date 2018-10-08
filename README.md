@@ -13,7 +13,7 @@ Can we please check off what we have and finish up the items we dont have? :smil
   - [x] Class Diagrams
 - [x] Code [2 points]
 - [x] Tests [2 points]
-- [ ] Demonstration [2 point]
+- [x] Demonstration [2 point]
 
 
 # **Vision Statement**
@@ -84,7 +84,7 @@ Our product will consist of a web-based application that allows a teacher to to 
 8. `cd koeus-arena`
 9. `pip install -r requirements.txt`
 10. `python manage.py runserver`
-11. in your browser go to **localhost:800**
+11. in your browser go to **localhost:8000**
 12. **As Teacher**click teacher tab 
 13. click sign up button to create account
 14. log in with credentials navigate cite
@@ -101,7 +101,7 @@ now pick back up with `python manage.py runserver` and continue
  
 
 
-
+please view the demo video before building:
 
 [Build Instruction Video](https://youtu.be/NH2pk6iJvkI)
 ### Teacher View login:
@@ -138,10 +138,3 @@ from: https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_ti
 * Cassidy Lyons
 * Ross Wagner
 
-# Build Instructions:  
-
-
-# Teacher View login:
-
-
-# Student View login:
