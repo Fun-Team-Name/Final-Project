@@ -1,17 +1,17 @@
 # TEAM
-Can we please check off what we have and finish up the items we dont have? :smiley: 
+Can we please check off what we have and finish up the items we dont have? :smiley:
 
 - [x] Vision Statement [1 point]
 
-- [ ] Product Backlog [1 point] 
+- [X] Product Backlog [1 point]
 
-- [ ] Sprint Backlog [2 points] (plan for ~5-10 user stories per sprint)
-- [ ] Burndown Chart [2 points] (can be as simple as a google spreadsheet)
+- [X] Sprint Backlog [2 points] (plan for ~5-10 user stories per sprint)
+- [X] Burndown Chart [2 points] (can be as simple as a google spreadsheet)
 - [ ] Requirements [1 point]
-- [ ] Design Documents [2 points] (UML diagrams)
+- [] Design Documents [2 points] (UML diagrams)
   - [ ] Architecture Diagram
   - [x] Class Diagrams
-- [x] Code [2 points] 
+- [x] Code [2 points]
 - [x] Tests [2 points]
 - [ ] Demonstration [2 point]
 
@@ -62,6 +62,30 @@ Our product will consist of a web-based application that allows a teacher to to 
 
 * As a developer I want to the code I have to maintain be modular and understandable
 
+# Sprint 2
+
+
+# Members:
+* Darien Craig
+* Annavay Kean
+* Cassidy Lyons
+* Ross Wagner
+
+# Build Instructions:  
+
+
+# Teacher View login:
+
+
+# Student View login:
+
+![UML Class Diagram]()
+
+## [**Burndown Chart**](https://docs.google.com/spreadsheets/d/1HtfZup9SnPOCrz9b8pf-G5Kyj8an78QmAuQqOf-cqz8/edit#gid=0)
+
+##
+
+# Sprint 1
 
 ## **Class Diagram**
 
@@ -83,4 +107,3 @@ Our product will consist of a web-based application that allows a teacher to to 
 
 
 # Student View login:
-
