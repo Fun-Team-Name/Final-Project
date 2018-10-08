@@ -89,6 +89,8 @@ pip3 install channels_redis
 navigate to koeus-arena
 
 python3 manage.py runserver
+
+[Build Instruction Video](https://youtu.be/NH2pk6iJvkI)
 ### Teacher View login:
 
 
