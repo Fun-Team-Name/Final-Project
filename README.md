@@ -86,9 +86,9 @@ Our product will consist of a web-based application that allows a teacher to to 
 11. in your browser go to **localhost:8000**
 12. **As Teacher** click teacher tab 
 13. click sign up button to create account
-14. log in with credentials navigate cite
+14. log in with credentials navigate site
 
-**As Student** from login page click student tab, enter student for username and student for password and navigate cite
+**As Student** from login page click student tab, enter student for username and student for password and navigate site
 
 **NOTES: cookie clicker will not work unless you have docker installed. In the case docker is already installed and running,
 right before step 10 do the following
