@@ -65,19 +65,19 @@ Our product will consist of a web-based application that allows a teacher to to 
 # Sprint 2
 
 
-# Members:
+## Members:
 * Darien Craig
 * Annavay Kean
 * Cassidy Lyons
 * Ross Wagner
 
-# Build Instructions:  
+## Build Instructions:  
 
 
-# Teacher View login:
+## Teacher View login:
 
 
-# Student View login:
+## Student View login:
 
 ![UML Class Diagram]()
 
