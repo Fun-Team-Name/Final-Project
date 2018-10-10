@@ -26,7 +26,7 @@
 				Leader Board
 			  </a>
 			  <a style = "color: red;" onclick="window.location.href='{% url 'login' %}' ">
-				Log Out
+				Log Out {{request.user.email}}
 		  </a>
 
 </div>
@@ -40,27 +40,27 @@
 
         <md-card md-theme="default">
             <md-card-title-text layout-padding style="text-align:center;color:#22393a"><strong>&nbsp;New Room&nbsp;</strong></md-card-title-text>
-            <md-card-content layout-padding>
-                <p>Click '+' for a new room!</p>
-            </md-card-content>
-            <md-card-actions>
-                <md-button ng-click="newRoom()"><i class="material-icons" layout="row" layout-align="center center">add</i></md-button>
-            </md-card-actions>
+			<form method="post">
+				{% csrf_token %}
+				Name: {{ form.name }}
+				<br>
+				<button type="submit">Create</button>
+			</form>
         </md-card>
-        <md-card ng-repeat="n in rooms" md-theme="default">
-            <md-card-title-text layout-padding style="text-align:center;color:#22393a"><b>{%verbatim%}{{n.name}}{%endverbatim%}</b></md-card-title-text>
+		{% for item in classes %}
+		<md-card>
+            <md-card-title-text layout-padding style="text-align:center;color:#22393a"><b>{{ item.name }}</b></md-card-title-text>
             <md-card-content layout-padding>
-                <b>Label: </b>{%verbatim%}{{n.label}}{%endverbatim%}
-                <b>Num Students:</b> {%verbatim%}{{n.num}}{%endverbatim%}
+                <b>Key: </b>{{ item.key }}
                 &nbsp;
                 <br>
-                <b>Total Time: </b>
             </md-card-content>
 
             <md-card-actions>
                 <button onclick="window.location.href='{% url 'room' %}' "><i class="material-icons">edit</i></button>
                 <md-button ng-click="deleteRoom(n)"><i class="material-icons">delete</i></md-button>
             </md-card-actions>
+		{% endfor %}
         </md-card>
     </md-content>
     </div>

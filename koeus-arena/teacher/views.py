@@ -15,8 +15,6 @@ def teacherHome(request):
 	return render(request, 'teacherHome.html', {})
 def leaderBoard(request):
 	return render(request, 'leaderboard.html', {})
-def cookie(request):
-	return render(request, 'registration/cookie.html', {})
 def student(request):
 	return render(request, 'studentHome.html', {})
 def room(request):
@@ -40,7 +38,7 @@ def signup(request):
 		password = form.cleaned_data.get('password2')
 		firstName = form.cleaned_data.get('firstName')
 		lastName = form.cleaned_data.get('lastName')
-		#form.save()
+		form.save()
 		Account.objects.create_user(email=email, password=password, firstName=firstName, lastName=lastName)
 		login(request, user)
 		return redirect('login')
@@ -59,7 +57,7 @@ def addClassroom(request):
 	return render(request, 'classrooms.html', {'classes':classes, 'form':form})
 
 @login_required
-def addStudent(request, key):
+def teacherHome(request, key):
 	classroom = get_object_or_404(Classroom, key=key)
 	form = addStudentsForm(request.POST or None)
 	students=Student.objects.filter(classroom__contains=request.user)
@@ -70,4 +68,4 @@ def addStudent(request, key):
 		studentNumber = form.cleaned_data.get('studentNumber')
 		Student.create(classroom=classroom, firstName=firstName, lastName=lastName, studentNumber=studentNumber)
 		return redirect('ManageStudents', key=key)
-	return render(request, 'students.html', {'students':students,'form':form})
+	return render(request, 'teacherHome.html', {'students':students,'form':form})
