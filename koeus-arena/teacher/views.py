@@ -11,8 +11,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
-def teacherHome(request):
-	return render(request, 'teacherHome.html', {})
 def leaderBoard(request):
 	return render(request, 'leaderboard.html', {})
 def student(request):
@@ -39,25 +37,25 @@ def signup(request):
 		firstName = form.cleaned_data.get('firstName')
 		lastName = form.cleaned_data.get('lastName')
 		form.save()
-		Account.objects.create_user(email=email, password=password, firstName=firstName, lastName=lastName)
+		user = Account.objects.create_user(email=email, password=password, firstName=firstName, lastName=lastName)
 		login(request, user)
-		return redirect('login')
+		return redirect('teacher')
 	return render(request, 'registration/signup.html', {'form':form})
 
 
 
 @login_required
-def addClassroom(request):
+def teacherHome(request):
 	form = addClassroomForm(request.POST)
 	classes=request.user.classroom_set.all()
 	if form.is_valid():
 		name = form.cleaned_data.get('name')
 		classroom = Classroom.create(name = name, user = request.user)
 		return redirect('ManageStudents', key=classroom.key)
-	return render(request, 'classrooms.html', {'classes':classes, 'form':form})
+	return render(request, 'teacherHome.html', {'classes':classes, 'form':form})
 
 @login_required
-def teacherHome(request, key):
+def addStudents(request, key):
 	classroom = get_object_or_404(Classroom, key=key)
 	form = addStudentsForm(request.POST or None)
 	students=Student.objects.filter(classroom__contains=request.user)
@@ -68,4 +66,4 @@ def teacherHome(request, key):
 		studentNumber = form.cleaned_data.get('studentNumber')
 		Student.create(classroom=classroom, firstName=firstName, lastName=lastName, studentNumber=studentNumber)
 		return redirect('ManageStudents', key=key)
-	return render(request, 'teacherHome.html', {'students':students,'form':form})
+	return render(request, 'ManageStudents.html', {'students':students,'form':form})
