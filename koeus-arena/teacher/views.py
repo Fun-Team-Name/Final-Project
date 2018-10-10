@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from teacher.forms import signupForm, addStudentsForm, addClassroomForm
 from teacher.models import Account, Student, AccountManager, Classroom
 from django.contrib.sessions.models import Session
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
