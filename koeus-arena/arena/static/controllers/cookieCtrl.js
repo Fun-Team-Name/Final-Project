@@ -2,6 +2,11 @@ angular.module('myApp', ['ngMaterial']).controller('cookieCtrl', function($scope
     $scope.p1score = 0;
     $scope.p2score = 0;
 
+    //
+    $scope.dict = new Object();
+    //dict["username"] = $scope.p1score;
+
+
     $scope.countUp = function(){
         $scope.p1score++;
     }
@@ -19,7 +24,18 @@ angular.module('myApp', ['ngMaterial']).controller('cookieCtrl', function($scope
         }
         else
             console.log("That shouldn't work");
-    
+
     }
 
 });
+/*
+function send (alias){
+  var score = angular.element(document.querySelector('[ng-controller="cookieCtrl"]')).scope().p1score
+  //var alias = {{alias_json}}
+  //console.log(score);
+  arenaSocket.send(JSON.stringify({
+      username: alias,
+      message: score
+  }));
+}
+*/

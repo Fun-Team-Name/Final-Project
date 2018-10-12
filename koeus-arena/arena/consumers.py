@@ -26,21 +26,25 @@ class ArenaConsumer(AsyncWebsocketConsumer):
     async def receive(self, text_data):
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
+        userName = text_data_json['userName']
 
         # Send message to arena group
         await self.channel_layer.group_send(
             self.arena_group_name,
             {
                 'type': 'arena_message',
-                'message': message
+                'message': message,
+                'userName': userName
             }
         )
 
     # Receive message from arena group
     async def arena_message(self, event):
         message = event['message']
+        userName = event['userName']
 
         # Send message to WebSocket
         await self.send(text_data=json.dumps({
-            'message': message
+            'message': message,
+            'userName': userName
         }))

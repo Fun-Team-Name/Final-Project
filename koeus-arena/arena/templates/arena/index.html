@@ -8,6 +8,8 @@
 <body>
     What arena would you like to enter?<br/>
     <input id="arena-name-input" type="text" size="100"/><br/>
+    Enter an alias<br/>
+    <input id = "alias" type="text" size="100"/><br/>
     <input id="arena-name-submit" type="button" value="Enter"/>
 
     <script>
@@ -20,7 +22,8 @@
 
         document.querySelector('#arena-name-submit').onclick = function(e) {
             var arenaName = document.querySelector('#arena-name-input').value;
-            window.location.pathname = '/arena/' + arenaName + '/';
+            var alias = document.querySelector('#alias').value;
+            window.location.pathname = '/arena/' + arenaName + '/' + alias;
         };
     </script>
 </body>

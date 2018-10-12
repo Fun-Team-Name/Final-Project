@@ -29,30 +29,43 @@
 			  </a>
 
 	</div>
-  <textarea id="arena-log" cols="100" rows="5"></textarea><br/>
 
 	</md-content>
             </div>
       <md-content layout-padding style="background-color:cadetblue;padding:90px 0" >
         <h1 style="color:white;text-align: center">Ross's Cookie Clicker Extraviganza</h1>
         <div class="boxWithShadow" style="background-color:white;width:50%;margin:auto;border-radius:25px">
-              <h1>Player 1: {%verbatim%}{{p1score}}{%endverbatim%}</h1>
-              <br>
-              <h1>Player 2: {%verbatim%}{{p2score}}{%endverbatim%}</h1>
+              <h1>{{alias_json}}: {%verbatim%}{{p1score}}{%endverbatim%}</h1>
               <br>
               <md-input-container>
-                  <md-button ng-click="countUp()"><img src="{% static '/spartan-clipart-greek-helmet.png' %}" style="height: 50px;width:50px;"></md-button>
-                  <input id="arena-submit" type="button" value="Send"/>
+                <md-button aria-label="Submit" ng-click="countUp()" onclick="send()"><img src="{% static '/spartan-clipart-greek-helmet.png' %}" style="height: 50px;width:50px;"></md-button>
               </md-input-container>
+              <br>
+              <!-- Print each other player in dictionary --->
+              <script>
+              /*
+              var dict= angular.element(document.querySelector('[ng-controller="cookieCtrl"]')).scope().dict;
+              angular.forEach(dict, function(value, key){
+                document.writeln("<h1>"+key+": <h1>");
+              })
+              */
+              </script>
+              <h1 ng-repeat="(player, score) in dict">{%verbatim%}{{player}}{%endverbatim%}: {%verbatim%}{{score}}{%endverbatim%} </h1>
+              <br>
+
         </div>
       </md-content>
+      <!-- Toggle for debuging maybe -->
+      <textarea  id="arena-log" cols="100" rows="5"></textarea><br/>
+
     </div>
+
   </body>
   <script>
 
     var arenaName = {{ arena_name_json }};
-    //console.error('test');
-    //var p1score = {{p1score}};
+    var alias = JSON.stringify({{ alias_json }});
+    console.log(alias);
 
     var arenaSocket = new WebSocket(
         'ws://' + window.location.host +
@@ -61,13 +74,39 @@
     arenaSocket.onmessage = function(e) {
         var data = JSON.parse(e.data);
         var message = data['message'];
-        document.querySelector('#arena-log').value += (message + '\n');
+        //var otherName = JSON.stringify(data['userName']);
+        otherName = data['userName'];
+
+
+
+        var p2score = parseInt( message,10);
+        document.querySelector('#arena-log').value += (otherName +": "+ message + '\n');
+
+        // update other username's score
+        if(otherName != alias){
+          var dict = angular.element(document.querySelector('[ng-controller="cookieCtrl"]')).scope().dict;
+          console.log(otherName);
+          dict [otherName]= p2score;
+          angular.element(document.querySelector('[ng-controller="cookieCtrl"]')).scope().dict = dict;
+        }
+
     };
 
     arenaSocket.onclose = function(e) {
 
         console.error('Arena socket closed unexpectedly');
     };
+
+    function send (){
+      // incramented in the controler
+      var score = angular.element(document.querySelector('[ng-controller="cookieCtrl"]')).scope().p1score
+      //var alias = {{ alias_json }};
+      //console.log(alias);
+      arenaSocket.send(JSON.stringify({
+          userName: alias,
+          message: score+1
+      }));
+    }
     /*
     document.querySelector('#arena-message-input').focus();
     document.querySelector('#arena-message-input').onkeyup = function(e) {
@@ -77,9 +116,11 @@
     };
     */
 
+    /*
+    handled in controler
     document.querySelector('#arena-submit').onclick = function(e) {
         //p1score = p1score +1;
-        console.error('test');
+        //console.error('test');
         //var messageInputDom = document.querySelector('#arena-message-input');
         //var message = messageInputDom.value;
         arenaSocket.send(JSON.stringify({
@@ -88,5 +129,6 @@
 
         //messageInputDom.value = '';
     };
+    */
   </script>
 </html>
