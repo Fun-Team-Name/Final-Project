@@ -35,22 +35,17 @@
       <md-content layout-padding style="background-color:cadetblue;padding:90px 0" >
         <h1 style="color:white;text-align: center">Ross's Cookie Clicker Extraviganza</h1>
         <div class="boxWithShadow" style="background-color:white;width:50%;margin:auto;border-radius:25px">
-              <h1>{{alias_json}}: {%verbatim%}{{p1score}}{%endverbatim%}</h1>
+              <h1>{{alias_json}}: <span id ="p1score"></span></h1>
               <br>
               <md-input-container>
                 <md-button aria-label="Submit" ng-click="countUp()" onclick="send()"><img src="{% static '/spartan-clipart-greek-helmet.png' %}" style="height: 50px;width:50px;"></md-button>
               </md-input-container>
               <br>
               <!-- Print each other player in dictionary --->
-              <script>
-              /*
-              var dict= angular.element(document.querySelector('[ng-controller="cookieCtrl"]')).scope().dict;
-              angular.forEach(dict, function(value, key){
-                document.writeln("<h1>"+key+": <h1>");
-              })
-              */
-              </script>
+              <!--
               <h1 ng-repeat="(player, score) in dict">{%verbatim%}{{player}}{%endverbatim%}: {%verbatim%}{{score}}{%endverbatim%} </h1>
+              -->
+              <h1 id="otherScores"></h1>
               <br>
 
         </div>
@@ -63,9 +58,17 @@
   </body>
   <script>
 
+    var p1score = 0;
+    document.getElementById("p1score").innerHTML = p1score;
+
     var arenaName = {{ arena_name_json }};
-    var alias = JSON.stringify({{ alias_json }});
+    var alias = {{ alias_json  }};
     console.log(alias);
+    var scope = angular.element(document.querySelector('[ng-controller="cookieCtrl"]')).scope();
+
+    var otherScores = document.getElementById("otherScores");
+
+    dict = new Object();
 
     var arenaSocket = new WebSocket(
         'ws://' + window.location.host +
@@ -76,18 +79,17 @@
         var message = data['message'];
         //var otherName = JSON.stringify(data['userName']);
         otherName = data['userName'];
+        console.log("receiveing: "+otherName);
 
 
-
-        var p2score = parseInt( message,10);
+        var otherScore = parseInt( message,10);
         document.querySelector('#arena-log').value += (otherName +": "+ message + '\n');
 
         // update other username's score
         if(otherName != alias){
-          var dict = angular.element(document.querySelector('[ng-controller="cookieCtrl"]')).scope().dict;
-          console.log(otherName);
-          dict [otherName]= p2score;
-          angular.element(document.querySelector('[ng-controller="cookieCtrl"]')).scope().dict = dict;
+          //console.log(otherName);
+          dict [otherName]= otherScore;
+          displayOtherScores();
         }
 
     };
@@ -98,37 +100,25 @@
     };
 
     function send (){
+      p1score++;
+      document.getElementById("p1score").innerHTML = p1score;
       // incramented in the controler
-      var score = angular.element(document.querySelector('[ng-controller="cookieCtrl"]')).scope().p1score
+      //var score = angular.element(document.querySelector('[ng-controller="cookieCtrl"]')).scope().p1score
       //var alias = {{ alias_json }};
-      //console.log(alias);
+      console.log("sending: "+alias);
       arenaSocket.send(JSON.stringify({
           userName: alias,
-          message: score+1
+          message: p1score
       }));
     }
-    /*
-    document.querySelector('#arena-message-input').focus();
-    document.querySelector('#arena-message-input').onkeyup = function(e) {
-        if (e.keyCode === 13) {  // enter, return
-            document.querySelector('#arena-message-submit').click();
-        }
-    };
-    */
 
-    /*
-    handled in controler
-    document.querySelector('#arena-submit').onclick = function(e) {
-        //p1score = p1score +1;
-        //console.error('test');
-        //var messageInputDom = document.querySelector('#arena-message-input');
-        //var message = messageInputDom.value;
-        arenaSocket.send(JSON.stringify({
-            message: 'test'
-        }));
+    function displayOtherScores(){
+      otherScores.innerHTML = "";
+      for (player in dict){
+          otherScores.innerHTML = otherScores.innerHTML + player +": "+ dict[player]+ "<br>";
+      }
 
-        //messageInputDom.value = '';
-    };
-    */
+    }
+
   </script>
 </html>
