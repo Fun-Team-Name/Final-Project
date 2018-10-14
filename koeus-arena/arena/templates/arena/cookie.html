@@ -33,7 +33,7 @@
 	</md-content>
             </div>
       <md-content layout-padding style="background-color:cadetblue;padding:90px 0" >
-        <h1 style="color:white;text-align: center">Ross's Cookie Clicker Extraviganza</h1>
+        <h1 style="color:white;text-align: center">Ross's Cookie Clicker Extravaganza</h1>
         <div class="boxWithShadow" style="background-color:white;width:50%;margin:auto;border-radius:25px">
               <h1>{{alias_json}}: <span id ="p1score"></span></h1>
               <br>
@@ -42,9 +42,6 @@
               </md-input-container>
               <br>
               <!-- Print each other player in dictionary --->
-              <!--
-              <h1 ng-repeat="(player, score) in dict">{%verbatim%}{{player}}{%endverbatim%}: {%verbatim%}{{score}}{%endverbatim%} </h1>
-              -->
               <h1 id="otherScores"></h1>
               <br>
 
@@ -64,7 +61,6 @@
     var arenaName = {{ arena_name_json }};
     var alias = {{ alias_json  }};
     console.log(alias);
-    var scope = angular.element(document.querySelector('[ng-controller="cookieCtrl"]')).scope();
 
     var otherScores = document.getElementById("otherScores");
 
@@ -72,12 +68,12 @@
 
     var arenaSocket = new WebSocket(
         'ws://' + window.location.host +
-        '/ws/arena/' + arenaName + '/');
+        '/ws/arena/cookie' + arenaName + '/');
 
     arenaSocket.onmessage = function(e) {
         var data = JSON.parse(e.data);
         var message = data['message'];
-        //var otherName = JSON.stringify(data['userName']);
+
         otherName = data['userName'];
         console.log("receiveing: "+otherName);
 
@@ -87,7 +83,7 @@
 
         // update other username's score
         if(otherName != alias){
-          //console.log(otherName);
+
           dict [otherName]= otherScore;
           displayOtherScores();
         }
@@ -103,8 +99,7 @@
       p1score++;
       document.getElementById("p1score").innerHTML = p1score;
       // incramented in the controler
-      //var score = angular.element(document.querySelector('[ng-controller="cookieCtrl"]')).scope().p1score
-      //var alias = {{ alias_json }};
+
       console.log("sending: "+alias);
       arenaSocket.send(JSON.stringify({
           userName: alias,

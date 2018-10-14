@@ -133,3 +133,11 @@ textarea{
   overflow: hidden;
   cursor: pointer;
 }
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+}

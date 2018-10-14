@@ -36,14 +36,3 @@ angular.module('myApp', ['ngMaterial']).controller('cookieCtrl', function($scope
 
 
 });
-/*
-function send (alias){
-  var score = angular.element(document.querySelector('[ng-controller="cookieCtrl"]')).scope().p1score
-  //var alias = {{alias_json}}
-  //console.log(score);
-  arenaSocket.send(JSON.stringify({
-      username: alias,
-      message: score
-  }));
-}
-*/

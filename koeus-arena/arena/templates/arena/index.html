@@ -13,6 +13,13 @@
     <input id="arena-name-submit" type="button" value="Enter"/>
 
     <script>
+        document.querySelector('#alias').focus();
+        document.querySelector('#alias').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#arena-name-submit').click();
+            }
+        };
+
         document.querySelector('#arena-name-input').focus();
         document.querySelector('#arena-name-input').onkeyup = function(e) {
             if (e.keyCode === 13) {  // enter, return
