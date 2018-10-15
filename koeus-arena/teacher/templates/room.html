@@ -75,7 +75,7 @@
 
                                 <div ng-show="!newStudBool">
                                 <tr class="tblrow">
-									<form method="post" action="{% url 'room'  %}">
+									<form method="post" action="">
 										{% csrf_token %}
 										<td>{{form.lastName}}</td>
 										<td>{{form.firstName}}</td>
