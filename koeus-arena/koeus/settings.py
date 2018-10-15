@@ -58,7 +58,10 @@ ROOT_URLCONF = 'koeus.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['./templates',],
+        'DIRS': [
+            './templates',
+            './arena/templates/arena',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,3 +142,5 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+#WS4REDIS_HEARTBEAT = '--heartbeat--'

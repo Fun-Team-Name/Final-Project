@@ -16,6 +16,8 @@ var questionTag = document.getElementById("question");
 var answerTag = document.getElementById("answer");
 var studentAnswerForm = document.getElementById("studentAnswerForm");
 var otherScoresTag = document.getElementById("otherScores");
+var heartbeat_msg = '--heartbeat--', heartbeat_interval = null, missed_heartbeats = 0;
+
 updateLocal();
 
 function checkAnswer() {
@@ -67,8 +69,18 @@ var arenaSocket = new WebSocket(
 arenaSocket.onmessage = function(e) {
   var data = JSON.parse(e.data);
   var message = data['message'];
-
   otherName = data['userName'];
+
+  /* heart beat. reagular pings to channels to confirm connection
+  if (message === heartbeat_msg) {
+        // reset the counter for missed heartbeats
+        missed_heartbeats = 0;
+        console.log(message+otherName+message);
+        return;
+  }
+  */
+
+  //otherName = data['userName'];
   console.log("receiveing: "+otherName);
 
 
@@ -83,16 +95,41 @@ arenaSocket.onmessage = function(e) {
   }
 
 };
+arenaSocket.onopen = function(e){
+  console.log(alias+" connected");
+  arenaSocket.send(JSON.stringify({
+      userName: alias,
+      message: correctCount
+  }));
 
+  /* heart beat. reagular pings to channels to confirm connection
+  if (heartbeat_interval === null) {
+        missed_heartbeats = 0;
+        heartbeat_interval = setInterval(function() {
+            try {
+                missed_heartbeats++;
+                if (missed_heartbeats >= 3)
+                    throw new Error("Too many missed heartbeats.");
+                arenaSocket.send(JSON.stringify({
+                    userName: alias,
+                    message: heartbeat_msg
+                }));
+            } catch(e) {
+                clearInterval(heartbeat_interval);
+                heartbeat_interval = null;
+                console.warn("Closing connection. Reason: " + e.message);
+                arenaSocket.close();
+            }
+        }, 5000);
+    }
+    */
+
+}
 arenaSocket.onclose = function(e) {
   console.error('Arena socket closed unexpectedly');
 };
 
 function send (){
-
-  //document.getElementById("p1score").innerHTML = p1score;
-  // incramented in the controler
-
   console.log("sending: "+alias);
   arenaSocket.send(JSON.stringify({
       userName: alias,

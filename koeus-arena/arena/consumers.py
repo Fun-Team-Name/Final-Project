@@ -1,11 +1,16 @@
 # arena/consumers.py
 from channels.generic.websocket import AsyncWebsocketConsumer
+from asgiref.sync import async_to_sync
 import json
 
 class ArenaConsumer(AsyncWebsocketConsumer):
+
     async def connect(self):
+
         self.arena_name = self.scope['url_route']['kwargs']['arena_name']
         self.arena_group_name = 'arena_%s' % self.arena_name
+
+
 
         # Join arena group
         await self.channel_layer.group_add(
@@ -16,6 +21,7 @@ class ArenaConsumer(AsyncWebsocketConsumer):
         await self.accept()
 
     async def disconnect(self, close_code):
+
         # Leave arena group
         await self.channel_layer.group_discard(
             self.arena_group_name,
