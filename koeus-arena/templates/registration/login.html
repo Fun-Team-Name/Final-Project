@@ -72,8 +72,11 @@
                   {% endif %}
 
 
-
-                  <form class = "form-style" method="post" action=" {% url 'login' %} ">
+				  {% if next %}
+				  <form class = "form-style" action="/login/?next={{next}}" method="post" >
+				  {%else%}
+				  <form class = "form-style" method="post" action=" {% url 'teacher' %} ">
+				  {% endif %}
 
 
 <div >

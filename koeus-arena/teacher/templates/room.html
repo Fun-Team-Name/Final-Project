@@ -47,7 +47,7 @@
                     </md-card-content>
             </md-card>
             <md-card md-theme="default" flex="70">
-                    <md-card-title-text layout-padding style="text-align:center"><b>Students</b>  <button onclick="window.location.href='{% url 'room' %}' "><i class="material-icons">add</i></button></md-card-title-text>
+                    <md-card-title-text layout-padding style="text-align:center"><b>Students</b>  <button onclick="window.location.href='{% url 'teacher' %}' "><i class="material-icons">add</i></button></md-card-title-text>
                     <md-card-content layout-padding>
                         <table cellspacing="0" class="students">
                             <thead>
@@ -62,36 +62,29 @@
 
                                 </tr>
                             </thead>
-                                <tr ng-repeat="s in studentsInRoomL1 | orderBy: 'lname'" class="tblrow">
-                                    <td>{%verbatim%}{{s.lname}}{%endverbatim%}</td>
-                                    <td>{%verbatim%}{{s.fname}}{%endverbatim%}</td>
-                                    <td>{%verbatim%}{{s.snum}}{%endverbatim%}</td>
-                                    <td>{%verbatim%}{{s.score}}{%endverbatim%}</td>
-                                    <td>{%verbatim%}{{s.rank}}{%endverbatim%}</td>
-                                    <td>{%verbatim%}{{s.avgTime}}{%endverbatim%}</td>
-                                    <td>{%verbatim%}{{s.totalTime}}{%endverbatim%}</td>
-                                </tr>
+								{% for item in students %}
+									<tr class="tblrow">
+										<td>{{item.lastName}}</td>
+										<td>{{item.firstName}}</td>
+										<td>{{item.studentNumber}}</td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+								{% endfor %}
+
                                 <div ng-show="!newStudBool">
                                 <tr class="tblrow">
-                                        <form name="newStudentForm">
-                                        <td>
-
-                                                <input ng-model="newStudent.lname">
-
-                                        </td>
-                                        <td>
-                                                <input ng-model="newStudent.fname">
-                                        </td>
-                                        <td>
-
-                                                <input ng-model="newStudent.snum">
-
-                                        </td>
-                                        <td><md-button ng-click="addStudent()">Add</md-button></td>
-                                        <td>{%verbatim%}{{s.rank}}{%endverbatim%}</td>
-                                        <td>{%verbatim%}{{s.avgTime}}{%endverbatim%}</td>
-                                        <td>{%verbatim%}{{s.totalTime}}{%endverbatim%}</td>
-                                    </form>
+									<form method="post" action="">
+										{% csrf_token %}
+										<td>{{form.lastName}}</td>
+										<td>{{form.firstName}}</td>
+										<td>{{form.studentNumber}}</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<button type="submit">Create</button>
+									</form>
                                     </tr>
                                     </div>
                         </table>
