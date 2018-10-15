@@ -19,15 +19,15 @@ def room(request):
 	return render(request, 'room.html', {})
 
 
-
 def teacherLogin(request):
-        form = AuthenticationForm(data = request.POST)
-        if form.is_valid():
-            return render(request, 'teacherHome.html', {})
-        else:
-            form = AuthenticationForm(data = request.POST)
-        return render(request, 'registration/login.html',{'form':form})
-
+		form = AuthenticationForm(data = request.POST)
+		if form.is_valid():
+			user = authenticate(username=request.POST['Username'], password=request.POST['Password'])
+			login(request, user)
+			return render(request, 'teacherHome.html', {})
+		else:
+			form = AuthenticationForm(data = request.POST)
+		return render(request, 'registration/login.html',{'form':form})
 
 def signup(request):
 	form = signupForm(request.POST or None)
@@ -50,20 +50,20 @@ def teacherHome(request):
 	classes=request.user.classroom_set.all()
 	if form.is_valid():
 		name = form.cleaned_data.get('name')
-		classroom = Classroom.create(name = name, user = request.user)
-		return redirect('ManageStudents', key=classroom.key)
+		classroom = Classroom.create(name = name, user = request.user.email)
+		return redirect('teacher')
 	return render(request, 'teacherHome.html', {'classes':classes, 'form':form})
 
 @login_required
 def addStudents(request, key):
 	classroom = get_object_or_404(Classroom, key=key)
 	form = addStudentsForm(request.POST or None)
-	students=Student.objects.filter(classroom__contains=request.user)
+	students=Student.objects.filter(classroom=classroom)
 	student=classroom.student_set.all()
 	if form.is_valid():
 		firstName = form.cleaned_data.get('firstName')
 		lastName = form.cleaned_data.get('lastName')
 		studentNumber = form.cleaned_data.get('studentNumber')
 		Student.create(classroom=classroom, firstName=firstName, lastName=lastName, studentNumber=studentNumber)
-		return redirect('ManageStudents', key=key)
-	return render(request, 'ManageStudents.html', {'students':students,'form':form})
+		return redirect('room', key=key)
+	return render(request, 'room.html', {'students':students,'form':form})

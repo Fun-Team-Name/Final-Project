@@ -40,7 +40,7 @@
 
         <md-card md-theme="default">
             <md-card-title-text layout-padding style="text-align:center;color:#22393a"><strong>&nbsp;New Room&nbsp;</strong></md-card-title-text>
-			<form method="post">
+			<form method="post" action="{% url 'teacher' %}">
 				{% csrf_token %}
 				Name: {{ form.name }}
 				<br>
@@ -57,11 +57,11 @@
             </md-card-content>
 
             <md-card-actions>
-                <button onclick="window.location.href='{% url 'room' %}' "><i class="material-icons">edit</i></button>
+                <button onclick="window.location.href='{% url 'room' item.key %}' "><i class="material-icons">edit</i></button>
                 <md-button ng-click="deleteRoom(n)"><i class="material-icons">delete</i></md-button>
             </md-card-actions>
+		</md-card>
 		{% endfor %}
-        </md-card>
     </md-content>
     </div>
 
