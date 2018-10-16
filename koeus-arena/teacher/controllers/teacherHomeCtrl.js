@@ -16,17 +16,15 @@ angular.module('myApp', ['ngMaterial']).controller('teacherHomeCtrl', function($
      var newRoomObject = {num: $scope.count, name: "Test" + ($scope.count).toString(), skillsActive:[]};
      $scope.rooms.push(newRoomObject);
 }
+
 $scope.deleteRoom = function(room){
         // Appending dialog to document.body to cover sidenav in docs app
-        var confirm = $mdDialog.confirm()
-              .title('Confirm Deletion')
-              .textContent('Are you sure you want to delete this room? All data will be lost.')
-              .ok('Confirm')
-              .cancel('Cancel');
-
-        $mdDialog.show(confirm).then(function() {
-            console.log("deleting" + $scope.rooms.indexOf(room))
-            $scope.rooms.splice($scope.rooms.indexOf(room), 1);
+        $mdDialog.show({
+            controller: DialogCtrl,
+            templateURL: "{% static '/templates/confirmDelete.html' %}",
+            parent: angular.element(document.body)
+        }).then(function(confirmDel) {
+               console.log("delete");
         }, function() {
         });
 }
@@ -76,3 +74,9 @@ $scope.addSkill = function(){
 
 }
  });
+
+ function DialogCtrl($scope, $mdDialog) {
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+};

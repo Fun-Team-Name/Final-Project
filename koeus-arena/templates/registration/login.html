@@ -25,22 +25,6 @@
                   <md-tab label="student">
                       <form name="loginFormStudent">
                         <md-input-container>
-                          <label>State:</label>
-                          <md-select ng-model="state">
-                            <md-option ng-repeat="state in stateList" ng-value="state.abbrev">
-                              {{state.abbrev}}
-                            </md-option>
-                          </md-select>
-                        </md-input-container>
-                        <md-input-container>
-                            <label>&nbsp;County:</label>
-                            <md-select ng-model="county">
-                              <md-option ng-repeat="county in countyList" ng-value="county.abbrev">
-                                {{county.abbrev}}
-                              </md-option>
-                            </md-select>
-                        </md-input-container>
-                        <md-input-container>
                           <label>Username: </label>
                           <input ng-model="username" required autofocus="autofocus">
                         </md-input-container>
@@ -49,7 +33,6 @@
                           <label>Password:  </label>
                           <input ng-model="password" type="password" required>
                         </md-input-container>
-                        <h6 style="color:red;text-align:center" ng-show="invalidLogin == true">Invalid Login. Try Again.</h6>
                         <br>
 						<button  type="submit"style = "background-color: DarkBlue; color:white;min-height: 40px;
 	                    min-width: 78px;" onclick="window.location.href='{% url 'student' %}' " >Log In</button>

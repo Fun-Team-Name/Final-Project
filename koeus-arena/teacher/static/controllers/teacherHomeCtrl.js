@@ -28,17 +28,13 @@ $scope.editRoom = function(obj) {
 
 }
 
- $scope.deleteStudent = function(student){
+$scope.deleteRoom = function(room){
     // Appending dialog to document.body to cover sidenav in docs app
-    var confirm = $mdDialog.confirm()
-          .title('Confirm Deletion')
-          .textContent('Are you sure you want to delete this student? All data will be lost.')
-          .ok('Confirm')
-          .cancel('Cancel');
-
-    $mdDialog.show(confirm).then(function() {
-        console.log("deleting" + $scope.studentsInRoom.indexOf(student))
-        $scope.studentsInRoom.splice($scope.studentsInRoom.indexOf(student), 1);
+    $mdDialog.show({
+        controller: DialogCtrl,
+        templateURL: 'confirmDelete.html'
+    }).then(function(confirmDel) {
+           console.log("delete");
     }, function() {
     });
 }
@@ -49,20 +45,6 @@ $scope.editRoom = function(obj) {
      $scope.rooms.push(newRoomObject);
 }
 
-$scope.deleteRoom = function(room){
-        // Appending dialog to document.body to cover sidenav in docs app
-        var confirm = $mdDialog.confirm()
-              .title('Confirm Deletion')
-              .textContent('Are you sure you want to delete this room? All data will be lost.')
-              .ok('Confirm')
-              .cancel('Cancel');
-
-        $mdDialog.show(confirm).then(function() {
-            console.log("deleting" + $scope.rooms.indexOf(room))
-            $scope.rooms.splice($scope.rooms.indexOf(room), 1);
-        }, function() {
-        });
-}
 
  $scope.goto = function(dest){
     if(dest == 'home'){
@@ -83,3 +65,9 @@ $scope.deleteRoom = function(room){
 
 }
  });
+
+ function DialogCtrl($scope, $mdDialog) {
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+};

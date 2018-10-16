@@ -47,7 +47,7 @@
                     </md-card-content>
             </md-card>
             <md-card md-theme="default" flex="70">
-                    <md-card-title-text layout-padding style="text-align:center"><b>Students</b>  <button onclick="window.location.href='{% url 'teacher' %}' "><i class="material-icons">add</i></button></md-card-title-text>
+                    <md-card-title-text layout-padding style="text-align:center"><b>Students</b></md-card-title-text>
                     <md-card-content layout-padding>
                         <table cellspacing="0" class="students">
                             <thead>
@@ -83,14 +83,14 @@
 										<td></td>
 										<td></td>
 										<td></td>
-										<button type="submit">Create</button>
+										
 									</form>
                                     </tr>
                                     </div>
                         </table>
                         <md-card-actions>
-                                <md-button ng-click="newStud()">Add Student</md-button>
-                           //     <md-button ng-csv="getArray" filename="studentData.csv">Export</md-button>
+                            <button type="submit">Create</button>
+                             <!-- <md-button ng-csv="getArray" filename="studentData.csv">Export</md-button> -->
                             </md-card-actions>
                     </md-card-content>
                 </md-card>

@@ -67,4 +67,4 @@ class addClassroomForm(forms.ModelForm):
 			classroom.save()
 		return classroom
 
-class deleteClassroomForm(forms.Form)
+#class deleteClassroomForm(forms.Form)
