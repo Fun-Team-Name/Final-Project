@@ -42,7 +42,25 @@ def signup(request):
 		return redirect('teacher')
 	return render(request, 'registration/signup.html', {'form':form})
 
+@login_required
+def deleteClassroom(request, key):
+	teacher = Account.objects.get(email=request.user.email)
+	classroom = Classroom.objects.get(key=key)
+	ownedClasses = Classroom.objects.filter(teacher__contains=teacher)
+	if classroom in ownedClasses:
+		classroom = Classroom.objects.get(key=key).delete()
+	return redirect('teacher')
 
+'''
+@login_required
+def deleteStudent(request, key):
+	teacher = Account.objects.get(email=request.user.email)
+	classroom = Classroom.objects.get(key=key)
+	ownedClasses = Classroom.objects.filter(teacher__contains=teacher)
+	if classroom in ownedClasses:
+		classroom = Classroom.objects.get(key=key).delete()
+	return redirect('teacher')
+'''
 
 @login_required
 def teacherHome(request):

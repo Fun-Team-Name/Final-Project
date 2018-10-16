@@ -66,3 +66,5 @@ class addClassroomForm(forms.ModelForm):
 		if commit:
 			classroom.save()
 		return classroom
+
+class deleteClassroomForm(forms.Form)

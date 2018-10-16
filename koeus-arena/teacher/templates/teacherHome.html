@@ -58,6 +58,7 @@
 
             <md-card-actions>
                 <button onclick="window.location.href='{% url 'room' item.key %}' "><i class="material-icons">edit</i></button>
+				<!-- on click delete button, turns into a confirm delete button that is a link -->
                 <md-button ng-click="deleteRoom(n)"><i class="material-icons">delete</i></md-button>
             </md-card-actions>
 		</md-card>
