@@ -135,7 +135,7 @@ from: https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_ti
 ## **Front-End Diagram**  
 ![Front End Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/FrontEndDiagram.png)
 
-## [**Burndown Chart and Backlog**](https://docs.google.com/spreadsheets/d/1HtfZup9SnPOCrz9b8pf-G5Kyj8an78QmAuQqOf-cqz8/edit#gid=0)
+## [**Burndown Chart and Backlog**](https://drive.google.com/open?id=1HtfZup9SnPOCrz9b8pf-G5Kyj8an78QmAuQqOf-cqz8)
 
 ##
 
@@ -145,7 +145,7 @@ from: https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_ti
 
 ![UML Class Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/spr2UML.png)
 
-## [**Burndown Chart**](https://docs.google.com/spreadsheets/d/19vf88oTctJ-OZ2_OGCEM8ZfFbThggKwMdxrUroNmdWw/edit?usp=sharing)
+## [**Burndown Chart**](https://drive.google.com/open?id=19vf88oTctJ-OZ2_OGCEM8ZfFbThggKwMdxrUroNmdWw)
 
 
 # Members:
