@@ -1,21 +1,3 @@
-# TEAM
-Can we please check off what we have and finish up the items we dont have? :smiley:
-
-- [x] Vision Statement [1 point]
-
-- [X] Product Backlog [1 point]
-
-- [X] Sprint Backlog [2 points] (plan for ~5-10 user stories per sprint)
-- [X] Burndown Chart [2 points] (can be as simple as a google spreadsheet)
-- [x] Requirements [1 point] `(user stories for functional, dependencies listed in requirements.txt)`
-- [x] Design Documents [2 points] (UML diagrams)
-  - [x] Architecture Diagram
-  - [x] Class Diagrams
-- [x] Code [2 points]
-- [x] Tests [2 points] (automatic testing, instructions below build instructions, also demonstrated in demo video)
-- [x] Demonstration [2 point] (link below build instructions)
-
-
 # **Vision Statement**
 
 ## **Our Goal**
