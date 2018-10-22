@@ -136,10 +136,17 @@ LOGIN_REDIRECT_URL = '/'
 ASGI_APPLICATION = 'koeus.routing.application'
 CHANNEL_LAYERS = {
     'default': {
+        "BACKEND": "redis_cache.RedisCache",
+        "LOCATION": os.environ.get('REDIS_URL'),
+
+
+        ''' Old, for local use
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+
         'CONFIG': {
             "hosts": [('127.0.0.1', 6379)],
         },
+        '''
     },
 }
 
