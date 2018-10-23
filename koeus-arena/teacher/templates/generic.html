@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<html ng-app = "myApp"   ng-controller="homepageCtrl" >
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <link rel="stylesheet" href= "{% static '/css/styles.css' %}" >
+  <!-- <link rel="stylesheet" href= " ../css/styles.css" > -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+  <script src = "{% static '/controllers/homepageCtrl.js' %}"></script>
+  <!-- <script src = " ../controllers/homepageCtrl.js"></script> -->
+  <title>Log In</title>
+</head>
+<body class="loginPage">
+    <div layout="column" class="loginPage">
+      <md-content layout-padding style="background-color:cadetblue;padding:90px 0" >
+        <h1 style="color:white;text-align: center">Please Sign In: </h1>
+        <div class="boxWithShadow" style="background-color:white;width:50%;margin:auto;border-radius:25px">
+          <div>
+            <md-content>
+				{% block content %}
+				{% endblock %}
+            </md-content>
+          </div>
+        </div>
+      </md-content>
+    </div>
+  </body>
+  <footer class="footer">
+    <p>This site is a work in progress. Please pardon the dust! </p>
+    <p>Click <a href="https://github.com/Fun-Team-Name/Final-Project" target="_blank" style="color:blue;text-decoration:underline">here</a> to visit our git repository.</p>
+  </footer>
+</html>
