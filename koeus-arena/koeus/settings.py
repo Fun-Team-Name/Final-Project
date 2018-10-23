@@ -123,6 +123,23 @@ USE_L10N = True
 
 USE_TZ = True
 
+'''
+Old, for local use
+CHANNEL_LAYERS = {
+    'default': {
+
+
+
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+
+    },
+}
+'''
+#WS4REDIS_HEARTBEAT = '--heartbeat--'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
@@ -138,22 +155,5 @@ CACHES={
     'default': {
         "BACKEND": "redis_cache.RedisCache",
         "LOCATION": os.environ.get('REDIS_URL'),
+	}
 }
-
-''' Old, for local use
-CHANNEL_LAYERS = {
-    'default': {
-        
-
-
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
-        },
-
-    },
-}
-'''
-
-#WS4REDIS_HEARTBEAT = '--heartbeat--'
