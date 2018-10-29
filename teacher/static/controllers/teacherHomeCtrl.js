@@ -5,6 +5,7 @@ angular.module('myApp', ['ngMaterial']).controller('teacherHomeCtrl', function($
     $scope.count  = 3;
     $scope.rooms  = [{num: 1, name: "Test1", skillsActive: ["mult", "div"]}, {num: 2, name: "Test2", skillsActive: ["add", "sub"]}, {num:3, name: "Test3", skillsActive:["fraction", "longDiv"]}];
     $scope.editForm;
+    $scope.confirm = false;
     $scope.roomBeingEdited;
     $scope.studentsInRoomL1 = [{fname: "Ross", lname: "Wagner", snum: "123456789", score: '50%', rank: "2", avgTime: "2", totalTime: "3"},
                              {fname: "Cassidy", lname:"Lyons", snum: "987654321", score: '40%', rank: "3", avgTime: "5", totalTime: "10"},
@@ -29,14 +30,7 @@ $scope.editRoom = function(obj) {
 }
 
 $scope.deleteRoom = function(room){
-    // Appending dialog to document.body to cover sidenav in docs app
-    $mdDialog.show({
-        controller: DialogCtrl,
-        templateURL: 'confirmDelete.html'
-    }).then(function(confirmDel) {
-           console.log("delete");
-    }, function() {
-    });
+    $scope.confirm = true;
 }
 
  $scope.newRoom = function(){
