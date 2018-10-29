@@ -133,3 +133,6 @@ textarea{
   overflow: hidden;
   cursor: pointer;
 }
+.deleteButton{
+  color:red;
+}
