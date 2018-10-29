@@ -19,10 +19,12 @@ from django.urls import path
 from django.urls import include
 from teacher import views
 from django.views.generic.base import RedirectView
+from django.contrib.auth import views as authenticationViews
 
 
 urlpatterns = [
 	# path('', include('pages.urls')),
+	#url(r'^login/$', authenticationViews.LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('admin/', admin.site.urls),
 	path('teacher/', include('django.contrib.auth.urls')),
     path('teacher/classrooms/<key>/students/', views.addStudents, name='room'),

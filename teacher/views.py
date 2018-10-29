@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import render, redirect
-from teacher.forms import signupForm, addStudentsForm, addClassroomForm
+from teacher.forms import signupForm, addStudentsForm, addClassroomForm, CustomAuthenticationForm
 from teacher.models import Account, Student, AccountManager, Classroom
 from django.contrib.sessions.models import Session
 from django.contrib.auth import authenticate, login
@@ -20,14 +20,14 @@ def room(request):
 
 
 def teacherLogin(request):
-		form = AuthenticationForm(data = request.POST)
+	form = CustomAuthenticationForm(data = request.POST or None)
+	if request.method == 'POST':
 		if form.is_valid():
-			user = authenticate(username=request.POST['Username'], password=request.POST['Password'])
+			user = authenticate(username=request.POST['username'], password=request.POST['password'])
+			print(user)
 			login(request, user)
-			return render(request, 'teacherHome.html', {})
-		else:
-			form = AuthenticationForm(data = request.POST)
-		return render(request, 'registration/login.html',{'form':form})
+			return redirect('teacher')
+	return render(request, 'registration/login.html',{'form':form})
 
 def signup(request):
 	form = signupForm(request.POST or None)

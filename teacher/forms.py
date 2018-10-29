@@ -5,6 +5,11 @@ from django.utils.translation import ugettext_lazy as _
 from teacher.models import Account
 from teacher.models import Student
 from teacher.models import Classroom
+from django.contrib.auth.forms import AuthenticationForm
+
+class CustomAuthenticationForm(AuthenticationForm):
+	username = forms.EmailField(max_length=254)
+	password = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
 
 class signupForm(forms.ModelForm):
 	password1 = forms.CharField(min_length=12, widget=forms.PasswordInput)
