@@ -58,13 +58,9 @@
 
             <md-card-actions>
                 <div layout="columns">
-                <button onclick="window.location.href='{% url 'room' item.key %}' "><i class="material-icons">edit</i></button>
-                <!-- on click delete button, turns into a confirm delete button that is a link -->
-                <div ng-show="!confirm">
-                <button class="deleteButton" ng-click="deleteRoom(n)"><i class="material-icons">delete</i></button>
-                </div>
-                <div ng-show="confirm">
-                    <button class="deleteButton" type="submit">Confirm</button>
+                <a href="{% url 'room' item.key %}" style="padding-right:1em"><i class="material-icons">edit</i></a>
+                <div>
+                    <a href="{% url 'deleteClassroom' item.key %}" onclick="return confirm('Are you sure you want to delete {{item.name}}');"><i class="material-icons">delete</i></a>
                 </div>
             </div>
             </md-card-actions>

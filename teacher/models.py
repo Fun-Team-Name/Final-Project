@@ -103,8 +103,8 @@ class Student(models.Model):
 
 	@classmethod
 	def create(cls, classroom, firstName, lastName, studentNumber):
-		key=classroom.key+firstName+lastName+studentNumber
-		student = cls(classroom=classroom, firstName=firstName, lastName=lastName, studentNumber=studentNumber, key=key)
+		newkey=classroom.key+firstName+lastName+studentNumber
+		student = cls(classroom=classroom, firstName=firstName, lastName=lastName, studentNumber=studentNumber, key=newkey)
 		student.save()
 		return student
 

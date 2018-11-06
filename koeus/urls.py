@@ -29,10 +29,12 @@ urlpatterns = [
 	path('teacher/', include('django.contrib.auth.urls')),
     path('teacher/classrooms/<key>/students/', views.addStudents, name='room'),
     path('teacher/classrooms/', views.teacherHome, name='teacher'),
+    path('teacher/students/<key>/delete/', views.deleteStudent, name='deleteStudent'),
+    path('teacher/classrooms/<key>/delete/', views.deleteClassroom, name='deleteClassroom'),
     path('', views.teacherLogin, name = 'login'),
     path('accounts/login/', views.teacherLogin, name = 'login'),
 	path('student/', views.student, name = 'student'),
-	path('teacher/classrooms', views.teacherHome, name = 'leader'),
+	path('teacher/classrooms/', views.teacherHome, name = 'leader'),
 	path('registration/', views.signup, name='signup'),
     # handled by arena
     #path('cookie/', views.cookie, name = 'cookie'),

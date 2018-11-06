@@ -38,12 +38,8 @@
             <md-card md-theme="default" flex="25">
                 <md-card-title-text layout-padding style="text-align:center;color:#22393a"><b>General Data</b></md-card-title-text>
                 <md-card-content layout-padding>
-                        <b>Label: </b> {%verbatim%}{{setEditRoom.label}}{%endverbatim%}
-                        <br>
-                        <b>Num Students:</b> {%verbatim%}{{setEditRoom.num}}{%endverbatim%}
+                        <b>Num Students:</b> {{students|length}}
                         &nbsp;
-                        <br>
-                        <b>Total Time: </b>
                     </md-card-content>
             </md-card>
             <md-card md-theme="default" flex="70">
@@ -57,6 +53,7 @@
                                     <th>Student Number</th>
 									<th>Total</th>
 									<th>Correct</th>
+									<th>Delete</th>
                                 </tr>
                             </thead>
 								{% for item in students %}
@@ -66,6 +63,11 @@
 										<td>{{item.studentNumber}}</td>
 										<td>{{item.numberTotal}}</td>
 										<td>{{item.numberCorrect}}</td>
+										<td>
+											<a href="{% url 'deleteStudent' item.key %}" onclick="return confirm('Are you sure you want to delete {{item.firstName}} {{item.lastName}}');">
+												<i class="material-icons">delete</i>
+											</a>
+										</td>
 									</tr>
 								{% endfor %}
 
@@ -77,6 +79,7 @@
 										<td>{{form.firstName}}</td>
 										<td>{{form.studentNumber}}</td>
 										<td><button type="submit">Create</button></td>
+										<td></td>
 										<td></td>
 									</form>
                                     </tr>

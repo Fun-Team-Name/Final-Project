@@ -45,7 +45,7 @@ def signup(request):
 def deleteClassroom(request, key):
 	teacher = Account.objects.get(email=request.user.email)
 	classroom = Classroom.objects.get(key=key)
-	ownedClasses = Classroom.objects.filter(teacher__contains=teacher)
+	ownedClasses = Classroom.objects.filter(teacher=teacher)
 	if classroom in ownedClasses:
 		classroom = Classroom.objects.get(key=key).delete()
 	return redirect('teacher')
@@ -54,7 +54,7 @@ def deleteClassroom(request, key):
 def deleteStudent(request, key):
 	teacher = Account.objects.get(email=request.user.email)
 	student = Student.objects.get(key=key)
-	ownedClasses = Classroom.objects.filter(teacher__contains=teacher)
+	ownedClasses = Classroom.objects.filter(teacher=teacher)
 	classroom = student.classroom
 	if classroom in ownedClasses:
 		student = Student.objects.get(key=key).delete()
