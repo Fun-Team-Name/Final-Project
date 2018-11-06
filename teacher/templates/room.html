@@ -55,11 +55,8 @@
                                     <th>Last</th>
                                     <th>First</th>
                                     <th>Student Number</th>
-                                    <th>Score</th>
-                                    <th>Rank</th>
-                                    <th>Avg Time</th>
-                                    <th>Total Time</th>
-
+									<th>Total</th>
+									<th>Correct</th>
                                 </tr>
                             </thead>
 								{% for item in students %}
@@ -67,9 +64,8 @@
 										<td>{{item.lastName}}</td>
 										<td>{{item.firstName}}</td>
 										<td>{{item.studentNumber}}</td>
-										<td></td>
-										<td></td>
-										<td></td>
+										<td>{{item.numberTotal}}</td>
+										<td>{{item.numberCorrect}}</td>
 									</tr>
 								{% endfor %}
 
@@ -80,7 +76,6 @@
 										<td>{{form.lastName}}</td>
 										<td>{{form.firstName}}</td>
 										<td>{{form.studentNumber}}</td>
-										<td></td>
 										<td></td>
 										<td></td>
 

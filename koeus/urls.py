@@ -32,7 +32,7 @@ urlpatterns = [
     path('', views.teacherLogin, name = 'login'),
     path('accounts/login/', views.teacherLogin, name = 'login'),
 	path('student/', views.student, name = 'student'),
-	path('leader/', views.leaderBoard, name = 'leader'),
+	path('teacher/classrooms', views.teacherHome, name = 'leader'),
 	path('registration/', views.signup, name='signup'),
     # handled by arena
     #path('cookie/', views.cookie, name = 'cookie'),
