@@ -71,20 +71,17 @@
 
                                 <div ng-show="!newStudBool">
                                 <tr class="tblrow">
-									<form method="post" action="">
+									<form method="POST" action="">
 										{% csrf_token %}
 										<td>{{form.lastName}}</td>
 										<td>{{form.firstName}}</td>
 										<td>{{form.studentNumber}}</td>
-										<td></td>
-										<td></td>
-
+										<td><button type="submit">Create</button></td>
 									</form>
                                     </tr>
                                     </div>
                         </table>
                         <md-card-actions>
-                            <button type="submit">Create</button>
                              <!-- <md-button ng-csv="getArray" filename="studentData.csv">Export</md-button> -->
                             </md-card-actions>
                     </md-card-content>
