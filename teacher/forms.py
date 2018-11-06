@@ -11,6 +11,42 @@ class CustomAuthenticationForm(AuthenticationForm):
 	username = forms.EmailField(max_length=254)
 	password = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
 
+class question(forms.Form):
+	correctAnswer = forms.IntegerField()
+	studentAnswer = forms.IntegerField()
+
+	def clean_correctAnswer(self):
+		answer = self.cleaned_data['correctAnswer']
+		return answer
+	def clean_studentAnswer(self):
+		answer = self.cleaned_data['studentAnswer']
+		return answer
+
+class studentLogin(forms.Form):
+	teacherEmail = forms.EmailField()
+	firstName = forms.CharField()
+	lastName = forms.CharField()
+	studentNumber = forms.CharField()
+
+	def clean_teacherEmail(self):
+		email = self.cleaned_data['teacherEmail']
+		if not re.match(r"[^@]+@[^@]+.[^@]+", email):
+			raise ValidationError(_('Invalid teacher email'))
+		return email
+
+	def clean_firstName(self):
+		name = self.cleaned_data['firstName']
+		return name.lower()
+
+	def clean_lastName(self):
+		name = self.cleaned_data['lastName']
+		return name.lower()
+
+	def clean_studentNumber(self):
+		number = self.cleaned_data['studentNumber']
+		return number
+
+
 class signupForm(forms.ModelForm):
 	password1 = forms.CharField(min_length=12, widget=forms.PasswordInput)
 	password2 = forms.CharField(min_length=12, widget=forms.PasswordInput)
