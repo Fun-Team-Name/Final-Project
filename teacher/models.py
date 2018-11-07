@@ -96,11 +96,15 @@ class Student(models.Model):
 	classroom = models.ForeignKey(Classroom, on_delete=models.CASCADE, null=True)
 	firstName = models.CharField(max_length=40, default='')
 	lastName = models.CharField(max_length=40, default='')
-	studentNumber = models.CharField(max_length=20, default='12345')
+	studentNumber = models.CharField(max_length=20, default='')
+	key = models.CharField(max_length=300, default='')
+	numberCorrect = models.PositiveIntegerField(default=0)
+	numberTotal = models.PositiveIntegerField(default=0)
 
 	@classmethod
 	def create(cls, classroom, firstName, lastName, studentNumber):
-		student = cls(classroom=classroom, firstName=firstName, lastName=lastName, studentNumber=studentNumber)
+		key=classroom.key+firstName+lastName+studentNumber
+		student = cls(classroom=classroom, firstName=firstName, lastName=lastName, studentNumber=studentNumber, key=key)
 		student.save()
 		return student
 

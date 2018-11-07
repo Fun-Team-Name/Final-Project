@@ -51,16 +51,15 @@ def deleteClassroom(request, key):
 		classroom = Classroom.objects.get(key=key).delete()
 	return redirect('teacher')
 
-'''
 @login_required
 def deleteStudent(request, key):
 	teacher = Account.objects.get(email=request.user.email)
-	classroom = Classroom.objects.get(key=key)
+	student = Student.objects.get(key=key)
 	ownedClasses = Classroom.objects.filter(teacher__contains=teacher)
+	classroom = student.classroom
 	if classroom in ownedClasses:
-		classroom = Classroom.objects.get(key=key).delete()
-	return redirect('teacher')
-'''
+		student = Student.objects.get(key=key).delete()
+	return redirect('room', key=classroom.key)
 
 @login_required
 def teacherHome(request):
