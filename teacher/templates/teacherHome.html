@@ -1,74 +1,78 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
+
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
- <link rel="stylesheet" href= "{% static '/css/styles.css' %}" >
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="{% static '/css/styles.css' %}">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
-  <script src = "{% static '/controllers/teacherHomeCtrl.js' %}"></script>
-  <title>Teacher Dashboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+    <script src="{% static '/controllers/studentHomeCtrl.js' %}"></script>
+    <title>Teacher Dashboard</title>
 
 </head>
-<body class="loginPage" ng-app="myApp" ng-controller="teacherHomeCtrl">
-        <!-- Top Nav Bar-->
-        <div class="boxWithShadow">
-			<md-content class="md-padding">
-            <div class = "topnav">
-                  <a onclick="window.location.href='{% url 'teacher' %}' " >
-                    Home
-				</a>
-				<a onclick="window.location.href='{% url 'leader' %}' " >
-				Leader Board
-			  </a>
-			  <a style = "color: red;" onclick="window.location.href='/teacher/logout' ">
-				Log Out {{request.user.email}}
-		  </a>
 
-</div>
-</md-content>
-</div>
+<body class="loginPage" ng-app="myApp" ng-controller="stduentHomeCtrl">
+    <!-- Top Nav Bar-->
+    <div class="boxWithShadow">
+        <md-content class="md-padding">
+            <div class="topnav">
+                <a onclick="window.location.href='{% url 'teacher' %}' ">
+                    Home
+                </a>
+                <a onclick="window.location.href='{% url 'leader' %}' ">
+                    Leader Board
+                </a>
+                <a style="color: red;" onclick="window.location.href='/teacher/logout' ">
+                    Log Out {{request.user.email}}
+                </a>
+
+            </div>
+        </md-content>
+    </div>
 
 
     <br>
     <div flex-xs flex-gt-xs="100" layout="column">
         <md-content layout-wrap style="background-color:cadetblue;" class="md-padding" flex layout-xs="column" layout="row">
 
-        <md-card md-theme="default">
-            <md-card-title-text layout-padding style="text-align:center;color:#22393a"><strong>&nbsp;New Room&nbsp;</strong></md-card-title-text>
-			<form method="post" action="{% url 'teacher' %}">
-				{% csrf_token %}
-				Name: {{ form.name }}
-				<br>
-				<button type="submit">Create</button>
-			</form>
-        </md-card>
-		{% for item in classes %}
-		<md-card>
-            <md-card-title-text layout-padding style="text-align:center;color:#22393a"><b>{{ item.name }}</b></md-card-title-text>
-            <md-card-content layout-padding>
-                <b>Key: </b>{{ item.key }}
-                &nbsp;
-                <br>
-            </md-card-content>
+            <md-card md-theme="default">
+                <md-card-title-text layout-padding style="text-align:center;color:#22393a"><strong>&nbsp;New Room&nbsp;</strong></md-card-title-text>
+                <form method="post" action="{% url 'teacher' %}">
+                    {% csrf_token %}
+                    Name: {{ form.name }}
+                    <br>
+                    <button type="submit">Create</button>
+                </form>
+            </md-card>
+            {% for item in classes %}
+            <md-card>
+                <md-card-title-text layout-padding style="text-align:center;color:#22393a"><b>{{ item.name }}</b></md-card-title-text>
+                <md-card-content layout-padding>
+                    <b>Key: </b>{{ item.key }}
+                    &nbsp;
+                    <br>
+                </md-card-content>
 
-            <md-card-actions>
-                <div layout="columns">
-                <a href="{% url 'room' item.key %}" style="padding-right:1em"><i class="material-icons">edit</i></a>
-                <div>
-                    <a href="{% url 'deleteClassroom' item.key %}" onclick="return confirm('Are you sure you want to delete {{item.name}}');"><i class="material-icons">delete</i></a>
-                </div>
-            </div>
-            </md-card-actions>
-		</md-card>
-		{% endfor %}
-    </md-content>
+                <md-card-actions>
+                    <div layout="columns">
+                        <a href="{% url 'room' item.key %}" style="padding-right:1em"><i class="material-icons">edit</i></a>
+                        <div>
+                            <a href="{% url 'deleteClassroom' item.key %}" onclick="return confirm('Are you sure you want to delete {{item.name}}');"><i
+                                    class="material-icons">delete</i></a>
+                        </div>
+                    </div>
+                </md-card-actions>
+            </md-card>
+            {% endfor %}
+        </md-content>
     </div>
 
 
 </body>
+
 </html>
