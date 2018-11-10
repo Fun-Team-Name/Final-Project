@@ -12,17 +12,17 @@ class CustomAuthenticationForm(AuthenticationForm):
 	password = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
 
 class question(forms.Form):
-	correctAnswer = forms.IntegerField()
-	studentAnswer = forms.IntegerField()
+	studentKey = forms.CharField()
+	correct = forms.BooleanField()
 
-	def clean_correctAnswer(self):
-		answer = self.cleaned_data['correctAnswer']
+	def clean_studentKey(self):
+		answer = self.cleaned_data['studentKey']
 		return answer
-	def clean_studentAnswer(self):
-		answer = self.cleaned_data['studentAnswer']
+	def clean_correct(self):
+		answer = self.cleaned_data['correct']
 		return answer
 
-class studentLogin(forms.Form):
+class studentLoginForm(forms.Form):
 	teacherEmail = forms.EmailField()
 	firstName = forms.CharField()
 	lastName = forms.CharField()

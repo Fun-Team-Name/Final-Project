@@ -1,96 +1,101 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
-<head>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-   <link rel="stylesheet" href= "{% static '/css/styles.css' %}" >
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
-  <script src = "{% static '/controllers/teacherHomeCtrl.js' %}"></script>
 
-  <title>Room</title>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="{% static '/css/styles.css' %}">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+    <script src="{% static '/controllers/studentHomeCtrl.js' %}"></script>
+
+    <title>Room</title>
 
 </head>
-<body class="loginPage" ng-app="myApp" ng-controller="teacherHomeCtrl">
+
+<body class="loginPage" ng-app="myApp" ng-controller="studentHomeCtrl">
     <!-- Top Nav Bar-->
     <div class="boxWithShadow">
-		<md-content class="md-padding">
-		<div class = "topnav">
-			  <a onclick="window.location.href='{% url 'teacher' %}' " >
-				Home
-			</a>
-			<a onclick="window.location.href='{% url 'leader' %}' " >
-			Leader Board
-		  </a>
-		  <a style = "color: red;" onclick="window.location.href='/teacher/logout' ">
-			Log Out
-	  </a>
+        <md-content class="md-padding">
+            <div class="topnav">
+                <a onclick="window.location.href='{% url 'teacher' %}' ">
+                    Home
+                </a>
+                <a onclick="window.location.href='{% url 'leader' %}' ">
+                    Leader Board
+                </a>
+                <a style="color: red;" onclick="window.location.href='/teacher/logout' ">
+                    Log Out
+                </a>
 
-</div>
-</md-content>
+            </div>
+        </md-content>
     </div>
     <h1 style="text-align:center;color:white">Edit Room View</h1>
     <md-content layout-wrap style="background-color:cadetblue;" class="md-padding" flex layout-xs="column" layout="row">
-            <md-card md-theme="default" flex="25">
-                <md-card-title-text layout-padding style="text-align:center;color:#22393a"><b>General Data</b></md-card-title-text>
-                <md-card-content layout-padding>
-                        <b>Num Students:</b> {{students|length}}
-                        &nbsp;
-                    </md-card-content>
-            </md-card>
-            <md-card md-theme="default" flex="70">
-                    <md-card-title-text layout-padding style="text-align:center"><b>Students</b></md-card-title-text>
-                    <md-card-content layout-padding>
-                        <table cellspacing="0" class="students">
-                            <thead>
-                                <tr>
-                                    <th>Last</th>
-                                    <th>First</th>
-                                    <th>Student Number</th>
-									<th>Total</th>
-									<th>Correct</th>
-									<th>Delete</th>
-                                </tr>
-                            </thead>
-								{% for item in students %}
-									<tr class="tblrow">
-										<td>{{item.lastName}}</td>
-										<td>{{item.firstName}}</td>
-										<td>{{item.studentNumber}}</td>
-										<td>{{item.numberTotal}}</td>
-										<td>{{item.numberCorrect}}</td>
-										<td>
-											<a href="{% url 'deleteStudent' item.key %}" onclick="return confirm('Are you sure you want to delete {{item.firstName}} {{item.lastName}}');">
-												<i class="material-icons">delete</i>
-											</a>
-										</td>
-									</tr>
-								{% endfor %}
+        <md-card layout-sm="rows" md-theme="default" flex-gt-sm="25">
+            <md-card-title-text layout-padding style="text-align:center;color:#22393a"><b>General Data</b></md-card-title-text>
+            <md-card-content layout-padding>
+                <b>Num Students:</b> {{students|length}}
+                &nbsp;
+            </md-card-content>
+        </md-card>
+        <md-card md-theme="default" flex="70">
+            <md-card-title-text layout-padding style="text-align:center"><b>Students (Total: {{students|length}})</b></md-card-title-text>
+            <md-card-content layout-padding>
+                <div style="overflow-x:auto;">
+                <table cellspacing="0" class="students">
+                    <thead>
+                        <tr>
+                            <th>Last</th>
+                            <th>First</th>
+                            <th>Student Number</th>
+                            <th>Total</th>
+                            <th>Correct</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    {% for item in students %}
+                    <tr class="tblrow">
+                        <td>{{item.lastName}}</td>
+                        <td>{{item.firstName}}</td>
+                        <td>{{item.studentNumber}}</td>
+                        <td>{{item.numberTotal}}</td>
+                        <td>{{item.numberCorrect}}</td>
+                        <td>
+                            <a href="{% url 'deleteStudent' item.key %}" onclick="return confirm('Are you sure you want to delete {{item.firstName}} {{item.lastName}}');">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
 
-                                <div ng-show="!newStudBool">
-                                <tr class="tblrow">
-									<form method="POST" action="">
-										{% csrf_token %}
-										<td>{{form.lastName}}</td>
-										<td>{{form.firstName}}</td>
-										<td>{{form.studentNumber}}</td>
-										<td><button type="submit">Create</button></td>
-										<td></td>
-										<td></td>
-									</form>
-                                    </tr>
-                                    </div>
-                        </table>
-                        <md-card-actions>
-                             <!-- <md-button ng-csv="getArray" filename="studentData.csv">Export</md-button> -->
-                            </md-card-actions>
-                    </md-card-content>
-                </md-card>
-        </md-content>
+                    <div ng-show="!newStudBool">
+                        <tr class="tblrow">
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                <td>{{form.lastName}}</td>
+                                <td>{{form.firstName}}</td>
+                                <td>{{form.studentNumber}}</td>
+                                <td><button type="submit">Create</button></td>
+                                <td></td>
+                                <td></td>
+                            </form>
+                        </tr>
+                    </div>
+                </table>
+            </div>
+                <md-card-actions>
+                    <!-- <md-button ng-csv="getArray" filename="studentData.csv">Export</md-button> -->
+                </md-card-actions>
+            </md-card-content>
+        </md-card>
+    </md-content>
 
 </body>
+
 </html>

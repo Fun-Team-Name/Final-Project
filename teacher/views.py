@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import render, redirect
-from teacher.forms import signupForm, addStudentsForm, addClassroomForm, CustomAuthenticationForm
+from teacher.forms import signupForm, addStudentsForm, addClassroomForm, CustomAuthenticationForm, studentLoginForm
 from teacher.models import Account, Student, AccountManager, Classroom
 from django.contrib.sessions.models import Session
 from django.contrib.auth import authenticate, login
@@ -17,16 +17,26 @@ def student(request):
 def room(request):
 	return render(request, 'room.html', {})
 
-
 def teacherLogin(request):
 	form = CustomAuthenticationForm(data = request.POST or None)
+	studentForm = studentLoginForm(request.POST or None)
 	if request.method == 'POST':
 		if form.is_valid():
 			user = authenticate(username=request.POST['username'], password=request.POST['password'])
-			print(user)
 			login(request, user)
 			return redirect('teacher')
-	return render(request, 'registration/login.html',{'form':form})
+		if studentForm.is_valid():
+			email = studentForm.cleaned_data.get('email')
+			firstName = studentForm.cleaned_data.get('firstName')
+			lastName = studentForm.cleaned_data.get('lastName')
+			studentNumber = studentForm.cleaned_data.get('studentNumber')
+			teacher = Account.objects.get(email=request.user.email)
+			ownedClasses = Classroom.objects.filter(teacher=teacher)
+			toLogin = Student.objects.filter(firstName = firstName, lastName = lastName, studentNumber = studentNumber, classroom__in = ownedClasses)
+			request.session['studentKey'] = toLogin.key
+			request.session['name'] = toLogin.getName()
+			return redirect('student')
+	return render(request, 'registration/login.html',{'form':form, 'studentForm':studentForm})
 
 def signup(request):
 	form = signupForm(request.POST or None)
