@@ -1,7 +1,7 @@
-{% extends "baseNavBar.html" %}
+{% extends "studentBase.html" %}
 
 {% block title %}
-  
+
   <title>Arena Loby</title>
 {% endblock title%}
 
@@ -13,7 +13,9 @@
 
 <input id = "alias" type="text" size="100"/><br/>
 <input id="arena-name-submit" type="button" value="Enter"/>
+{%endblock content%}
 
+{%block scripts%}
 <script>
     document.querySelector('#alias').focus();
     document.querySelector('#alias').onkeyup = function(e) {
@@ -35,4 +37,8 @@
         window.location.pathname = '/arena/' + arenaName + '/' + alias;
     };
 </script>
-{%endblock content%}
+
+
+
+{% load staticfiles %}
+{%endblock scripts%}

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
@@ -49,14 +50,41 @@
 		<br>
 		<h5 style="color:white;text-align: center">Enter your answer: </h5>
 		<div layout-padding style="text-align:center">
+=======
+{% extends "studentBase.html" %}
+
+{%block title%}
+  <title>Student Page</title>
+{%endblock title%}
+
+
+
+{%block content%}
+		<md-content layout-padding style="background-color:cadetblue;padding:90px 0" >
+			<h3 style="text-align:right;color:white">Score: {%verbatim%}{{correctCount}} {%endverbatim%}/{%verbatim%} {{totalCount}}{%endverbatim%}</h3>
+			<h3 style="text-align:right;color:white">{%verbatim%}{{streakMessage}}{%endverbatim%}</h3>
+			<h1 style="color:white;text-align: center">{%verbatim%}{{operand1}}{%endverbatim%} X {%verbatim%}{{operand2}}{%endverbatim%}=</h1>
+
+			<br>
+			<h5 style="color:white;text-align: center">Enter your answer: </h5>
+			<div layout-padding style="text-align:center">
+>>>>>>> Stashed changes
 			<form name="studentAnswerForm">
 				<input ng-model="answer" autofocus="autofocus">
 				<br>
 				<input type="submit" class="md-raised md-primary" ng-disabled="loginForm.$invalid" ng-click="checkAnswer()" value="Check Answer">
 			</form>
 		</div>
+<<<<<<< Updated upstream
 		</div>
 	</md-content>
 </body>
 
 </html>
+=======
+		</md-content>
+{%endblock content%}
+
+{%block scripts%}
+{%endblock scripts%}
+>>>>>>> Stashed changes

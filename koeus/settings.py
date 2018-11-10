@@ -26,7 +26,11 @@ SECRET_KEY = 'i_i!)3@zn2uoz2+69c*iutnfg@%zl9@@y@5&&lo(be=g_+t_as' #os.environ['S
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< Updated upstream
 ALLOWED_HOSTS = ['192.168.2.1', 'localhost', gethostname(), gethostbyname(gethostname()),]
+=======
+ALLOWED_HOSTS = ['127.0.0.1','localhost', gethostname(), gethostbyname(gethostname()),]
+>>>>>>> Stashed changes
 
 
 # Application definition
@@ -124,8 +128,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-'''
-Old, for local use
+
+#Old, for local use
+ASGI_APPLICATION = 'koeus.routing.application'
 CHANNEL_LAYERS = {
     'default': {
 
@@ -139,7 +144,7 @@ CHANNEL_LAYERS = {
 
     },
 }
-'''
+
 #WS4REDIS_HEARTBEAT = '--heartbeat--'
 
 # Static files (CSS, JavaScript, Images)
@@ -152,10 +157,13 @@ STATIC_ROOT = "staticfiles"
 LOGIN_REDIRECT_URL = '/teacher/classrooms'
 LOGIN_URL = '/'
 
-ASGI_APPLICATION = 'koeus.routing.application'
+
+
+''''
 CACHES={
     'default': {
         "BACKEND": "redis_cache.RedisCache",
-        "LOCATION": os.environ.get('REDIS_URL'),
+        "LOCATION": '127.0.0.1',#os.environ.get('REDIS_URL'),
 	}
 }
+'''
