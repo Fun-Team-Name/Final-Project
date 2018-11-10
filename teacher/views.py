@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import render, redirect
-from teacher.forms import signupForm, addStudentsForm, addClassroomForm, CustomAuthenticationForm, studentLoginForm
+from teacher.forms import *
 from teacher.models import Account, Student, AccountManager, Classroom
 from django.contrib.sessions.models import Session
 from django.contrib.auth import authenticate, login
@@ -13,9 +13,12 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
 
 def student(request):
-	return render(request, 'studentHome.html', {})
-def room(request):
-	return render(request, 'room.html', {})
+	question = questionForm(data = request.POST or None)
+	if request.method=='POST':
+		if question.is_valid():
+			print('asdf')
+	return render(request, 'studentHome.html', {'question':question})
+
 
 def teacherLogin(request):
 	form = CustomAuthenticationForm(data = request.POST or None)
@@ -26,16 +29,19 @@ def teacherLogin(request):
 			login(request, user)
 			return redirect('teacher')
 		if studentForm.is_valid():
-			email = studentForm.cleaned_data.get('email')
+			email = studentForm.cleaned_data.get('teacherEmail')
 			firstName = studentForm.cleaned_data.get('firstName')
 			lastName = studentForm.cleaned_data.get('lastName')
 			studentNumber = studentForm.cleaned_data.get('studentNumber')
-			teacher = Account.objects.get(email=request.user.email)
+			teacher = Account.objects.get(email=email)
 			ownedClasses = Classroom.objects.filter(teacher=teacher)
-			toLogin = Student.objects.filter(firstName = firstName, lastName = lastName, studentNumber = studentNumber, classroom__in = ownedClasses)
-			request.session['studentKey'] = toLogin.key
-			request.session['name'] = toLogin.getName()
-			return redirect('student')
+			try:
+				toLogin = Student.objects.filter(firstName = firstName, lastName = lastName, studentNumber = studentNumber, classroom__in = ownedClasses)
+				request.session['studentKey'] = toLogin[0].key
+				request.session['name'] = toLogin[0].getName()
+				return redirect('student')
+			except:
+				print("except")
 	return render(request, 'registration/login.html',{'form':form, 'studentForm':studentForm})
 
 def signup(request):

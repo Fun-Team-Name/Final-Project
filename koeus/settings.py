@@ -27,7 +27,7 @@ SECRET_KEY = 'i_i!)3@zn2uoz2+69c*iutnfg@%zl9@@y@5&&lo(be=g_+t_as' #os.environ['S
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost', gethostname(), gethostbyname(gethostname()),]
+ALLOWED_HOSTS = ['192.168.2.1', '127.0.0.1','localhost', gethostname(), gethostbyname(gethostname()),]
 
 
 

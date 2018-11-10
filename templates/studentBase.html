@@ -3,13 +3,10 @@
 <a onclick="window.location.href='student'" name="goHome">
 Home
 </a>
-<a onclick="window.location.href='{% url 'leader' %}' " >
-Leader Board
-</a>
 <a onclick="window.location.href='{% url 'lobby' %}' " >
 Arena
 </a>
 <a style = "color: red;" onclick="window.location.href='{% url 'login' %}' " name="goHome">
-Log Out {{request.user.email}}
+Log Out {{request.session.name}}
 </a>
 {%endblock nav%}
