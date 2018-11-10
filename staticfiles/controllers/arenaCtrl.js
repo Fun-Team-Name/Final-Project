@@ -61,7 +61,7 @@ function updateLocal (){
   streakTag.innerHTML = "Streak: "+ streak;
   streakMessageTag.innerHTML = streakMessage;
 }
-
+// console.log(window.location.host);
 var arenaSocket = new WebSocket(
   'ws://' + window.location.host +
   '/ws/arena/' + arenaName + '/');
