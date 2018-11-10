@@ -66,7 +66,7 @@ Our product will consist of a web-based application that allows a teacher to to 
 9. `pip install -r requirements.txt`
 10. `python manage.py runserver`
 11. in your browser go to **localhost:8000**
-12. **As Teacher** click teacher tab 
+12. **As Teacher** click teacher tab
 13. click sign up button to create account
 14. log in with credentials navigate site
 
@@ -79,7 +79,7 @@ right before step 10 do the following
 now pick back up with `python manage.py runserver` and continue
 
 
- 
+
 
 
 please view the demo video before building:
@@ -92,9 +92,39 @@ In the video, some build instructions are skipped since dependencies are already
 ## Testing
 To run unit tests:
 
-navigate to koeus-arena folder from cloned repo
+In your terminal from the root directory
+```bash
+ls
+```
+if manage.py is listed you are in the right place! now
 
 run the following command:
+
+```bash
+python manage.y runserver
+
+```
+Now open a new terminal window (keep the server running in the first window!)
+
+Navigate back to the new folder where the virtualenv ENV was created and you cloned the koeus repo
+
+run the following commands
+
+if on a mac
+
+```bash
+`source bin/activate`  
+cd Koeus
+python manage.py test teacher -v 2
+
+```
+for windows
+```bash
+`.Scripts/activate`
+cd Koeus
+python manage.py test teacher -v 2
+```
+
 
 `python manage.py test teacher -v 2`
 
@@ -135,4 +165,3 @@ from: https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_ti
 * Annavay Kean
 * Cassidy Lyons
 * Ross Wagner
-
