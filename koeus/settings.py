@@ -148,7 +148,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),
 
 ]
 STATIC_URL = '/static/'
-
+STATIC_ROOT = "staticfiles"
 LOGIN_REDIRECT_URL = '/teacher/classrooms'
 LOGIN_URL = '/'
 
