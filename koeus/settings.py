@@ -16,32 +16,28 @@ from socket import gethostname, gethostbyname
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'i_i!)3@zn2uoz2+69c*iutnfg@%zl9@@y@5&&lo(be=g_+t_as' #os.environ['SECRET_KOEUS']
+SECRET_KEY = 'i_i!)3@zn2uoz2+69c*iutnfg@%zl9@@y@5&&lo(be=g_+t_as'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.2.1', 'localhost', gethostname(), gethostbyname(gethostname()),]
-
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    gethostname(),
+    gethostbyname(gethostname()),
+]
 
 # Application definition
 
 INSTALLED_APPS = [
-    'channels',
-    'arena',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-	'teacher.apps.TeacherConfig'
-
+    'channels', 'arena', 'django.contrib.admin', 'django.contrib.auth',
+    'django.contrib.contenttypes', 'django.contrib.sessions',
+    'django.contrib.messages', 'django.contrib.staticfiles',
+    'teacher.apps.TeacherConfig'
 ]
 
 MIDDLEWARE = [
@@ -77,7 +73,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'koeus.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 DATABASES = {
@@ -92,16 +87,20 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -124,28 +123,22 @@ USE_L10N = True
 
 USE_TZ = True
 
-'''
-Old, for local use
+# Old, for local use
 CHANNEL_LAYERS = {
     'default': {
-
-
-
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
-
         'CONFIG': {
             "hosts": [('127.0.0.1', 6379)],
         },
-
     },
 }
-'''
+
 #WS4REDIS_HEARTBEAT = '--heartbeat--'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
 ]
 STATIC_URL = '/static/'
 STATIC_ROOT = "staticfiles"
@@ -153,9 +146,10 @@ LOGIN_REDIRECT_URL = '/teacher/classrooms'
 LOGIN_URL = '/'
 
 ASGI_APPLICATION = 'koeus.routing.application'
-CACHES={
-    'default': {
-        "BACKEND": "redis_cache.RedisCache",
-        "LOCATION": os.environ.get('REDIS_URL'),
-	}
-}
+# CACHES = {
+#     'default': {
+#         #"BACKEND": "redis_cache.RedisCache",
+#         'BACKEND': 'redis_cache.cache.RedisCache',
+#         "LOCATION": os.environ.get('REDIS_URL'),
+#     }
+# }
