@@ -14,17 +14,26 @@
       <h3 id="streakMessage"></h3>
 
     </div>
-    <div id="problem" class="column">
-      <h1 id="question" style="color:white;text-align: center">{%verbatim%}{{operand1}}{%endverbatim%} X {%verbatim%}{{operand2}}{%endverbatim%}=</h1>
-      <br>
-      <h5 style="color:white;text-align: center">Enter your answer: </h5>
-      <div layout-padding style="text-align:center">
-        <form id="studentAnswerForm" name="studentAnswerForm">
-          <input id="answer" ng-model="answer" autofocus="autofocus">
-          <br>
-          <input type="submit" class="md-raised md-primary" ng-disabled="loginForm.$invalid" onclick="checkAnswer()" value="Check Answer">
-        </form>
-      </div>
+    <div id = "problem" class = "column">
+      <h1 id = "question"style="color:white;text-align: center">{%verbatim%}{{operand1}}{%endverbatim%} X {%verbatim%}{{operand2}}{%endverbatim%}=</h1>
+			<br>
+			<h5 style="color:white;text-align: center">Enter your answer: </h5>
+			<div layout-padding style="text-align:center">
+  			<form id="studentAnswerForm" name="studentAnswerForm">
+    			<input  id="answer" ng-model="answer"  autofocus="autofocus">
+    			<br>
+    			<input type="submit" class="md-raised md-primary" ng-disabled="loginForm.$invalid" onclick="checkAnswer()" value="Check Answer">
+  			</form>
+			<br><br><br>
+			<form id="correctForm" method="post" action=''>
+				{% csrf_token %}
+				<div style="display:none">
+					{{question.correct}}
+					{{question.questions}}
+				</div>
+				<input id="answer_save_submit" type="submit" value="Press to leave and submit score" />
+			</form>
+			</div>
     </div>
 
     <div id="opponents" class="column" style="text-align:center;color:white">

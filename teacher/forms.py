@@ -12,10 +12,15 @@ class CustomAuthenticationForm(AuthenticationForm):
 	password = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
 
 class questionForm(forms.Form):
-	correct = forms.BooleanField()
+	correct = forms.IntegerField(required=False, initial=0)
+	questions = forms.IntegerField(required=False, initial=0)
 
 	def clean_correct(self):
 		answer = self.cleaned_data['correct']
+		return answer
+
+	def clean_questions(self):
+		answer = self.cleaned_data['questions']
 		return answer
 
 class studentLoginForm(forms.Form):

@@ -7,7 +7,6 @@
 
 
 {%block content%}
-<<<<<<< HEAD
 <md-content layout-padding style="background-color:cadetblue;padding:90px 0">
   <h3 style="text-align:right;color:white">Score: {%verbatim%}{{correctCount}} {%endverbatim%}/{%verbatim%} {{totalCount}}{%endverbatim%}</h3>
   <h3 style="text-align:right;color:white">{%verbatim%}{{streakMessage}}{%endverbatim%}</h3>
@@ -25,37 +24,6 @@
   </div>
 
 </md-content>
-=======
-		<md-content layout-padding style="background-color:cadetblue;padding:90px 0" >
-			<h3 style="text-align:right;color:white">Score: {%verbatim%}{{correctCount}} {%endverbatim%}/{%verbatim%} {{totalCount}}{%endverbatim%}</h3>
-			<h3 style="text-align:right;color:white">{%verbatim%}{{streakMessage}}{%endverbatim%}</h3>
-			<h1 style="color:white;text-align: center">{%verbatim%}{{operand1}}{%endverbatim%} X {%verbatim%}{{operand2}}{%endverbatim%}=</h1>
-
-			<br>
-			<h5 style="color:white;text-align: center">Enter your answer: </h5>
-	    <div layout-padding style="text-align:center">
-
-			<form name="studentAnswerForm">
-				<input ng-model="answer" autofocus="autofocus">
-				<br>
-				<input type="submit" class="md-raised md-primary" ng-disabled="loginForm.$invalid" ng-click="checkAnswer()" value="Check Answer">
-			</form>
-
-			<!--
-			<form class = "form-style" method="post" action=''>
-				{% csrf_token %}
-				<md-input-container>
-					<td>{{question.correct}}</td>
-				</md-input-container>
-				<br>
-				<input  type="submit"style = "background-color: DarkBlue;" value="Log In" />
-			</form>
-			-->
-
-		</div>
-
-		</md-content>
->>>>>>> 243716281eb5e2f1d7c52f7c2a75482791112dfc
 {%endblock content%}
 
 {%block scripts%}
