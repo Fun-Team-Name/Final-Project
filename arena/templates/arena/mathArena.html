@@ -1,52 +1,53 @@
 {% extends "studentBase.html" %}
 
 {%block title%}
-  <title>Arena {{ arena_name_json }}</title>
-  {%endblock title%}
+<title>Arena {{ arena_name_json }}</title>
+{%endblock title%}
 
 {% block content %}
-  <md-content layout-padding style="background-color:cadetblue;padding:90px 0" >
-  <div id ="problemSpace" class ="row">
+<md-content layout-padding style="background-color:cadetblue;padding:90px 0">
+  <div id="problemSpace" class="row">
 
-    <div id="scores" class = "column" style="text-align:center;color:white">
+    <div id="scores" class="column" style="text-align:center;color:white">
       <h3 id="score">Score: </h3>
-      <h3 id = "streak"></h3>
-      <h3 id = "streakMessage"></h3>
+      <h3 id="streak"></h3>
+      <h3 id="streakMessage"></h3>
 
     </div>
-    <div id = "problem" class = "column">
-      <h1 id = "question"style="color:white;text-align: center">{%verbatim%}{{operand1}}{%endverbatim%} X {%verbatim%}{{operand2}}{%endverbatim%}=</h1>
-			<br>
-			<h5 style="color:white;text-align: center">Enter your answer: </h5>
-			<div layout-padding style="text-align:center">
-  			<form id="studentAnswerForm" name="studentAnswerForm">
-    			<input  id="answer" ng-model="answer"  autofocus="autofocus">
-    			<br>
-    			<input type="submit" class="md-raised md-primary" ng-disabled="loginForm.$invalid" onclick="checkAnswer()" value="Check Answer">
-  			</form>
-			</div>
+    <div id="problem" class="column">
+      <h1 id="question" style="color:white;text-align: center">{%verbatim%}{{operand1}}{%endverbatim%} X {%verbatim%}{{operand2}}{%endverbatim%}=</h1>
+      <br>
+      <h5 style="color:white;text-align: center">Enter your answer: </h5>
+      <div layout-padding style="text-align:center">
+        <form id="studentAnswerForm" name="studentAnswerForm">
+          <input id="answer" ng-model="answer" autofocus="autofocus">
+          <br>
+          <input type="submit" class="md-raised md-primary" ng-disabled="loginForm.$invalid" onclick="checkAnswer()" value="Check Answer">
+        </form>
+      </div>
     </div>
 
-    <div id = "opponents" class = "column" style="text-align:center;color:white">
-      <h2>Opponent Scores:<br><h2>
-      <h3 id="otherScores">No Opponents</h3>
+    <div id="opponents" class="column" style="text-align:center;color:white">
+      <h2>Opponent Scores:<br>
+        <h2>
+          <h3 id="otherScores">No Opponents</h3>
     </div>
 
 
 
   </div>
-  </md-content>
+</md-content>
 
 {% endblock content %}
 
 {%block scripts%}
-  {% load staticfiles %}
-  <script>
-    var arenaName = {{ arena_name_json }};
-    var alias = {{alias_json}};
-  </script>
+{% load staticfiles %}
+<script>
+  var arenaName = {{arena_name_json}};
+  var alias = {{alias_json}};
+</script>
 
 
-  <script src = "{% static '/controllers/arenaCtrl.js' %}"></script>
+<script src="{% static '/controllers/arenaCtrl.js' %}"></script>
 
 {%endblock scripts%}
