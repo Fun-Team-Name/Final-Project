@@ -69,7 +69,7 @@ To Navigate Site:
 ## Testing
 To run unit tests:
 
-In your terminal from the root directory
+In your terminal from the root directory og the Koeus Repo
 ```bash
 ls
 ```
@@ -78,17 +78,7 @@ if manage.py is listed you are in the right place! now
 run the following command:
 
 ```bash
-python manage.py runserverArena tests
-
-  1) student can navigate to arena
-    * given that the student has logged in, when the arena button is clicked, they are take to an arena with the name of their class room and given their user name as an alias.
-
-  2) student will be informed if they get a question correct
-    * given that a student is in an arena, when they answer a question correctly, their score will go up by one, indicating that they got the answer correct.
-
-  3) Student will be informed when other students get questions correct
-    * given that there are 2 or more students in the same arena, when one student gets a question correct all the other students will see that students score go up by one on their page.
-
+python manage.py runserver
 
 ```
 Now open a new terminal window (keep the server running in the first window!)
@@ -119,6 +109,19 @@ python manage.py test teacher.tests -v 2
 ### Acceptance Testing
 
 #### Arena tests
+To Log in as a student, You must first
+
+1. Log in as Teacher as described above
+
+2. Create New Room
+
+3. Click the pencil icon next to the room you create
+
+4. Enter first name, last name and student number
+
+5. Click create to create a student
+
+Now you can log in as a student **With the teacher's email address**
 
   1) student can navigate to arena
 
