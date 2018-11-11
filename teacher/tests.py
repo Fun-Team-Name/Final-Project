@@ -236,6 +236,8 @@ class AddStudentLogin(unittest.TestCase):
     def test_add_student_login(self):
         driver = self.driver
         driver.get("http://127.0.0.1:8000/")
+        driver.find_element_by_id("tab-item-1").click()
+
         driver.find_element_by_id("id_teacherEmail").click()
         driver.find_element_by_id("id_teacherEmail").clear()
         driver.find_element_by_id("id_teacherEmail").send_keys(
@@ -243,7 +245,6 @@ class AddStudentLogin(unittest.TestCase):
         driver.find_element_by_id("id_firstName").click()
         driver.find_element_by_id("id_firstName").clear()
         driver.find_element_by_id("id_firstName").send_keys("firstname")
-        driver.find_element_by_id("tab-item-1").click()
         driver.find_element_by_id("id_teacherEmail").click()
         driver.find_element_by_id("id_teacherEmail").clear()
         driver.find_element_by_id("id_teacherEmail").send_keys(
