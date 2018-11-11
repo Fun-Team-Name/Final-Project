@@ -38,8 +38,8 @@ Our product will consist of a web-based application that allows a teacher to to 
 ## Members:
 * Darien Craig
 * Annavay Kean
-* Cassidy Lyons
-* Ross Wagner
+* Cassidy Lyons - Product Owner
+* Ross Wagner - Scrum Master
 
 # Sprint 3
 ## Build Instructions:
