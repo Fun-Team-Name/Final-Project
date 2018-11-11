@@ -16,7 +16,7 @@ from django.test import LiveServerTestCase
 import unittest, time, re
 
 
-class UntitledTestCase(unittest.TestCase):
+class ASignUpTest(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome()
@@ -25,7 +25,202 @@ class UntitledTestCase(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
 
-    def test_untitled_test_case(self):
+    def test_a_sign_up(self):
+        driver = self.driver
+        driver.get("http://127.0.0.1:8000/accounts/login/")
+        driver.find_element_by_xpath(
+            "(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::button[1]"
+        ).click()
+        driver.find_element_by_id("id_email").click()
+        driver.find_element_by_id("id_email").clear()
+        driver.find_element_by_id("id_email").send_keys("newUser@mail.com")
+        driver.find_element_by_id("id_firstName").click()
+        driver.find_element_by_id("id_firstName").clear()
+        driver.find_element_by_id("id_firstName").send_keys("first")
+        driver.find_element_by_xpath(
+            "(.//*[normalize-space(text()) and normalize-space(.)='Email:'])[1]/following::p[1]"
+        ).click()
+        driver.find_element_by_id("id_lastName").click()
+        driver.find_element_by_id("id_lastName").clear()
+        driver.find_element_by_id("id_lastName").send_keys("last")
+        driver.find_element_by_xpath(
+            "(.//*[normalize-space(text()) and normalize-space(.)='FirstName:'])[1]/following::p[1]"
+        ).click()
+        driver.find_element_by_id("id_password1").click()
+        driver.find_element_by_id("id_password1").clear()
+        driver.find_element_by_id("id_password1").send_keys("password1234")
+        driver.find_element_by_id("id_password2").click()
+        driver.find_element_by_id("id_password2").clear()
+        driver.find_element_by_id("id_password2").send_keys("password1234")
+        driver.find_element_by_xpath(
+            "(.//*[normalize-space(text()) and normalize-space(.)='Password2:'])[1]/following::button[1]"
+        ).click()
+
+    def is_element_present(self, how, what):
+        try:
+            self.driver.find_element(by=how, value=what)
+        except NoSuchElementException as e:
+            return False
+        return True
+
+    def is_alert_present(self):
+        try:
+            self.driver.switch_to_alert()
+        except NoAlertPresentException as e:
+            return False
+        return True
+
+    def close_alert_and_get_its_text(self):
+        try:
+            alert = self.driver.switch_to_alert()
+            alert_text = alert.text
+            if self.accept_next_alert:
+                alert.accept()
+            else:
+                alert.dismiss()
+            return alert_text
+        finally:
+            self.accept_next_alert = True
+
+    def tearDown(self):
+        self.driver.quit()
+        self.assertEqual([], self.verificationErrors)
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+
+class TeacherLoginUnitTest(unittest.TestCase):
+
+    def setUp(self):
+        self.driver = webdriver.Chrome()
+        self.driver.implicitly_wait(30)
+        self.base_url = "https://www.katalon.com/"
+        self.verificationErrors = []
+        self.accept_next_alert = True
+
+    def test_teacher_login_unit(self):
+        driver = self.driver
+        driver.get("http://127.0.0.1:8000/accounts/login/")
+        driver.find_element_by_id("id_username").click()
+        driver.find_element_by_id("id_username").clear()
+        driver.find_element_by_id("id_username").send_keys("newUser@mail.com")
+        driver.find_element_by_id("id_password").click()
+        driver.find_element_by_id("id_password").clear()
+        driver.find_element_by_id("id_password").send_keys("password1234")
+        driver.find_element_by_xpath(
+            "(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]"
+        ).click()
+
+    def is_element_present(self, how, what):
+        try:
+            self.driver.find_element(by=how, value=what)
+        except NoSuchElementException as e:
+            return False
+        return True
+
+    def is_alert_present(self):
+        try:
+            self.driver.switch_to_alert()
+        except NoAlertPresentException as e:
+            return False
+        return True
+
+    def close_alert_and_get_its_text(self):
+        try:
+            alert = self.driver.switch_to_alert()
+            alert_text = alert.text
+            if self.accept_next_alert:
+                alert.accept()
+            else:
+                alert.dismiss()
+            return alert_text
+        finally:
+            self.accept_next_alert = True
+
+    def tearDown(self):
+        self.driver.quit()
+        self.assertEqual([], self.verificationErrors)
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+
+class NewRoomTest(unittest.TestCase):
+
+    def setUp(self):
+        self.driver = webdriver.Chrome()
+        self.driver.implicitly_wait(30)
+        self.base_url = "https://www.katalon.com/"
+        self.verificationErrors = []
+        self.accept_next_alert = True
+
+    def test_new_room(self):
+        driver = self.driver
+        driver.get("http://127.0.0.1:8000/accounts/login/")
+        driver.find_element_by_id("id_username").click()
+        driver.find_element_by_id("id_username").clear()
+        driver.find_element_by_id("id_username").send_keys("newUser@mail.com")
+        driver.find_element_by_id("id_password").click()
+        driver.find_element_by_id("id_password").clear()
+        driver.find_element_by_id("id_password").send_keys("password1234")
+        driver.find_element_by_xpath(
+            "(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]"
+        ).click()
+        driver.find_element_by_id("id_name").click()
+        driver.find_element_by_id("id_name").clear()
+        driver.find_element_by_id("id_name").send_keys("create new room")
+        driver.find_element_by_xpath(
+            "(.//*[normalize-space(text()) and normalize-space(.)='create new room'])[1]/preceding::button[1]"
+        ).click()
+
+    def is_element_present(self, how, what):
+        try:
+            self.driver.find_element(by=how, value=what)
+        except NoSuchElementException as e:
+            return False
+        return True
+
+    def is_alert_present(self):
+        try:
+            self.driver.switch_to_alert()
+        except NoAlertPresentException as e:
+            return False
+        return True
+
+    def close_alert_and_get_its_text(self):
+        try:
+            alert = self.driver.switch_to_alert()
+            alert_text = alert.text
+            if self.accept_next_alert:
+                alert.accept()
+            else:
+                alert.dismiss()
+            return alert_text
+        finally:
+            self.accept_next_alert = True
+
+    def tearDown(self):
+        self.driver.quit()
+        self.assertEqual([], self.verificationErrors)
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+
+class NewRoomUndo(unittest.TestCase):
+
+    def setUp(self):
+        self.driver = webdriver.Chrome()
+        self.driver.implicitly_wait(30)
+        self.base_url = "https://www.katalon.com/"
+        self.verificationErrors = []
+        self.accept_next_alert = True
+
+    def test_new_room_undo(self):
         driver = self.driver
         driver.get("http://127.0.0.1:8000/")
         driver.find_element_by_id("id_username").click()
