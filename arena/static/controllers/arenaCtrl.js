@@ -16,16 +16,22 @@ var questionTag = document.getElementById("question");
 var answerTag = document.getElementById("answer");
 var studentAnswerForm = document.getElementById("studentAnswerForm");
 var otherScoresTag = document.getElementById("otherScores");
+var correctBox = document.getElementById("id_correct");
+var questionsBox = document.getElementById("id_questions");
 var heartbeat_msg = '--heartbeat--', heartbeat_interval = null, missed_heartbeats = 0;
+questionsBox.value=0;
+correctBox.value=0;
 
 updateLocal();
 
 function checkAnswer() {
   answer = parseInt(answerTag.value);
   totalCount++;
+  questionsBox.value++;
   if(answer == operand1 * operand2){
       correctCount++;
       streak++;
+	  correctBox.value++;
   }
   else{
     streak = 0;

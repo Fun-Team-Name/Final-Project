@@ -39,6 +39,7 @@ def teacherLogin(request):
 				toLogin = Student.objects.filter(firstName = firstName, lastName = lastName, studentNumber = studentNumber, classroom__in = ownedClasses)
 				request.session['studentKey'] = toLogin[0].key
 				request.session['name'] = toLogin[0].getName()
+				request.session['classroom'] = toLogin[0].classroom.key
 				return redirect('student')
 			except:
 				print("except")

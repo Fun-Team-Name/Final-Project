@@ -24,6 +24,15 @@
     			<br>
     			<input type="submit" class="md-raised md-primary" ng-disabled="loginForm.$invalid" onclick="checkAnswer()" value="Check Answer">
   			</form>
+			<br><br><br>
+			<form id="correctForm" method="post" action=''>
+				{% csrf_token %}
+				<div style="display:none">
+					{{question.correct}}
+					{{question.questions}}
+				</div>
+				<input id="answer_save_submit" type="submit" value="Press to submit score" />
+			</form>
 			</div>
     </div>
 
