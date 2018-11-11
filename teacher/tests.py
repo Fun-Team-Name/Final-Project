@@ -224,6 +224,80 @@ if __name__ == "__main__":
     unittest.main()
 
 
+class AddStudentLogin(unittest.TestCase):
+
+    def setUp(self):
+        self.driver = webdriver.Chrome()
+        self.driver.implicitly_wait(30)
+        self.base_url = "https://www.katalon.com/"
+        self.verificationErrors = []
+        self.accept_next_alert = True
+
+    def test_add_student_login(self):
+        driver = self.driver
+        driver.get("http://127.0.0.1:8000/")
+        driver.find_element_by_id("tab-item-1").click()
+
+        driver.find_element_by_id("id_teacherEmail").click()
+        driver.find_element_by_id("id_teacherEmail").clear()
+        driver.find_element_by_id("id_teacherEmail").send_keys(
+            "newUser@mail.com")
+        driver.find_element_by_id("id_firstName").click()
+        driver.find_element_by_id("id_firstName").clear()
+        driver.find_element_by_id("id_firstName").send_keys("firstname")
+        driver.find_element_by_id("id_teacherEmail").click()
+        driver.find_element_by_id("id_teacherEmail").clear()
+        driver.find_element_by_id("id_teacherEmail").send_keys(
+            "newUser@mail.com")
+        driver.find_element_by_id("id_firstName").click()
+        driver.find_element_by_id("id_firstName").clear()
+        driver.find_element_by_id("id_firstName").send_keys("firstname")
+        driver.find_element_by_id("id_lastName").click()
+        driver.find_element_by_id("id_lastName").clear()
+        driver.find_element_by_id("id_lastName").send_keys("lastname")
+        driver.find_element_by_id("id_studentNumber").click()
+        driver.find_element_by_id("id_studentNumber").click()
+        driver.find_element_by_id("id_studentNumber").clear()
+        driver.find_element_by_id("id_studentNumber").send_keys("245789099")
+        driver.find_element_by_xpath(
+            "(.//*[normalize-space(text()) and normalize-space(.)='Studentnumber:'])[1]/following::input[2]"
+        ).click()
+
+    def is_element_present(self, how, what):
+        try:
+            self.driver.find_element(by=how, value=what)
+        except NoSuchElementException as e:
+            return False
+        return True
+
+    def is_alert_present(self):
+        try:
+            self.driver.switch_to_alert()
+        except NoAlertPresentException as e:
+            return False
+        return True
+
+    def close_alert_and_get_its_text(self):
+        try:
+            alert = self.driver.switch_to_alert()
+            alert_text = alert.text
+            if self.accept_next_alert:
+                alert.accept()
+            else:
+                alert.dismiss()
+            return alert_text
+        finally:
+            self.accept_next_alert = True
+
+    def tearDown(self):
+        self.driver.quit()
+        self.assertEqual([], self.verificationErrors)
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+
 class NewRoomEdit(unittest.TestCase):
 
     def setUp(self):

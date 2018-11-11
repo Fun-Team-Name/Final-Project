@@ -26,10 +26,11 @@ Our product will consist of a web-based application that allows a teacher to to 
 * As a teacher I want to remove students
 * As a teacher I want to be able to see my students scores
 
+* As a teacher I want to be able to create virtual rooms where my students can practice with and compete against each other
 
 #### **Incomplete**
 
-* As a teacher I want to be able to create virtual rooms where my students can practice with and compete against each other
+
 
 
 
@@ -42,6 +43,84 @@ Our product will consist of a web-based application that allows a teacher to to 
 
 # Sprint 3
 ## Build Instructions:
+**These build instructions assume you have python 3 and pip installed**
+
+1. `pip install virtualenv`
+2. create a new folder on your desktop
+3. chage working directory to new folder
+4. `virtualenv ENV`
+5. `source bin/activate` if on a mac or `.Scripts/activate` for windows
+6. `git clone https://github.com/Fun-Team-Name/Koeus.git`
+7. `cd koeus`
+8. `pip install -r requirements.txt`
+
+To Navigate Site:
+
+1. `python manage.py runserver`
+2. in your browser go to **localhost:8000**
+3. **As Teacher** click teacher tab
+4. click sign up button to create account
+5. log in with credentials to navigate site
+
+
+
+
+
+## Testing
+To run unit tests:
+
+In your terminal from the root directory
+```bash
+ls
+```
+if manage.py is listed you are in the right place! now
+
+run the following command:
+
+```bash
+python manage.py runserver
+
+```
+Now open a new terminal window (keep the server running in the first window!)
+
+Navigate back to the new folder where the virtualenv ENV was created and you cloned the koeus repo
+
+run the following commands
+
+if on a mac
+
+```bash
+`source bin/activate`  
+cd Koeus
+python manage.py test teacher.tests -v 2
+
+```
+for windows
+```bash
+`.Scripts/activate`
+cd Koeus
+python manage.py test teacher.tests -v 2
+```
+
+
+
+
+
+### Acceptance Testing
+
+#### Arena tests
+
+  1) student can navigate to arena
+
+    * given that the student has logged in, when the arena button is clicked, they are take to an arena with the name of their class room and given their user name as an alias.
+
+  2) student will be informed if they get a question correct
+
+    * given that a student is in an arena, when they answer a question correctly, their score will go up by one, indicating that they got the answer correct.
+
+  3) Student will be informed when other students get questions correct
+
+    * given that there are 2 or more students in the same arena, when one student gets a question correct all the other students will see that students score go up by one on their page.
 
 
 ## **Diagrams**
@@ -142,5 +221,5 @@ from: https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_ti
 # Members:
 * Darien Craig
 * Annavay Kean
-* Cassidy Lyons
-* Ross Wagner
+* Cassidy Lyons - Product Owner
+* Ross Wagner - Scrum Master
