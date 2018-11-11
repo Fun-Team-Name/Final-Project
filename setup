@@ -1,0 +1,22 @@
+pip install virtualenv
+cd ~/Desktop
+mkdir project
+virtualenv ENV
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+        workon ENV
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+        source bin/activate
+fi
+
+git clone https://github.com/Fun-Team-Name/Koeus.git
+
+cd Koeus
+
+pip install -r requirements.txt
+
+./server &
+
+sleep 10 s
+
+/usr/bin/firefox  http://localhost

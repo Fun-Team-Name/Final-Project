@@ -26,10 +26,11 @@ Our product will consist of a web-based application that allows a teacher to to 
 * As a teacher I want to remove students
 * As a teacher I want to be able to see my students scores
 
+* As a teacher I want to be able to create virtual rooms where my students can practice with and compete against each other
 
 #### **Incomplete**
 
-* As a teacher I want to be able to create virtual rooms where my students can practice with and compete against each other
+
 
 
 
