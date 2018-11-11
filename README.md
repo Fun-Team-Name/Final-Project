@@ -56,8 +56,8 @@ Our product will consist of a web-based application that allows a teacher to to 
 
 To Navigate Site:
 
-1. `python manage.py runserver`
-2. in your browser go to **localhost:8000**
+1. `sudo ./server` to start django server and redis server for web sockets
+2. in your browser go to **localhost**
 3. **As Teacher** click teacher tab
 4. click sign up button to create account
 5. log in with credentials to navigate site
@@ -78,7 +78,17 @@ if manage.py is listed you are in the right place! now
 run the following command:
 
 ```bash
-python manage.py runserver
+python manage.py runserverArena tests
+
+  1) student can navigate to arena
+    * given that the student has logged in, when the arena button is clicked, they are take to an arena with the name of their class room and given their user name as an alias.
+
+  2) student will be informed if they get a question correct
+    * given that a student is in an arena, when they answer a question correctly, their score will go up by one, indicating that they got the answer correct.
+
+  3) Student will be informed when other students get questions correct
+    * given that there are 2 or more students in the same arena, when one student gets a question correct all the other students will see that students score go up by one on their page.
+
 
 ```
 Now open a new terminal window (keep the server running in the first window!)
