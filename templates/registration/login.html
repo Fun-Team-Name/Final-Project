@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-<html ng-app = "myApp"   ng-controller="homepageCtrl" >
+<html ng-app = "myApp"   ng-controller="studentHomeCtrl" >
 <head>
   <!--
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -21,7 +21,7 @@
   <link rel="shortcut icon" href="{%static '/favicon.ico' %}" type="image/x-icon">
   <link rel="icon" href="{%static '/favicon.ico' %}" type="image/x-icon">
 <!---->
-  <script src = "{% static '/controllers/homepageCtrl.js' %}"></script>
+<script src="{% static '/controllers/studentHomeCtrl.js' %}"></script>
   <!-- <script src = " ../controllers/homepageCtrl.js"></script> -->
   <title>Log In</title>
 </head>
@@ -96,20 +96,34 @@
 
 
 
-                  <md-tab label="student">
-                      <form name="loginFormStudent">
-                        <md-input-container>
-                          <label>Username: </label>
-                          <input ng-model="username" required autofocus="autofocus">
-                        </md-input-container>
-                        <br>
-                        <md-input-container>
-                          <label>Password:  </label>
-                          <input ng-model="password" type="password" required>
-                        </md-input-container>
-                        <br>
+                <md-tab label="student">
+					<form class = "form-style" method="post" action=''>
+						{% csrf_token %}
+						<md-input-container>
+			  				<td>{{ studentForm.teacherEmail.label_tag }}</td>
+							<td>{{studentForm.teacherEmail}}</td>
+						</md-input-container>
+						<br>
+						<md-input-container>
+			  				<td>{{ studentForm.firstName.label_tag }}</td>
+							<td>{{studentForm.firstName}}</td>
+						</md-input-container>
+						<br>
+						<md-input-container>
+			  				<td>{{ studentForm.lastName.label_tag }}</td>
+							<td>{{studentForm.lastName}}</td>
+						</md-input-container>
+						<br>
+						<md-input-container>
+			  				<td>{{ studentForm.studentNumber.label_tag }}</td>
+							<td>{{studentForm.studentNumber}}</td>
+						</md-input-container>
+						<br>
+						<input  type="submit"style = "background-color: DarkBlue;" value="Log In" />
+						<!--
 						<button  type="submit"style = "background-color: DarkBlue; color:white;min-height: 40px;
 	                    min-width: 78px;" onclick="window.location.href='{% url 'student' %}' " >Log In</button>
+						-->
                       </form>
                 </md-tab>
                 </md-tabs>

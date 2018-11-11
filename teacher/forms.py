@@ -11,13 +11,9 @@ class CustomAuthenticationForm(AuthenticationForm):
 	username = forms.EmailField(max_length=254)
 	password = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
 
-class question(forms.Form):
-	studentKey = forms.CharField()
+class questionForm(forms.Form):
 	correct = forms.BooleanField()
 
-	def clean_studentKey(self):
-		answer = self.cleaned_data['studentKey']
-		return answer
 	def clean_correct(self):
 		answer = self.cleaned_data['correct']
 		return answer

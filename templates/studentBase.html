@@ -7,6 +7,6 @@ Home
 Arena
 </a>
 <a style = "color: red;" onclick="window.location.href='{% url 'login' %}' " name="goHome">
-Log Out {{request.user.email}}
+Log Out {{request.session.name}}
 </a>
 {%endblock nav%}
