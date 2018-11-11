@@ -43,6 +43,27 @@ Our product will consist of a web-based application that allows a teacher to to 
 
 # Sprint 3
 ## Build Instructions:
+**These build instructions assume you have python 3 and pip installed**
+
+1. `pip install virtualenv`
+2. create a new folder on your desktop
+3. chage working directory to new folder
+4. `virtualenv ENV`
+5. `source bin/activate` if on a mac or `.Scripts/activate` for windows
+6. `git clone https://github.com/Fun-Team-Name/Koeus.git`
+7. `cd koeus`
+8. `pip install -r requirements.txt`
+
+To Navigate Site:
+
+1. `python manage.py runserver`
+2. in your browser go to **localhost:8000**
+3. **As Teacher** click teacher tab
+4. click sign up button to create account
+5. log in with credentials to navigate site
+
+
+now pick back up with `python manage.py runserver` and continue
 
 
 ## Testing
@@ -200,5 +221,5 @@ from: https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_ti
 # Members:
 * Darien Craig
 * Annavay Kean
-* Cassidy Lyons
-* Ross Wagner
+* Cassidy Lyons - Product Owner
+* Ross Wagner - Scrum Master
