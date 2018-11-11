@@ -51,7 +51,7 @@ Our product will consist of a web-based application that allows a teacher to to 
 4. `virtualenv ENV`
 5. `source bin/activate` if on a mac or `.Scripts/activate` for windows
 6. `git clone https://github.com/Fun-Team-Name/Koeus.git`
-7. `cd koeus`
+7. `cd Koeus`
 8. `pip install -r requirements.txt`
 
 To Navigate Site:
