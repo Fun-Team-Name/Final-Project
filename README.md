@@ -57,7 +57,7 @@ if manage.py is listed you are in the right place! now
 run the following command:
 
 ```bash
-python manage.y runserver
+python manage.py runserver
 
 ```
 Now open a new terminal window (keep the server running in the first window!)
