@@ -2,40 +2,40 @@
 
 {% block title %}
 
-  <title>Arena Loby</title>
+<title>Arena Loby</title>
 {% endblock title%}
 
 {%block content%}
 <h3 style="color:white;text-align: left">What arena would you like to enter?</h3>
 
-<input id="arena-name-input" type="text" size="100"/><br/>
+<input id="arena-name-input" autofocus="autofocus" type="text" size="100" /><br />
 <h3 style="color:white;text-align: left">Enter an alias</h3>
 
-<input id = "alias" type="text" size="100"/><br/>
-<input id="arena-name-submit" type="button" value="Enter"/>
+<input id="alias" type="text" size="100" /><br />
+<input id="arena-name-submit" type="button" value="Enter" />
 {%endblock content%}
 
 {%block scripts%}
 <script>
-    document.querySelector('#alias').focus();
-    document.querySelector('#alias').onkeyup = function(e) {
-        if (e.keyCode === 13) {  // enter, return
-            document.querySelector('#arena-name-submit').click();
-        }
-    };
+  document.querySelector('#alias').focus();
+  document.querySelector('#alias').onkeyup = function(e) {
+    if (e.keyCode === 13) { // enter, return
+      document.querySelector('#arena-name-submit').click();
+    }
+  };
 
-    document.querySelector('#arena-name-input').focus();
-    document.querySelector('#arena-name-input').onkeyup = function(e) {
-        if (e.keyCode === 13) {  // enter, return
-            document.querySelector('#arena-name-submit').click();
-        }
-    };
+  document.querySelector('#arena-name-input').focus();
+  document.querySelector('#arena-name-input').onkeyup = function(e) {
+    if (e.keyCode === 13) { // enter, return
+      document.querySelector('#arena-name-submit').click();
+    }
+  };
 
-    document.querySelector('#arena-name-submit').onclick = function(e) {
-        var arenaName = document.querySelector('#arena-name-input').value;
-        var alias = document.querySelector('#alias').value;
-        window.location.pathname = '/arena/' + arenaName + '/' + alias;
-    };
+  document.querySelector('#arena-name-submit').onclick = function(e) {
+    var arenaName = document.querySelector('#arena-name-input').value;
+    var alias = document.querySelector('#alias').value;
+    window.location.pathname = '/arena/' + arenaName + '/' + alias;
+  };
 </script>
 
 

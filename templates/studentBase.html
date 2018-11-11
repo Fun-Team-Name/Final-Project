@@ -1,10 +1,7 @@
 {% extends "baseNavBar.html" %}
 {%block nav%}
-<a onclick="window.location.href='student'" name="goHome">
+<a onclick="window.location.href='{%url 'student'%}'" name="goHome">
 Home
-</a>
-<a onclick="window.location.href='{% url 'leader' %}' " >
-Leader Board
 </a>
 <a onclick="window.location.href='{% url 'lobby' %}' " >
 Arena

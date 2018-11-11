@@ -1,0 +1,4 @@
+Arena tests
+
+  1) student can navigate to arena
+    * given that the student has logged in, when the arena button is clicked, they are take to an arena with the name of their class room and given their user name as an alias  
