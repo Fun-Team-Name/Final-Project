@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
+import re, string
 
 def student(request):
 	question = questionForm(data = request.POST or None)
@@ -33,13 +34,14 @@ def teacherLogin(request):
 			firstName = studentForm.cleaned_data.get('firstName')
 			lastName = studentForm.cleaned_data.get('lastName')
 			studentNumber = studentForm.cleaned_data.get('studentNumber')
-			teacher = Account.objects.get(email=email)
-			ownedClasses = Classroom.objects.filter(teacher=teacher)
 			try:
+				teacher = Account.objects.get(email=email)
+				ownedClasses = Classroom.objects.filter(teacher=teacher)
 				toLogin = Student.objects.filter(firstName = firstName, lastName = lastName, studentNumber = studentNumber, classroom__in = ownedClasses)
+				pattern = re.compile('[\W_]+')
 				request.session['studentKey'] = toLogin[0].key
-				request.session['name'] = toLogin[0].getName()
-				request.session['classroom'] = toLogin[0].classroom.key
+				request.session['name'] = pattern.sub('', toLogin[0].getName())
+				request.session['classroom'] = pattern.sub('', toLogin[0].classroom.key)
 				return redirect('student')
 			except:
 				print("except")

@@ -12,8 +12,8 @@ class CustomAuthenticationForm(AuthenticationForm):
 	password = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
 
 class questionForm(forms.Form):
-	correct = forms.IntegerField(required=False)
-	questions = forms.IntegerField(required=False)
+	correct = forms.IntegerField(required=False, initial=0)
+	questions = forms.IntegerField(required=False, initial=0)
 
 	def clean_correct(self):
 		answer = self.cleaned_data['correct']
