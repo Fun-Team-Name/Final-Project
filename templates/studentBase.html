@@ -3,7 +3,7 @@
 <a onclick="window.location.href='{%url 'student'%}'" name="goHome">
 Home
 </a>
-<a onclick="window.location.href='{% url 'lobby' %}' " >
+<a onclick="window.location.href='{% url 'arena' request.session.classroom request.session.name%}' " >
 Arena
 </a>
 <a style = "color: red;" onclick="window.location.href='{% url 'login' %}' " name="goHome">
