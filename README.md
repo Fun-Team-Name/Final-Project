@@ -63,7 +63,7 @@ To Navigate Site:
 5. log in with credentials to navigate site
 
 
-now pick back up with `python manage.py runserver` and continue
+
 
 
 ## Testing
