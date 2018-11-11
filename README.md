@@ -82,7 +82,6 @@ python manage.py test teacher.tests -v 2
 ```
 
 
-`python manage.py test teacher.tests -v 2`
 
 
 
