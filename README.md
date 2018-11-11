@@ -46,6 +46,45 @@ Our product will consist of a web-based application that allows a teacher to to 
 
 
 ## Testing
+To run unit tests:
+
+In your terminal from the root directory
+```bash
+ls
+```
+if manage.py is listed you are in the right place! now
+
+run the following command:
+
+```bash
+python manage.y runserver
+
+```
+Now open a new terminal window (keep the server running in the first window!)
+
+Navigate back to the new folder where the virtualenv ENV was created and you cloned the koeus repo
+
+run the following commands
+
+if on a mac
+
+```bash
+`source bin/activate`  
+cd Koeus
+python manage.py test teacher.tests -v 2
+
+```
+for windows
+```bash
+`.Scripts/activate`
+cd Koeus
+python manage.py test teacher.tests -v 2
+```
+
+
+`python manage.py test teacher.tests -v 2`
+
+
 
 ### Acceptance Testing
 
