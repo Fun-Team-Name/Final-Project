@@ -21,29 +21,17 @@ Our product will consist of a web-based application that allows a teacher to to 
 * As a teacher I want to be able to save my email
 * As a student I want to be able to see if I got a question right
 * As a student I want to compete against my classmates
-
-
-
-#### **Incomplete**
 * As a teacher I want to add students
 
 * As a teacher I want to remove students
-
-* As a teacher I want my students to only compete among equivalent skill levels
-
 * As a teacher I want to be able to see my students scores
 
-* As a teacher I want to be able to see my students answer times
+
+#### **Incomplete**
 
 * As a teacher I want to be able to create virtual rooms where my students can practice with and compete against each other
 
-* As a student I want to be able to quickly recover my password
 
-* As a sysadmin I want the application to be containerized
-
-* As a developer I want to the code I have to maintain be modular and understandable
-
-# Sprint 2
 
 
 ## Members:
@@ -51,6 +39,27 @@ Our product will consist of a web-based application that allows a teacher to to 
 * Annavay Kean
 * Cassidy Lyons
 * Ross Wagner
+
+# Sprint 3
+## Build Instructions:
+
+
+## **Diagrams**
+![Architecture  Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/djangoChannelWebSoc.png)
+
+from: https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_time_apps_in_django
+
+## **Class Diagram**
+![UML Class Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/spr2UML.png)
+
+## **Front-End Diagram**  
+![Front End Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/FrontEndDiagram.png)
+
+## [**Burndown Chart and Backlog**](https://docs.google.com/spreadsheets/d/1BNy15-jIkYN5aDQnCjlmuokwcQ13f2On7_Z6qptLdi4/edit?usp=sharing)
+
+##
+
+# Sprint 2
 
 ## Build Instructions:  
 **These build instructions assume you have python 3 and pip installed**
@@ -66,7 +75,7 @@ Our product will consist of a web-based application that allows a teacher to to 
 9. `pip install -r requirements.txt`
 10. `python manage.py runserver`
 11. in your browser go to **localhost:8000**
-12. **As Teacher** click teacher tab 
+12. **As Teacher** click teacher tab
 13. click sign up button to create account
 14. log in with credentials navigate site
 
@@ -79,7 +88,7 @@ right before step 10 do the following
 now pick back up with `python manage.py runserver` and continue
 
 
- 
+
 
 
 please view the demo video before building:
@@ -135,4 +144,3 @@ from: https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_ti
 * Annavay Kean
 * Cassidy Lyons
 * Ross Wagner
-
