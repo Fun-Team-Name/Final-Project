@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-<html ng-app = "myApp"   ng-controller="homepageCtrl" >
+<html ng-app = "myApp"   ng-controller="studentHomeCtrl" >
 <head>
   <!--
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -21,7 +21,7 @@
   <link rel="shortcut icon" href="{%static '/favicon.ico' %}" type="image/x-icon">
   <link rel="icon" href="{%static '/favicon.ico' %}" type="image/x-icon">
 <!---->
-  <script src = "{% static '/controllers/homepageCtrl.js' %}"></script>
+<script src="{% static '/controllers/studentHomeCtrl.js' %}"></script>
   <!-- <script src = " ../controllers/homepageCtrl.js"></script> -->
   <title>Log In</title>
 </head>
