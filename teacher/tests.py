@@ -185,6 +185,9 @@ class AddStudent(unittest.TestCase):
         driver.find_element_by_xpath(
             "(.//*[normalize-space(text()) and normalize-space(.)='delete'])[1]/following::button[1]"
         ).click()
+        driver.find_element_by_xpath(
+            "(.//*[normalize-space(text()) and normalize-space(.)='Delete'])[1]/following::button[1]"
+        ).click()
 
     def is_element_present(self, how, what):
         try:
@@ -305,6 +308,7 @@ class AddNewRoomTest(unittest.TestCase):
         driver.find_element_by_id("id_name").click()
         driver.find_element_by_id("id_name").clear()
         driver.find_element_by_id("id_name").send_keys("create new room")
+        driver.find_element_by_xpath("//button[@type='submit']").click()
         driver.find_element_by_xpath(
             "(.//*[normalize-space(text()) and normalize-space(.)='create new room'])[1]/preceding::button[1]"
         ).click()
