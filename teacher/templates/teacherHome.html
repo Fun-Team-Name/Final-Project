@@ -16,7 +16,7 @@
 
 </head>
 
-<body class="loginPage" ng-app="myApp" ng-controller="stduentHomeCtrl">
+<body class="loginPage" ng-app="myApp" ng-controller="studentHomeCtrl">
     <!-- Top Nav Bar-->
     <div class="boxWithShadow">
         <md-content class="md-padding">
@@ -34,7 +34,7 @@
 
 
     <br>
-    <div flex-xs flex-gt-xs="100" layout="column">
+    <div layout="column">
         <md-content layout-wrap style="background-color:cadetblue;" class="md-padding" flex layout-xs="column" layout="row">
 
         <md-card md-theme="default">
@@ -47,7 +47,7 @@
 			</form>
         </md-card>
 		{% for item in classes %}
-		<md-card flex-gt-xs="100">
+		<md-card flex-gt-xs="25">
             <md-card-title-text layout-padding style="text-align:center;color:#22393a"><b>{{ item.name }}</b></md-card-title-text>
             <md-card-content layout-padding>
                 <!-- <b>Total Students: </b>{{ classes|length }} -->
