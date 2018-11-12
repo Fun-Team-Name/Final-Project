@@ -43,20 +43,22 @@ Our product will consist of a web-based application that allows a teacher to to 
 
 # Sprint 3
 ## Build Instructions:
-**These build instructions assume you have python 3 and pip installed**
+**These build instructions assume you have python 3.5+ and pip installed**
 
-1. `pip install virtualenv`
+Install redis-server. Brew install recommended for mac.
+
+1. `pip3 install virtualenv`
 2. create a new folder on your desktop
 3. chage working directory to new folder
 4. `virtualenv ENV`
-5. `source bin/activate` if on a mac or `.Scripts/activate` for windows
+5. `source ENV/bin/activate` if on a mac or `.Scripts/activate` for windows
 6. `git clone https://github.com/Fun-Team-Name/Koeus.git`
 7. `cd Koeus`
-8. `pip install -r requirements.txt`
+8. `pip3 install -r requirements.txt`
 
 To Navigate Site:
 
-1. `sudo ./server` to start django server and redis server for web sockets
+1. `sudo ./server` to start django server and redis server for web sockets. You may need to wait for the redis server to spool up before using the arena.
 2. in your browser go to **localhost**
 3. **As Teacher** click teacher tab
 4. click sign up button to create account
@@ -78,7 +80,7 @@ if manage.py is listed you are in the right place! now
 run the following command:
 
 ```bash
-python manage.py runserver
+python manage.py runserverArena tests
 
 ```
 Now open a new terminal window (keep the server running in the first window!)
@@ -136,6 +138,10 @@ Now you can log in as a student **With the teacher's email address**
     * given that there are 2 or more students in the same arena, when one student gets a question correct all the other students will see that students score go up by one on their page.
 
 
+## [**Functionality Demo**](https://youtu.be/GGLVMqs0SGY)
+
+## [**Testing Demo**](https://www.youtube.com/watch?v=yMxbtGdmeTw&feature=youtu.be)
+
 ## **Diagrams**
 ![Architecture  Diagram](https://raw.githubusercontent.com/Fun-Team-Name/Koeus/master/Documentation/djangoChannelWebSoc.png)
 
@@ -156,7 +162,7 @@ from: https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_ti
 ## Build Instructions:  
 **These build instructions assume you have python 3 and pip installed**
 
-1. `pip install virtualenv`
+1. `sudo pip install virtualenv`
 2. create a new folder on your desktop
 3. chage working directory to new folder
 4. `virtualenv ENV`
