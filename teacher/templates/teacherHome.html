@@ -42,8 +42,11 @@
 			<form method="post" action="{% url 'teacher' %}" >
 				{% csrf_token %}
 				Name: {{ form.name }}
-				<br>
-				<button type="submit">Create</button>
+				<div>
+                    <br>
+                </div>
+                &nbsp;
+				<button type="submit" style="border:none; background-color: #4c7e80; padding: 5px 5px;color:white;">Create</button>
 			</form>
         </md-card>
 		{% for item in classes %}
@@ -56,10 +59,10 @@
             </md-card-content>
                 <md-card-actions>
                     <div layout="columns">
-                        <a href="{% url 'room' item.key %}" style="padding-right:1em"><i class="material-icons">edit</i></a>
+                        <a href="{% url 'room' item.key %}" style="padding-right:1em"><i class="material-icons" style="color:#094413">edit</i></a>
                         <div>
-                            <a href="{% url 'deleteClassroom' item.key %}" onclick="return confirm('Are you sure you want to delete {{item.name}}');"><i
-                                    class="material-icons">delete</i></a>
+                            <a href="{% url 'deleteClassroom' item.key %}"  onclick="return confirm('Are you sure you want to delete {{item.name}}');"><i
+                                    class="material-icons" style="color:#420808">delete</i></a>
                         </div>
                     </div>
                 </md-card-actions>
