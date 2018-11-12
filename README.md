@@ -69,7 +69,7 @@ To Navigate Site:
 ## Testing
 To run unit tests:
 
-In your terminal from the root directory og the Koeus Repo
+In your terminal from the root directory of the Koeus Repo
 ```bash
 ls
 ```
