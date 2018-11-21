@@ -1,0 +1,9 @@
+{% extends "baseNavBar.html" %}
+{%block nav%}
+<a onclick="window.location.href='{%url 'teacher'%}'" name="goHome">
+Home
+</a>
+<a style = "color: red;" onclick="window.location.href='{% url 'login' %}' " name="goHome">
+Log Out {{request.session.name}}
+</a>
+{%endblock nav%}
