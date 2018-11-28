@@ -27,7 +27,7 @@ SECRET_KEY = 'i_i!)3@zn2uoz2+69c*iutnfg@%zl9@@y@5&&lo(be=g_+t_as' #os.environ['S
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['25.95.170.128','192.168.2.1', '127.0.0.1','localhost', gethostname(), gethostbyname(gethostname()),]
+ALLOWED_HOSTS = ['25.95.170.128','192.168.2.1', '127.0.0.1','localhost', 'ec2-18-224-138-126.us-east-2.compute.amazonaws.com', '18.224.138.126', 'koeus.education']
 
 
 
